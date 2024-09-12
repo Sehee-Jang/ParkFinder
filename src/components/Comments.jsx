@@ -7,19 +7,19 @@ const commentApi = axios.create({
   baseURL: "http://localhost:5000/comments"
 });
 
-//Zustand 스토어 생성
+// Zustand 스토어 생성
 const useCommentStore = create((set) => ({
   newComment: "",
   setNewComment: (comment) => set({ newComment: comment })
 }));
 
-//서버에서 댓글 불러오는 함수
+// 서버에서 댓글 불러오는 함수
 const fetchComments = async () => {
   const { data } = await commentApi.get("/");
   return data;
 };
 
-//서버에 댓글 생성하는 함수
+// 서버에 새 댓글 생성하는 함수
 const postComment = async (comment) => {
   const { data } = await commentApi.post("/", {
     ...comment,
@@ -34,7 +34,7 @@ const Comments = () => {
   const { newComment, setNewComment } = useCommentStore();
   const queryClient = useQueryClient();
 
-  //댓글 불러오기
+  //댓글 목록 불러오기
   const {
     data: comments,
     isPending,
@@ -45,7 +45,7 @@ const Comments = () => {
     queryFn: fetchComments
   });
 
-  // 댓글 생성
+  // 새 댓글 생성
   const { mutate } = useMutation({
     mutationFn: postComment,
     onSuccess: () => {
@@ -54,7 +54,7 @@ const Comments = () => {
     }
   });
 
-  // 댓글 제출하는 함수
+  // 댓글 제출 핸들러 함수
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -69,6 +69,7 @@ const Comments = () => {
     }
   };
 
+  // 로딩 상태 및 에러 처리
   if (isPending) return <div>로딩 중...</div>;
   if (isError) return <div>에러 발생: {error.message}</div>;
 
@@ -88,7 +89,7 @@ const Comments = () => {
           <div key={comment.id}>
             <p>{comment.text}</p>
             <small>
-              {comment.userId}_{comment.createdAt}
+              {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
             </small>
           </div>
         ))}
