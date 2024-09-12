@@ -34,13 +34,65 @@ const Comments = () => {
   const { newComment, setNewComment } = useCommentStore();
   const queryClient = useQueryClient();
 
+  //댓글 불러오기
+  const {
+    data: comments,
+    isPending,
+    isError,
+    error
+  } = useQuery({
+    queryKey: ["comments"],
+    queryFn: fetchComments
+  });
+
+  // 댓글 생성
+  const { mutate } = useMutation({
+    mutationFn: postComment,
+    onSuccess: () => {
+      alert("댓글이 추가되었습니다!");
+      queryClient.invalidateQueries(["comments"]);
+    }
+  });
+
+  // 댓글 제출하는 함수
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (newComment.trim() !== "") {
+      const comment = {
+        text: newComment
+      };
+
+      mutate(comment);
+
+      setNewComment("");
+    }
+  };
+
+  if (isPending) return <div>로딩 중...</div>;
+  if (isError) return <div>에러 발생: {error.message}</div>;
+
   return (
     <div>
-      <h1>댓글</h1>
-      <form>
-        <textarea value={newComment} onChange={(e) => setNewComment(e.target.value)} />
+      <h1>댓글 공간</h1>
+      <form onSubmit={handleSubmit}>
+        <textarea
+          value={newComment}
+          onChange={(e) => setNewComment(e.target.value)}
+          placeholder="댓글을 입력하세요..."
+        />
         <button type="submit">댓글 작성</button>
       </form>
+      <div>
+        {comments.map((comment) => (
+          <div key={comment.id}>
+            <p>{comment.text}</p>
+            <small>
+              {comment.userId}_{comment.createdAt}
+            </small>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
