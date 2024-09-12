@@ -30,6 +30,13 @@ const postComment = async (comment) => {
   return data;
 };
 
+// 서버에서 댓글을 삭제하는 함수
+const deleteComment = async (id) => {
+  await commentApi.delete(`/${id}`);
+
+  return id;
+};
+
 const Comments = () => {
   const { newComment, setNewComment } = useCommentStore();
   const queryClient = useQueryClient();
@@ -46,10 +53,19 @@ const Comments = () => {
   });
 
   // 새 댓글 생성
-  const { mutate } = useMutation({
+  const { mutate: add } = useMutation({
     mutationFn: postComment,
     onSuccess: () => {
       alert("댓글이 추가되었습니다!");
+      queryClient.invalidateQueries(["comments"]);
+    }
+  });
+
+  // 댓글 삭제
+  const { mutate: remove } = useMutation({
+    mutationFn: (commentId) => deleteComment(commentId),
+    onSuccess: () => {
+      alert("댓글이 삭제되었습니다!");
       queryClient.invalidateQueries(["comments"]);
     }
   });
@@ -63,7 +79,7 @@ const Comments = () => {
         text: newComment
       };
 
-      mutate(comment);
+      add(comment);
 
       setNewComment("");
     }
@@ -91,6 +107,7 @@ const Comments = () => {
             <small>
               {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
             </small>
+            <button onClick={() => remove(comment.id)}>삭제</button>
           </div>
         ))}
       </div>
