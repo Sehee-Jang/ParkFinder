@@ -6,5 +6,13 @@
       "nickname": "fujii kaze",
       "profileImg": "https://encrypted-tbs/1111"
     }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "userId": "s77772005",
+      "text": "이것은 첫번째 댓글입니다.",
+      "createdAt": "2024-09-12T10:00:00Z"
+    }
   ]
 }
