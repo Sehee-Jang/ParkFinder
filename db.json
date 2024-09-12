@@ -1,3 +1,106 @@
 {
-  "posts": [{ "id": 1, "title": "Hello World" }]
+  "posts": [
+    {
+      "id": "1",
+      "title": "Hello World",
+      "bookmarks": [
+        {
+          "userId": 1
+        },
+        {
+          "userId": 4
+        },
+        {
+          "userId": 15
+        },
+        {
+          "userId": 17
+        },
+        {
+          "userId": 6
+        },
+        {
+          "userId": 2
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Hello World2",
+      "bookmarks": [
+        {
+          "userId": 5
+        },
+        {
+          "userId": 15
+        },
+        {
+          "userId": 17
+        },
+        {
+          "userId": 3
+        },
+        {
+          "userId": 9
+        },
+        {
+          "userId": 12
+        },
+        {
+          "userId": 42
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Hello World3",
+      "bookmarks": [
+        {
+          "userId": 5
+        },
+        {
+          "userId": 4
+        },
+        {
+          "userId": 15
+        },
+        {
+          "userId": 17
+        },
+        {
+          "userId": 7
+        },
+        {
+          "userId": 42
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Hello World4",
+      "bookmarks": [
+        {
+          "userId": 1
+        },
+        {
+          "userId": 4
+        },
+        {
+          "userId": 12
+        },
+        {
+          "userId": 15
+        },
+        {
+          "userId": 17
+        },
+        {
+          "userId": 8
+        },
+        {
+          "userId": 2
+        }
+      ]
+    }
+  ]
 }

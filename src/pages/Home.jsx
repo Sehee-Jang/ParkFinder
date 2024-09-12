@@ -1,7 +1,13 @@
 import React from "react";
+import BookMark from "../components/BookMark";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <BookMark />
+      Home
+    </div>
+  );
 };
 
 export default Home;
