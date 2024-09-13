@@ -1,51 +1,6 @@
-import axios from "axios";
-import { create } from "zustand";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-
-// Axios 인스턴스 생성
-const commentApi = axios.create({
-  baseURL: "http://localhost:5000/comments"
-});
-
-// 서버에서 댓글 불러오는 함수
-const fetchComments = async () => {
-  const { data } = await commentApi.get("/");
-  return data;
-};
-
-// 서버에 새 댓글 생성하는 함수
-const postComment = async (comment) => {
-  const { data } = await commentApi.post("/", {
-    ...comment,
-    userId: "s77772005", //임시로 ID 넣어놈.
-    createdAt: new Date().toISOString()
-  });
-
-  return data;
-};
-
-// 서버에서 댓글을 삭제하는 함수
-const deleteComment = async (id) => {
-  await commentApi.delete(`/${id}`);
-
-  return id;
-};
-
-// 서버에서 댓글 수정하는 함수
-const updateComment = async ({ id, text }) => {
-  const { data } = await commentApi.patch(`/${id}`, {
-    text,
-    createdAt: new Date().toISOString()
-  });
-};
-
-// Zustand 스토어 생성
-const useCommentStore = create((set) => ({
-  newComment: "",
-  editingComment: { id: null, text: "" },
-  setNewComment: (comment) => set({ newComment: comment }),
-  setEditingComment: (id, text) => set({ editingComment: { id, text } })
-}));
+import { deleteComment, fetchComments, postComment, updateComment } from "../api/comments";
+import { useCommentStore } from "../store/comments";
 
 const Comments = () => {
   const { newComment, setNewComment, editingComment, setEditingComment } = useCommentStore();
