@@ -10,7 +10,9 @@ const commentApi = axios.create({
 // Zustand 스토어 생성
 const useCommentStore = create((set) => ({
   newComment: "",
-  setNewComment: (comment) => set({ newComment: comment })
+  editingComment: { id: null, text: "" },
+  setNewComment: (comment) => set({ newComment: comment }),
+  setEditingComment: (id, text) => set({ editingComment: { id, text } })
 }));
 
 // 서버에서 댓글 불러오는 함수
@@ -37,8 +39,16 @@ const deleteComment = async (id) => {
   return id;
 };
 
+// 서버에서 댓글 수정하는 함수
+const updateComment = async ({ id, text }) => {
+  const { data } = await commentApi.patch(`/${id}`, {
+    text,
+    createdAt: new Date().toISOString()
+  });
+};
+
 const Comments = () => {
-  const { newComment, setNewComment } = useCommentStore();
+  const { newComment, setNewComment, editingComment, setEditingComment } = useCommentStore();
   const queryClient = useQueryClient();
 
   //댓글 목록 불러오기
@@ -56,8 +66,8 @@ const Comments = () => {
   const { mutate: add } = useMutation({
     mutationFn: postComment,
     onSuccess: () => {
-      alert("댓글이 추가되었습니다!");
       queryClient.invalidateQueries(["comments"]);
+      alert("댓글이 추가되었습니다!");
     }
   });
 
@@ -65,10 +75,38 @@ const Comments = () => {
   const { mutate: remove } = useMutation({
     mutationFn: (commentId) => deleteComment(commentId),
     onSuccess: () => {
-      alert("댓글이 삭제되었습니다!");
       queryClient.invalidateQueries(["comments"]);
+      alert("댓글이 삭제되었습니다!");
     }
   });
+
+  // 댓글 수정
+  const { mutate: edit } = useMutation({
+    mutationFn: ({ id, text }) => updateComment({ id, text }),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["comments"]);
+      alert("댓글이 수정되었습니다!");
+    }
+  });
+
+  // 수정 모드 토글 함수
+  const toggleEdit = (id, text) => {
+    if (editingComment.id === id) {
+      setEditingComment(null, "");
+    } else {
+      setEditingComment(id, text);
+    }
+  };
+
+  // 댓글 수정 제출 핸들러 함수
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    if (editingComment.text.trim() !== "") {
+      edit({ id: editingComment.id, text: editingComment.text });
+    }
+
+    setEditingComment(null, "");
+  };
 
   // 댓글 제출 핸들러 함수
   const handleSubmit = (e) => {
@@ -103,11 +141,30 @@ const Comments = () => {
       <div>
         {comments.map((comment) => (
           <div key={comment.id}>
-            <p>{comment.text}</p>
-            <small>
-              {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
-            </small>
-            <button onClick={() => remove(comment.id)}>삭제</button>
+            {editingComment.id === comment.id ? (
+              <>
+                <form onSubmit={handleEditSubmit}>
+                  <textarea
+                    value={editingComment.text}
+                    onChange={(e) => setEditingComment(comment.id, e.target.value)}
+                    placeholder="수정하시려는 내용을 입력해주세요."
+                  />
+                  <button type="submit">완료</button>
+                  <button type="button" onClick={() => setEditingComment(null, "")}>
+                    취소
+                  </button>
+                </form>
+              </>
+            ) : (
+              <>
+                <p>{comment.text}</p>
+                <small>
+                  {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
+                </small>
+                <button onClick={() => toggleEdit(comment.id, comment.text)}>수정</button>
+                <button onClick={() => remove(comment.id)}>삭제</button>
+              </>
+            )}
           </div>
         ))}
       </div>
