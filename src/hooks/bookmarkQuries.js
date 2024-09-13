@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import tempApi from "../api/tempApi";
+import bookmarkApi from "../api/bookmark";
 
 export const useGetPlaces = () => {
   return useQuery({
     queryKey: ["posts"],
-    queryFn: tempApi.fetchPlaces,
+    queryFn: bookmarkApi.fetchPlaces,
   });
 };

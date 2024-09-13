@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import PlaceItem from "./PlaceItem";
-import { useGetPlaces } from "../hooks/tempQuries";
+import { useGetPlaces } from "../hooks/bookmarkQuries";
 
 const PlaceList = ({ isMyPage }) => {
   //테스트용 상태
   // const USER_ID = 14;
   const [USER_ID, setUSER_ID] = useState(10);
-  const [isClicked, setIsClicked] = useState(false);
 
   //얘는 테스트 아님!
   const { data, isLoading, isError } = useGetPlaces();
