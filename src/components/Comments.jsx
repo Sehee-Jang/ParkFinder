@@ -7,14 +7,6 @@ const commentApi = axios.create({
   baseURL: "http://localhost:5000/comments"
 });
 
-// Zustand 스토어 생성
-const useCommentStore = create((set) => ({
-  newComment: "",
-  editingComment: { id: null, text: "" },
-  setNewComment: (comment) => set({ newComment: comment }),
-  setEditingComment: (id, text) => set({ editingComment: { id, text } })
-}));
-
 // 서버에서 댓글 불러오는 함수
 const fetchComments = async () => {
   const { data } = await commentApi.get("/");
@@ -47,8 +39,17 @@ const updateComment = async ({ id, text }) => {
   });
 };
 
+// Zustand 스토어 생성
+const useCommentStore = create((set) => ({
+  newComment: "",
+  editingComment: { id: null, text: "" },
+  setNewComment: (comment) => set({ newComment: comment }),
+  setEditingComment: (id, text) => set({ editingComment: { id, text } })
+}));
+
 const Comments = () => {
   const { newComment, setNewComment, editingComment, setEditingComment } = useCommentStore();
+
   const queryClient = useQueryClient();
 
   //댓글 목록 불러오기
@@ -73,19 +74,42 @@ const Comments = () => {
 
   // 댓글 삭제
   const { mutate: remove } = useMutation({
-    mutationFn: (commentId) => deleteComment(commentId),
+    mutationFn: deleteComment,
     onSuccess: () => {
       queryClient.invalidateQueries(["comments"]);
       alert("댓글이 삭제되었습니다!");
     }
   });
 
-  // 댓글 수정
+  // 댓글 수정 (낙관적 업데이트 적용)
   const { mutate: edit } = useMutation({
-    mutationFn: ({ id, text }) => updateComment({ id, text }),
-    onSuccess: () => {
+    mutationFn: updateComment,
+    onMutate: async ({ id, text }) => {
+      // 이전 쿼리 데이터 취소
+      await queryClient.cancelQueries(["comments"]);
+
+      // 이전 값의 스냅샷 저장
+      const previousComments = queryClient.getQueryData(["comments"]);
+
+      // 새 댓글로 캐시를 즉시 업데이트
+      queryClient.setQueriesData(["comments"], (old) =>
+        old.map((comment) => (comment.id === id ? { ...comment, text } : comment))
+      );
+
+      // 수정 모드 즉시 종료
+      setEditingComment(null, "");
+
+      // 이전 값 오류때 쓸 수도 있으니 리턴해줌
+      return { previousComments };
+    },
+    onError: (err, newComment, context) => {
+      //에러가 발생하면 이전 값으로 콜백
+      queryClient.setQueryData(["comments"], context.previousComments);
+      alert("댓글 수정 중 오류 발생했습니다!" + error.message);
+    },
+    onSettled: () => {
+      // 성공 여부와 관계없이 쿼리를 다시 불러옴
       queryClient.invalidateQueries(["comments"]);
-      alert("댓글이 수정되었습니다!");
     }
   });
 
