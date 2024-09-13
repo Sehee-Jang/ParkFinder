@@ -1,7 +1,7 @@
 import axios from "axios";
 const API_URL = "http://localhost:5000/posts";
 
-export const fetchPlaces = async () => {
+const fetchPlaces = async () => {
   try {
     const response = await axios.get(API_URL);
     return response.data;
@@ -10,7 +10,7 @@ export const fetchPlaces = async () => {
   }
 };
 
-export const fetchPlace = async (id) => {
+const fetchPlace = async (id) => {
   try {
     const response = await axios.get(`${API_URL}/${id}`);
     return response;
@@ -19,7 +19,7 @@ export const fetchPlace = async (id) => {
   }
 };
 
-export const updateBookMark = async ({ id, userId, bookmarked }) => {
+const updateBookMark = async ({ id, userId, bookmarked }) => {
   try {
     const response = await fetchPlace(id);
     // 장소 데이터를 id 값으로  하나만 가져옴
@@ -41,3 +41,11 @@ export const updateBookMark = async ({ id, userId, bookmarked }) => {
     console.error("updateBookMark 즐겨찾기 업데이트 오류 => ", error);
   }
 };
+
+const tempApi = {
+  fetchPlace,
+  fetchPlaces,
+  updateBookMark,
+};
+
+export default tempApi;

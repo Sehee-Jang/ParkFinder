@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PlaceItem from "./PlaceItem";
-import { useGetPlaces } from "../hooks/tempMutate";
+import { useGetPlaces } from "../hooks/tempQuries";
 
 const PlaceList = ({ isMyPage }) => {
   //테스트용 상태
