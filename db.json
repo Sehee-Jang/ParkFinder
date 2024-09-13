@@ -2,14 +2,8 @@
   "posts": [
     {
       "id": "1",
-      "title": "Hello World",
+      "title": "만석공원 주차장",
       "bookmarks": [
-        {
-          "userId": 1
-        },
-        {
-          "userId": 4
-        },
         {
           "userId": 15
         },
@@ -17,16 +11,22 @@
           "userId": 17
         },
         {
-          "userId": 6
+          "userId": 2
         },
         {
-          "userId": 2
+          "userId": 5
+        },
+        {
+          "userId": 13
+        },
+        {
+          "userId": 18
         }
       ]
     },
     {
       "id": "2",
-      "title": "Hello World2",
+      "title": "경남빌딩 주차장",
       "bookmarks": [
         {
           "userId": 5
@@ -36,9 +36,6 @@
         },
         {
           "userId": 17
-        },
-        {
-          "userId": 3
         },
         {
           "userId": 9
@@ -48,18 +45,27 @@
         },
         {
           "userId": 42
+        },
+        {
+          "userId": 4
+        },
+        {
+          "userId": 6
+        },
+        {
+          "userId": 11
+        },
+        {
+          "userId": 10
         }
       ]
     },
     {
       "id": "3",
-      "title": "Hello World3",
+      "title": "골든타워 지하주차장",
       "bookmarks": [
         {
           "userId": 5
-        },
-        {
-          "userId": 4
         },
         {
           "userId": 15
@@ -72,18 +78,30 @@
         },
         {
           "userId": 42
+        },
+        {
+          "userId": 4
+        },
+        {
+          "userId": 6
+        },
+        {
+          "userId": 11
+        },
+        {
+          "userId": 13
+        },
+        {
+          "userId": 16
         }
       ]
     },
     {
       "id": "4",
-      "title": "Hello World4",
+      "title": "어쩔티비 주차장",
       "bookmarks": [
         {
           "userId": 1
-        },
-        {
-          "userId": 4
         },
         {
           "userId": 12
@@ -99,6 +117,12 @@
         },
         {
           "userId": 2
+        },
+        {
+          "userId": 4
+        },
+        {
+          "userId": 16
         }
       ]
     }

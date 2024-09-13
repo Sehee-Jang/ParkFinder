@@ -1,11 +1,13 @@
 import React from "react";
-import BookMark from "../components/BookMark";
-
+import PlaceList from "../components/PlaceList";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
-    <div>
-      <BookMark />
-      Home
+    <div className="flex flex-col items-center gap-[20px]">
+      <Link to="/mypage">
+        <button className="w-[150px]">마이페이지</button>
+      </Link>
+      <PlaceList isMyPage={false} />
     </div>
   );
 };
