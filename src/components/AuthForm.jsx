@@ -5,6 +5,7 @@ const AuthForm = ({ mode, onSubmit }) => {
   const [formData, setFormData] = useState({
     id: "",
     password: "",
+    name: "",
     nickname: mode === "signup" ? "" : "" // 회원가입일 때만 닉네임 필드 활성화, 빈 문자열로 초기화
   });
 
@@ -33,7 +34,17 @@ const AuthForm = ({ mode, onSubmit }) => {
         placeholder="비밀번호"
         required
       />
-      {/* 회원가입일 경우에만 닉네임 입력 필드 표시 */}
+      {/* 회원가입일 경우에만 이름, 닉네임 입력 필드 표시 */}
+      {mode === "signup" && (
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="이름"
+          required
+        />
+      )}
       {mode === "signup" && (
         <input
           type="text"
@@ -41,10 +52,10 @@ const AuthForm = ({ mode, onSubmit }) => {
           value={formData.nickname}
           onChange={handleChange}
           placeholder="닉네임"
-          required
-          className="w-full p-4 border border-gray-300 rounded-lg"
+          // className="w-full p-4 border border-gray-300 rounded-lg"
         />
       )}
+
       <button type="submit">
         {/* 만약 mode === "login"의 조건이 참이면 "로그인"이 출력, 거짓이면 "회원가입" 출력  */}
         {mode === "login" ? "로그인" : "회원가입"}
