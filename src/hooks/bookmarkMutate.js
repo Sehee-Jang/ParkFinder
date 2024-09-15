@@ -18,9 +18,7 @@ export const useHandleBookMark = () => {
       const previousPlaces = queryClient.getQueryData(["posts"]);
 
       // previousPlaces리스트에서 업데이트 해야되는 현재 게시글을 가져옴
-      const placeToUpdate = previousPlaces.find(
-        (place) => place.id === updateData.id
-      );
+      const placeToUpdate = previousPlaces.find((place) => place.id === updateData.id);
 
       // 그러면 filteredPreviousPlace의 bookmarks의 배열을 새롭게
       // 업데이트를 해줘야함 만약 updateData.id가 존재하면 해당 아이디를 삭제하고
@@ -30,18 +28,12 @@ export const useHandleBookMark = () => {
       // 기존 북마크 상태를 복사하여 유저의 아이디 값이 있거나 없을 때
       // 유저의 아이디 값을 삭제하거나 추가하는 로직
       const updatedBookmarks = updateData.bookmarked
-        ? placeToUpdate.bookmarks.filter(
-            (user) => user.userId !== updateData.userId
-          )
+        ? placeToUpdate.bookmarks.filter((user) => user.userId !== updateData.userId)
         : [...placeToUpdate.bookmarks, { userId: updateData.userId }];
 
       // 변경된 북마크 상태를 미리 클라이언트에 해주기 => 낙관적 업데이트
       queryClient.setQueryData(["posts"], (places) =>
-        places.map((place) =>
-          place.id === updateData.id
-            ? { ...place, bookmarks: updatedBookmarks }
-            : place
-        )
+        places.map((place) => (place.id === updateData.id ? { ...place, bookmarks: updatedBookmarks } : place))
       );
       return { previousPlaces };
     },
@@ -50,7 +42,7 @@ export const useHandleBookMark = () => {
     },
     onSettled: () => {
       queryClient.invalidateQueries(["posts"]);
-    },
+    }
   });
 
   return mutate;

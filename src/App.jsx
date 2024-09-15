@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import MyPage from "./pages/MyPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import BookmarkTestHome from "./pages/bookmarkTest/bookmarkTestHome";
+import BookmarkTestMyPage from "./pages/bookmarkTest/bookmarkTestMyPage";
 
 const App = () => {
   const [user, setUser] = useState(null);

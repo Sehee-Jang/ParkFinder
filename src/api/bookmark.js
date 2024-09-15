@@ -47,7 +47,7 @@ const handleBookmarkToggle = async ({ id, userId, bookmarked }) => {
 const bookmarkApi = {
   fetchPlace,
   fetchPlaces,
-  handleBookmarkToggle,
+  handleBookmarkToggle
 };
 
 export default bookmarkApi;
