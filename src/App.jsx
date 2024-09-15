@@ -30,8 +30,8 @@ const App = () => {
             }
           />
 
-          <Route path="/bookmarkhome" element={<BookmarkTestHome />} />
-          <Route path="/bookmarkmypage" element={<BookmarkTestMyPage />} />
+          <Route path="/bookmarkhome" element={<BookmarkTestHome user={user} />} />
+          <Route path="/bookmarkmypage" element={<BookmarkTestMyPage user={user} />} />
         </Routes>
       </Layout>
     </BrowserRouter>

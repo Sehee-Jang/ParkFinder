@@ -28,6 +28,7 @@ const Layout = ({ children, user, setUser }) => {
               <Link to="/login">로그인</Link>
             )}
           </div>
+          <Link to="/bookmarkhome">북마크로 이동</Link>
         </nav>
       </header>
       <main className="container mx-auto pt-10 main">{children}</main>
