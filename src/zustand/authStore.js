@@ -14,6 +14,6 @@ const useAuthStore = create(
       storage: createJSONStorage(() => sessionStorage)
     }
   )
-);
+);  
 
 export default useAuthStore;
