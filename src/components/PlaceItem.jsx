@@ -8,7 +8,7 @@ const PlaceItem = ({ place, USER_ID }) => {
   const mutatePatchBookMark = useHandleBookMark();
 
   return (
-    <div key={place.id} className="flex flex-col items-center gap-[5px]">
+    <div key={place.id} className="flex flex-col items-center gap-[5px] border border">
       <div className="text-base font-bold">{place.title}</div>
       <div className="text-sm">즐겨찾기 갯수: {place.bookmarks.length}</div>
       <button
@@ -16,7 +16,7 @@ const PlaceItem = ({ place, USER_ID }) => {
           mutatePatchBookMark({
             id: place.id,
             userId: USER_ID,
-            bookmarked,
+            bookmarked
           })
         }
         className={`px-4 py-2 rounded text-white font-semibold focus:outline-none w-[150px] ${

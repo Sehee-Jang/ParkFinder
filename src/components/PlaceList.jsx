@@ -4,7 +4,7 @@ import { useGetPlaces } from "../hooks/bookmarkQuries";
 
 const PlaceList = ({ isMyPage, user }) => {
   const USER_ID = user.id;
-  
+
   const { data, isLoading, isError } = useGetPlaces();
 
   if (isLoading) return <div>로딩중...</div>;

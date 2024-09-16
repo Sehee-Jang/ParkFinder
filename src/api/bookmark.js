@@ -50,4 +50,8 @@ const bookmarkApi = {
   handleBookmarkToggle
 };
 
-export default bookmarkApi;
+export default bookmarkApi;  
+
+//zustand  --> 클라이언트 딴 전역 상태 관리 
+// 
+//tanStack Query ->> 서버 상태 관리
