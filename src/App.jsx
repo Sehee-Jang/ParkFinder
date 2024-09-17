@@ -10,25 +10,37 @@ import BookmarkTestHome from "./pages/bookmarkTest/bookmarkTestHome";
 import BookmarkTestMyPage from "./pages/bookmarkTest/bookmarkTestMyPage";
 
 const App = () => {
-  const [user, setUser] = useState(null);
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout setUser={setUser} />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route
             path="/mypage"
             element={
-              <ProtectedRoute user={user}>
-                <MyPage user={user} setUser={setUser} />
+              <ProtectedRoute>
+                <MyPage />
               </ProtectedRoute>
             }
           />
-          <Route path="/bookmarkhome" element={<BookmarkTestHome />} />
-          <Route path="/bookmarkmypage" element={<BookmarkTestMyPage />} />
+          <Route
+            path="/bookmarkhome"
+            element={
+              <ProtectedRoute>
+                <BookmarkTestHome />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/bookmarkmypage"
+            element={
+              <ProtectedRoute>
+                <BookmarkTestMyPage />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

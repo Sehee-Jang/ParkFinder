@@ -2,13 +2,11 @@ import { Outlet, useNavigate } from "react-router-dom";
 import useAuthStore from "../zustand/authStore";
 import Sidebar from "./SideBar";
 
-const Layout = ({ setUser }) => {
+const Layout = () => {
   const navigate = useNavigate();
   const { clearAuth } = useAuthStore();
 
   const handleLogout = () => {
-    sessionStorage.removeItem("accessToken");
-    setUser(null);
     clearAuth();
     navigate("/");
   };

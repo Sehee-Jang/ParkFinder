@@ -6,14 +6,16 @@ const useAuthStore = create(
       user: "",
       token: "",
 
+      setUser: (user) => set({ user }),
+      setToken: (token) => set({ token }),
       setAuth: (user, token) => set({ user, token }),
-      clearAuth: () => set({ user: "", token: "" })
+      clearAuth: () => set({ user: null, token: null })
     }),
     {
       name: "authStorage",
       storage: createJSONStorage(() => sessionStorage)
     }
   )
-);  
+);
 
 export default useAuthStore;

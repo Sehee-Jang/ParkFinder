@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Bookmark from "../components/Bookmark";
 import Profile from "../components/Profile";
 
-const MyPage = (user, setUser) => {
+const MyPage = () => {
   const navigator = useNavigate();
 
   return (
