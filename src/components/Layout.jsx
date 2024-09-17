@@ -19,6 +19,8 @@ const Layout = ({ children, user, setUser }) => {
       <header>
         <nav>
           <Link to="/">홈</Link>
+          <br></br>
+          <Link to="/mypage">myPage</Link>
           <div className="space-x-4">
             {user ? (
               <>
