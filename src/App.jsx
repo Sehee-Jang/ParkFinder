@@ -14,9 +14,9 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Layout user={user} setUser={setUser}>
-        <Routes>
-          <Route path="/" element={<Home />} />
+      <Routes>
+        <Route path="/" element={<Layout setUser={setUser} />}>
+          <Route index element={<Home />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/signup" element={<Signup />} />
           <Route
@@ -27,11 +27,10 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-
           <Route path="/bookmarkhome" element={<BookmarkTestHome />} />
           <Route path="/bookmarkmypage" element={<BookmarkTestMyPage />} />
-        </Routes>
-      </Layout>
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };

@@ -16,7 +16,7 @@ const PlaceList = ({ isMyPage, user }) => {
   const filteredPlaces = data.filter((place) => place.bookmarks.some((bookmark) => bookmark.userId === USER_ID));
 
   return (
-    <div className="flex w-[1600px] flex-row items-center gap-[15px]  h-screen w-[400px]">
+    <div className="flex w-full flex-row items-center gap-[15px]  h-screen w-[400px]">
       <div className="flex flex-col items-center">
         <p className="text-sm font-bold text-green-600">유저 ID : {USER_ID}</p>
       </div>
