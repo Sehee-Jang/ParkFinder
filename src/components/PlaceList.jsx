@@ -18,11 +18,7 @@ const PlaceList = ({ isMyPage }) => {
   // console.log(asd);
 
   return (
-    <div className="flex w-full flex-row items-center gap-[15px]  h-screen w-[400px]">
-      <div className="flex flex-col items-center">
-        <p className="text-sm font-bold text-green-600">유저 ID : {USER_ID}</p>
-      </div>
-
+    <div className="flex w-full flex-row items-center gap-[15px]">
       {isMyPage ? (
         // 마이페이지이면 필터된 장소리스트를 뿌려주기
         <>

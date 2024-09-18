@@ -49,80 +49,84 @@ const Profile = () => {
   if (isError) {
     return alert("사용자 정보를 불러오는 중 오류가 발생했습니다.");
   }
-  return (
-    <div className="flex items-center my-4 justify-center">
-      <img src={user.avatar} className="rounded-full mt-2 border border-gray-400 ... size-60" />
-      <div className="mx-10">
-        <h1>
-          <span className="text-teal-500 font-bold">{user.nickname}님,</span>
-          환영합니다.
-        </h1>
-        <h2 className="text-2xl my-2 font-bold">
-          <span className="text-teal-500">ID : </span>
-          {user.id}
-        </h2>
 
+  return (
+    <div className="items-center my-6">
+      <h1>
+        <span className="text-teal-500 font-bold">{user.nickname}님,</span>
+        환영합니다.
+      </h1>
+      <h2 className="text-2xl my-2 font-bold">
+        <span className="text-teal-500">ID : </span>
+        {user.id}
+      </h2>
+
+      <div className="my-2 flex items-center">
+        <h2 className="text-2xl">
+          <span className="text-teal-500">닉네임 : </span>
+          {isEdit ? (
+            <input
+              id="nicknameInput"
+              className="rounded-md border border-gray-300 ..."
+              maxLength="12em"
+              ref={inputRef}
+              onChange={(e) => {
+                setNickname(e.target.value);
+              }}
+              value={nickname}
+            ></input>
+          ) : (
+            user.nickname
+          )}
+        </h2>
+        <div
+          className="mx-2 text-teal-500 cursor-pointer underline font-bold"
+          onClick={() => {
+            if (!isEdit) {
+              setNickname(user.nickname);
+              setImgSrc(user.avatar);
+              setIsEdit(true);
+            }
+          }}
+        >
+          {isEdit ? null : "수정"}
+        </div>
+      </div>
+
+      {isEdit ? (
         <div className="my-2 flex items-center">
-          <h2 className="text-2xl ">
-            <span className="text-teal-500">닉네임 : </span>
-            {isEdit ? (
-              <input
-                className="rounded-md border border-gray-300 ..."
-                maxLength="12em"
-                ref={inputRef}
-                onChange={(e) => {
-                  setNickname(e.target.value);
-                }}
-                value={nickname}
-              ></input>
-            ) : (
-              user.nickname
-            )}
+          <h2 className="text-2xl">
+            <span className="text-teal-500">프로필 이미지 주소 : </span>
+            <input
+              id="profileInput"
+              className="rounded-md border border-gray-300 ..."
+              maxLength="12em"
+              onChange={(e) => {
+                setImgSrc(e.target.value);
+              }}
+              value={imgSrc}
+            ></input>
           </h2>
           <div
             className="mx-2 text-teal-500 cursor-pointer underline font-bold"
             onClick={() => {
-              if (!isEdit) {
-                setNickname(user.nickname);
-                setImgSrc(user.avatar);
-                setIsEdit(true);
+              if (isEdit) {
+                // 저장 모드 일 때 저장 버튼 클릭 시..
+                mutate({ nickname: nickname, avatar: imgSrc });
               }
             }}
           >
-            {isEdit ? null : "수정"}
+            {isEdit ? "저장" : null}
+
+            {imgSrc && (
+              <div className="my-4">
+                <h2 className="text-2xl">프로필 이미지 미리보기:</h2>
+                <img src={imgSrc} alt="프로필 이미지 미리보기" className="rounded-md mt-2" />
+              </div>
+            )}
           </div>
         </div>
-
-        {isEdit ? (
-          <div className="my-2 flex items-center">
-            <h2 className="text-2xl">
-              <input
-                type="file"
-                className="rounded-md border border-gray-300 ..."
-                maxLength="12em"
-                onChange={(e) => {
-                  // console.log(e.target.files[0]);
-                  setImgSrc(e.target.files[0]);
-                }}
-              ></input>
-            </h2>
-            <div
-              className="mx-2 text-teal-500 cursor-pointer underline font-bold"
-              onClick={() => {
-                if (isEdit) {
-                  // 저장 모드 일 때 저장 버튼 클릭 시..
-                  const formData = new FormData();
-                  formData.append("avatar", imgSrc);
-                  formData.append("nickname", nickname);
-                  mutate(formData);
-                }
-              }}
-            >
-              {isEdit ? "저장" : null}
-            </div>
-          </div>
-        ) : null}
-      </div>
+      ) : null}
     </div>
   );
 };

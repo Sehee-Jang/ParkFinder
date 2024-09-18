@@ -18,14 +18,6 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route
-            path="/mypage"
-            element={
-              <ProtectedRoute>
-                <MyPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="/bookmarkhome"
             element={
               <ProtectedRoute>
@@ -42,6 +34,14 @@ const App = () => {
             }
           />
         </Route>
+        <Route
+          path="/mypage"
+          element={
+            <ProtectedRoute>
+              <MyPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
