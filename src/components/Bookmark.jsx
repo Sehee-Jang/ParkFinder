@@ -1,11 +1,11 @@
 import React from "react";
+import PlaceList from "./PlaceList";
 
 const Bookmark = () => {
   return (
     <div>
-      {" "}
-      <h1>즐겨찾기 Component</h1>
-    </div>
+      <PlaceList isMyPage={true} />
+    </div>  
   );
 };
 

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import PlaceItem from "./PlaceItem";
 import { useGetPlaces } from "../hooks/bookmarkQuries";
+import useAuthStore from "../zustand/authStore";
 
-const PlaceList = ({ isMyPage, user }) => {
+const PlaceList = ({ isMyPage }) => {
+  const { user } = useAuthStore();
   const USER_ID = user.id;
-
   const { data, isLoading, isError } = useGetPlaces();
 
   if (isLoading) return <div>로딩중...</div>;
@@ -12,8 +13,9 @@ const PlaceList = ({ isMyPage, user }) => {
 
   /// 데이터가 다 들어오기 전에 data를 사용하려고 하면 null값이어서 오류남요
   // 그래서 로딩과 에러처리가 끝나고 나서 밑에서 필터처리고고!
-
+  // const { asd: user } = useAuthStore;
   const filteredPlaces = data.filter((place) => place.bookmarks.some((bookmark) => bookmark.userId === USER_ID));
+  // console.log(asd);
 
   return (
     <div className="flex w-full flex-row items-center gap-[15px]  h-screen w-[400px]">

@@ -9,7 +9,7 @@ const MyPage = () => {
   return (
     <div className="grid w-screen">
       <Profile className="w-screen"></Profile>
-      <Bookmark></Bookmark>
+      <Bookmark />
     </div>
   );
 };

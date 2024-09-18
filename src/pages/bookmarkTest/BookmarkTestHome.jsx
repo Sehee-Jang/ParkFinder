@@ -4,14 +4,13 @@ import PlaceList from "../../components/PlaceList";
 import useAuthStore from "../../zustand/authStore";
 
 const BookmarkTestHome = () => {
-  const { user } = useAuthStore();
 
   return (
     <div className="flex flex-col items-center gap-[20px]">
       <Link to="/bookmarkmypage">
         <button className="w-[150px]">마이페이지</button>
       </Link>
-      <PlaceList isMyPage={false} user={user} />
+      <PlaceList isMyPage={false} />
     </div>
   );
 };
