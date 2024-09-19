@@ -124,6 +124,51 @@
       "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/a7984935-cd8f-47f4-90dd-9e2f8d3498b5.jpg",
       "placeId": "1136543822",
       "createdAt": "2024-09-19T07:28:43.015Z"
+    },
+    {
+      "id": "80d3",
+      "text": "오오 여기 괜찮네요!",
+      "userId": "jigong2026",
+      "nickname": "코딩마스터",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/d4c64075-d44c-4006-ba9c-8e687a7ac201.jpg",
+      "placeId": "1100855572",
+      "createdAt": "2024-09-19T07:31:04.037Z"
+    },
+    {
+      "id": "1bbe",
+      "text": "주차장 위치가 좋아요~ 역 주변이라서 어디가기 좋네요",
+      "userId": "jigong2026",
+      "nickname": "코딩마스터",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/d4c64075-d44c-4006-ba9c-8e687a7ac201.jpg",
+      "placeId": "1136543822",
+      "createdAt": "2024-09-19T07:31:29.863Z"
+    },
+    {
+      "id": "b220",
+      "text": "주차 빡셈 ㄷㄷ",
+      "userId": "jigong2026",
+      "nickname": "코딩마스터",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/d4c64075-d44c-4006-ba9c-8e687a7ac201.jpg",
+      "placeId": "775806830",
+      "createdAt": "2024-09-19T08:02:15.962Z"
+    },
+    {
+      "id": "4219",
+      "text": "좋아요",
+      "userId": "jigong2026",
+      "nickname": "코딩마스터",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/d4c64075-d44c-4006-ba9c-8e687a7ac201.jpg",
+      "placeId": "823353108",
+      "createdAt": "2024-09-19T07:32:06.080Z"
+    },
+    {
+      "id": "37d8",
+      "text": "오 대박",
+      "userId": "jigong2026",
+      "nickname": "코딩마스터",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/d4c64075-d44c-4006-ba9c-8e687a7ac201.jpg",
+      "placeId": "775806830",
+      "createdAt": "2024-09-19T07:56:38.900Z"
     }
   ],
   "posts": [

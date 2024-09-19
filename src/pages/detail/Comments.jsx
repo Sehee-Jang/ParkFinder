@@ -93,15 +93,6 @@ const Comments = ({ placeId }) => {
     }
   });
 
-  // 수정 모드 토글 함수
-  const toggleEdit = (id, text) => {
-    if (editingComment.id === id) {
-      setEditingComment(null, "");
-    } else {
-      setEditingComment(id, text);
-    }
-  };
-
   // 댓글 수정 제출 핸들러 함수
   const handleEditSubmit = (e) => {
     e.preventDefault();
@@ -204,7 +195,7 @@ const Comments = ({ placeId }) => {
                   {isLoggedIn && user.id === comment.userId && (
                     <div className="flex flex-row justify-end items-center gap-1">
                       <button
-                        onClick={() => toggleEdit(comment.id, comment.text)}
+                        onClick={() => setEditingComment(comment.id, comment.text)}
                         className="px-2 py-1 text-sm rounded hover:bg-blue-300 hover:text-white"
                       >
                         수정
