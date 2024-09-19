@@ -1,7 +1,9 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import useAuthStore from "../zustand/authStore";
 
-const ProtectedRoute = ({ user, children }) => {
+const ProtectedRoute = ({ children }) => {
+  const { user } = useAuthStore();
   if (!user) {
     return <Navigate to="/login" />;
   }
