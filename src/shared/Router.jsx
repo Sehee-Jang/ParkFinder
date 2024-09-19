@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "../components/ProtectedRoute";
-import BookmarkTestHome from "../pages/bookmarkTest/bookmarkTestHome";
-import BookmarkTestMyPage from "../pages/bookmarkTest/bookmarkTestMyPage";
 import Layout from "../components/Layout";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import MyPage from "../pages/MyPage";
+import BookmarkTestMyPage from "../pages/bookmarkTest/BookmarkTestMyPage";
+import BookmarkTestHome from "./../pages/bookmarkTest/BookmarkTestHome";
 
 const Router = () => {
   return (
