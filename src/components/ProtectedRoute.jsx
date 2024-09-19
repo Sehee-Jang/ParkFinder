@@ -5,10 +5,10 @@ import useAuthStore from "../zustand/authStore";
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuthStore();
   if (!user) {
-    return <Navigate to="/login" />;
+    return children;
   }
 
-  return children;
+  return <Navigate to="/" />;
 };
 
 export default ProtectedRoute;

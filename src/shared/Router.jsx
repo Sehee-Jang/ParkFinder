@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import MyPage from "../pages/MyPage";
+import { useState } from "react";
 
 const Router = () => {
   return (
@@ -14,8 +15,22 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/login"
+            element={
+              <ProtectedRoute>
+                <Login />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <ProtectedRoute>
+                <Signup />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/bookmarkhome"
             element={
