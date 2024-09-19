@@ -137,26 +137,31 @@ const Comments = ({ placeId }) => {
 
   //placeId에 해당하는 댓글만 보여주기
   const filteredComments = comments.filter((comment) => comment.placeId === placeId);
+
   return (
     <div>
-      <h1>댓글 공간</h1>
       {/* 로그인한 사용자만 댓글 작성 폼 볼 수 있도록 */}
       {isLoggedIn ? (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="my-8">
           <textarea
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
             placeholder="댓글을 입력하세요..."
+            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#3cb8a6] "
           />
-          <button type="submit">댓글 작성</button>
+          <div className="flex flex-row justify-end">
+            <button type="submit" className=" px-4 py-2 bg-[#3cb8a6] text-white rounded-md hover:bg-[#2a9d8a]">
+              댓글 작성
+            </button>
+          </div>
         </form>
       ) : (
-        <p>댓글을 작성하려면 로그인을 해주세요.</p>
+        <p className="my-8 text-gray-600">댓글을 작성하려면 로그인을 해주세요.</p>
       )}
 
-      <div>
+      <div className="space-y-8 max-h-[600px] overflow-y-auto">
         {filteredComments.map((comment) => (
-          <div key={comment.id}>
+          <div key={comment.id} className="bg-white p-4 rounded-lg shadow">
             {editingComment.id === comment.id ? (
               <>
                 <form onSubmit={handleEditSubmit}>
@@ -164,28 +169,55 @@ const Comments = ({ placeId }) => {
                     value={editingComment.text}
                     onChange={(e) => setEditingComment(comment.id, e.target.value)}
                     placeholder="수정하시려는 내용을 입력해주세요."
+                    className="w-full border p-1 rounded-md"
                   />
-                  <button type="submit">완료</button>
-                  <button type="button" onClick={() => setEditingComment(null, "")}>
-                    취소
-                  </button>
+                  <div className="flex flex-row justify-end gap-1">
+                    <button type="submit" className="px-2 py-1 text-sm rounded hover:bg-blue-300 hover:text-white">
+                      완료
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setEditingComment(null, "")}
+                      className="px-2 py-1 text-sm rounded hover:bg-red-300 hover:text-white"
+                    >
+                      취소
+                    </button>
+                  </div>
                 </form>
               </>
             ) : (
               <>
-                <img src={comment.avatar} alt={`${comment.nickname}의 프로필`} className="W-12 h-12 rounded-full" />
-                <strong>{comment.nickname}</strong>
-                <p>{comment.text}</p>
-                <small>
-                  {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
-                </small>
-                {/* 자신의 댓글에만 수정/삭제 버튼 표시 */}
-                {isLoggedIn && user.id === comment.userId && (
-                  <>
-                    <button onClick={() => toggleEdit(comment.id, comment.text)}>수정</button>
-                    <button onClick={() => remove(comment.id)}>삭제</button>
-                  </>
-                )}
+                {" "}
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-row items-center gap-2">
+                    <img src={comment.avatar} alt={`${comment.nickname}의 프로필`} className="W-12 h-12 rounded-full" />
+                    <strong>{comment.nickname}</strong>
+                  </div>
+
+                  <p>{comment.text}</p>
+
+                  <small className="text-xs text-gray-500">
+                    {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
+                  </small>
+
+                  {/* 자신의 댓글에만 수정/삭제 버튼 표시 */}
+                  {isLoggedIn && user.id === comment.userId && (
+                    <div className="flex flex-row justify-end items-center gap-1">
+                      <button
+                        onClick={() => toggleEdit(comment.id, comment.text)}
+                        className="px-2 py-1 text-sm rounded hover:bg-blue-300 hover:text-white"
+                      >
+                        수정
+                      </button>
+                      <button
+                        onClick={() => remove(comment.id)}
+                        className="px-2 py-1 text-sm rounded hover:bg-red-300 hover:text-white"
+                      >
+                        삭제
+                      </button>
+                    </div>
+                  )}
+                </div>
               </>
             )}
           </div>
