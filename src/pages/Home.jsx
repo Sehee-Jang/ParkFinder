@@ -1,13 +1,7 @@
 import React from "react";
-// import Comments from "../components/Comments";
 
 const Home = () => {
-  return (
-    <div>
-      Home
-      {/* <div><Comments /></div> */}
-    </div>
-  );
+  return <div>Home</div>;
 };
 
 export default Home;
