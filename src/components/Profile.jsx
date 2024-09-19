@@ -5,7 +5,9 @@ import useAuthStore from "../zustand/authStore";
 
 const Profile = () => {
   //로컬 스토리지에서 userAccessToken 가져옴 => 추후 세션 스토리지 방식으로 변경 시 세션 스토리지 방식으로 변경 필요
-  const localAccessToken = localStorage.getItem("accessToken");
+  // const localAccessToken = localStorage.getItem("accessToken");
+  const { token } = useAuthStore();
+  
   const [isEdit, setIsEdit] = useState(false);
   const [nickname, setNickname] = useState();
   const [imgSrc, setImgSrc] = useState();
@@ -28,12 +30,12 @@ const Profile = () => {
     isError
   } = useQuery({
     queryKey: ["user"],
-    queryFn: () => getUserProfile(localAccessToken)
+    queryFn: () => getUserProfile(token)
   });
 
   // TanStack Query mutate
   const { mutate } = useMutation({
-    mutationFn: (formData) => updateProfile(formData),
+    mutationFn: (formData) => updateProfile(formData,token),
     onSuccess: () => {
       queryClient.invalidateQueries(["user"]);
       setIsEdit(false);
