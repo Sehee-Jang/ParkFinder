@@ -131,7 +131,7 @@ const Comments = ({ placeId }) => {
 
   return (
     <div>
-      {/* 로그인한 사용자만 댓글 작성 폼 볼 수 있도록 */}
+      {/* 로그인한 사용자만 댓글 작성 폼 표시*/}
       {isLoggedIn ? (
         <form onSubmit={handleSubmit} className="my-8">
           <textarea
@@ -150,9 +150,11 @@ const Comments = ({ placeId }) => {
         <p className="my-8 text-gray-600">댓글을 작성하려면 로그인을 해주세요.</p>
       )}
 
+      {/* 댓글 목록 표시 */}
       <div className="space-y-5 max-h-[580px] overflow-y-auto">
         {filteredComments.reverse().map((comment) => (
           <div key={comment.id} className="bg-white p-4 rounded-lg border shadow">
+            {/* 수정 모드일 때 댓글 수정폼 표시 */}
             {editingComment.id === comment.id ? (
               <>
                 <form onSubmit={handleEditSubmit}>
@@ -177,6 +179,7 @@ const Comments = ({ placeId }) => {
                 </form>
               </>
             ) : (
+              // 일반 댓글 표시
               <>
                 {" "}
                 <div className="flex flex-col gap-4">
