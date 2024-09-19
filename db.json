@@ -1,4 +1,26 @@
 {
+  "users": [
+    {
+      "id": "s77772005",
+      "password": "1654722adT@",
+      "nickname": "fujii kaze",
+      "profileImg": "https://encrypted-tbs/1111"
+    }
+  ],
+  "comments": [
+    {
+      "id": "3233",
+      "text": "댓글 수정 완료?ddd",
+      "userId": "s77772005",
+      "createdAt": "2024-09-13T09:39:12.588Z"
+    },
+    {
+      "id": "f043",
+      "text": "dd",
+      "userId": "s77772005",
+      "createdAt": "2024-09-13T09:39:08.103Z"
+    }
+  ],
   "posts": [
     {
       "id": "1",
