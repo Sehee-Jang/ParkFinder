@@ -97,6 +97,33 @@
       "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
       "placeId": "1100855572",
       "createdAt": "2024-09-19T07:21:08.826Z"
+    },
+    {
+      "id": "9017",
+      "text": "여기 주차공간 넓어서 좋아요! 다만 주말에는 붐빌 수 있으니 일찍 오는 거 추천합니다!",
+      "userId": "jigong2025",
+      "nickname": "빵빵이",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/a7984935-cd8f-47f4-90dd-9e2f8d3498b5.jpg",
+      "placeId": "1100855572",
+      "createdAt": "2024-09-19T07:27:43.143Z"
+    },
+    {
+      "id": "a20f",
+      "text": "여기 주차 공간이 좁아서 초보 운전자에겐 너무 빡셉니다.... 저는 다른 곳 가서 주차했어요 ㅠㅠ",
+      "userId": "jigong2025",
+      "nickname": "빵빵이",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/a7984935-cd8f-47f4-90dd-9e2f8d3498b5.jpg",
+      "placeId": "775806830",
+      "createdAt": "2024-09-19T07:28:18.748Z"
+    },
+    {
+      "id": "ac01",
+      "text": "여기 주차요원 아저씨 친절하셔요:)",
+      "userId": "jigong2025",
+      "nickname": "빵빵이",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/a7984935-cd8f-47f4-90dd-9e2f8d3498b5.jpg",
+      "placeId": "1136543822",
+      "createdAt": "2024-09-19T07:28:43.015Z"
     }
   ],
   "posts": [

@@ -159,9 +159,9 @@ const Comments = ({ placeId }) => {
         <p className="my-8 text-gray-600">댓글을 작성하려면 로그인을 해주세요.</p>
       )}
 
-      <div className="space-y-8 max-h-[600px] overflow-y-auto">
-        {filteredComments.map((comment) => (
-          <div key={comment.id} className="bg-white p-4 rounded-lg shadow">
+      <div className="space-y-5 max-h-[580px] overflow-y-auto">
+        {filteredComments.reverse().map((comment) => (
+          <div key={comment.id} className="bg-white p-4 rounded-lg border shadow">
             {editingComment.id === comment.id ? (
               <>
                 <form onSubmit={handleEditSubmit}>
