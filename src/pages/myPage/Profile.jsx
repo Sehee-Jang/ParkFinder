@@ -1,13 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useEffect, useRef, useState } from "react";
-import { getUserProfile, updateProfile } from "../api/auth";
-import useAuthStore from "../zustand/authStore";
+import { getUserProfile, updateProfile } from "../../api/auth";
+import useAuthStore from "../../zustand/authStore";
 
 const Profile = () => {
   //로컬 스토리지에서 userAccessToken 가져옴 => 추후 세션 스토리지 방식으로 변경 시 세션 스토리지 방식으로 변경 필요
   // const localAccessToken = localStorage.getItem("accessToken");
   const { token } = useAuthStore();
-  
+
   const [isEdit, setIsEdit] = useState(false);
   const [nickname, setNickname] = useState();
   const [imgSrc, setImgSrc] = useState();
@@ -35,7 +35,7 @@ const Profile = () => {
 
   // TanStack Query mutate
   const { mutate } = useMutation({
-    mutationFn: (formData) => updateProfile(formData,token),
+    mutationFn: (formData) => updateProfile(formData, token),
     onSuccess: () => {
       queryClient.invalidateQueries(["user"]);
       setIsEdit(false);
@@ -52,9 +52,20 @@ const Profile = () => {
   if (isError) {
     return alert("사용자 정보를 불러오는 중 오류가 발생했습니다.");
   }
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if(file) {
+      const objectUrl = URL.createObjectURL(file); // 파일을 URL로 변환
+      document.getElementById('imgPrev').src = objectUrl;
+      setImgSrc(file);
+    }
+  };
+
   return (
     <div className="flex items-center my-4 justify-center">
-      <img src={user.avatar} className="rounded-full mt-2 border border-gray-400 ... size-60" />
+      <img id ="imgPrev" src={user.avatar} className="rounded-full mt-2 border border-gray-400 ... size-60" />
       <div className="mx-10">
         <h1>
           <span className="text-teal-500 font-bold">{user.nickname}님,</span>
@@ -104,8 +115,7 @@ const Profile = () => {
                 className="rounded-md border border-gray-300 ..."
                 maxLength="12em"
                 onChange={(e) => {
-                  // console.log(e.target.files[0]);
-                  setImgSrc(e.target.files[0]);
+                  handleImageChange(e);
                 }}
               ></input>
             </h2>
