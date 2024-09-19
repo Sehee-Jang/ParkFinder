@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/posts";
-// const API_URL2 = "http://localhost:5001/posts";
+// const API_URL = "http://localhost:5000/posts";
+const API_URL = "http://localhost:5001/posts";
 
 const fetchPlaces = async () => {
   try {
@@ -50,8 +50,8 @@ const bookmarkApi = {
   handleBookmarkToggle
 };
 
-export default bookmarkApi;  
+export default bookmarkApi;
 
-//zustand  --> 클라이언트 딴 전역 상태 관리 
-// 
+//zustand  --> 클라이언트 딴 전역 상태 관리
+//
 //tanStack Query ->> 서버 상태 관리
