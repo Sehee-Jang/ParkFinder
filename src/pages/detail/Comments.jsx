@@ -16,9 +16,6 @@ const Comments = ({ placeId }) => {
   //사용자가 로그인 했는지 확인하는 함수
   const isLoggedIn = !!user && user.success;
 
-  console.log("user =>", user);
-  console.log("token =>", token);
-
   // 최신 유저 정보 가져오기
   const { data: latestUserInfo } = useQuery({
     queryKey: ["userInfo", user?.id],
