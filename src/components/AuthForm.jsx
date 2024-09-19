@@ -9,6 +9,31 @@ const AuthForm = ({ mode, onSubmit }) => {
     nickname: mode === "signup" ? "" : "" // 회원가입일 때만 닉네임 필드 활성화, 빈 문자열로 초기화
   });
 
+  const [errors, setErrors] = useState({
+    id: "",
+    password: ""
+  });
+
+  const validateForm = () => {
+    let isValid = true;
+    let newErrors = { id: "", password: "" };
+
+    // 아이디 유효성 검사: 최소 5자 이상 입력
+    if (!formData.id || formData.id.length < 5) {
+      newErrors.id = "아이디는 최소 5자 이상이어야 합니다.";
+      isValid = false;
+    }
+
+    // 비밀번호 유효성 검사: 최소 8자 이상 입력
+    if (!formData.password || formData.password < 8) {
+      newErrors.password = "비밀번호는 최소 8자 이상이어야 합니다.";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   // onChange할 때마다 formData의 값이 업데이트 되야 함
   const handleChange = (e) => {
     setFormData({
@@ -19,21 +44,40 @@ const AuthForm = ({ mode, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //로그인 페이지에서 이미 완성된 handleLogin으로 onSubmit으로 줄 로직을 내려보내주고 있기때문에 onSubmit으로 온 것을 그대로 실행만 시켜주면 됨
-    onSubmit(formData);
+    // 유효성 검사
+    if (validateForm()) {
+      // 로그인 페이지에서 이미 완성된 handleLogin으로 onSubmit으로 줄 로직을 내려보내주고 있기때문에 onSubmit으로 온 것을 그대로 실행만 시켜주면 됨
+      onSubmit(formData);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="id" value={FormData.id} onChange={handleChange} placeholder="아이디" required />
-      <input
-        type="password"
-        name="password"
-        value={FormData.password}
-        onChange={handleChange}
-        placeholder="비밀번호"
-        required
-      />
+      <div>
+        <input
+          type="text"
+          name="id"
+          value={FormData.id}
+          onChange={handleChange}
+          placeholder="아이디"
+          style={{ borderColor: errors.id ? "red" : "black" }} // 에러가 있을 경우 빨간 테두리
+          required
+        />
+        {errors.id && <span style={{ color: "red" }}>{errors.id}</span>}
+      </div>
+      <div>
+        <input
+          type="password"
+          name="password"
+          value={FormData.password}
+          onChange={handleChange}
+          placeholder="비밀번호"
+          style={{ borderColor: errors.password ? "red" : "black" }}
+          required
+        />
+        {errors.password && <span style={{ color: "red" }}>{errors.password}</span>}
+      </div>
+
       {/* 회원가입일 경우에만 이름, 닉네임 입력 필드 표시 */}
       {mode === "signup" && (
         <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="이름" required />

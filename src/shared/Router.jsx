@@ -4,8 +4,8 @@ import BookmarkTestHome from "../pages/bookmarkTest/bookmarkTestHome";
 import BookmarkTestMyPage from "../pages/bookmarkTest/bookmarkTestMyPage";
 import Layout from "../components/Layout";
 import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
+import Login from "../pages/join/Login";
+import Signup from "../pages/join/Signup";
 import MyPage from "../pages/MyPage";
 import { useState } from "react";
 
@@ -34,7 +34,7 @@ const Router = () => {
           <Route
             path="/bookmarkhome"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute authOnly={true}>
                 <BookmarkTestHome />
               </ProtectedRoute>
             }
@@ -42,7 +42,7 @@ const Router = () => {
           <Route
             path="/bookmarkmypage"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute authOnly={true}>
                 <BookmarkTestMyPage />
               </ProtectedRoute>
             }
@@ -51,7 +51,7 @@ const Router = () => {
         <Route
           path="/mypage"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute authOnly={true}>
               <MyPage />
             </ProtectedRoute>
           }

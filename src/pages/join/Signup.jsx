@@ -1,12 +1,11 @@
 import React from "react";
-import AuthForm from "../components/AuthForm";
-import { register } from "../api/auth";
+import AuthForm from "../../components/AuthForm";
+import { register } from "../../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
 
-  // 완성된 로직들이 아니에요! 참고만 하세요!
   const handleSignup = async (formData) => {
     try {
       await register(formData);
