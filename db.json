@@ -2,31 +2,37 @@
   "posts": [
     {
       "id": "1",
-      "title": "Hello World",
+      "title": "만석공원 주차장",
       "bookmarks": [
         {
-          "userId": 1
+          "userId": 17
         },
         {
-          "userId": 4
+          "userId": 2
+        },
+        {
+          "userId": 13
+        },
+        {
+          "userId": 18
+        },
+        {
+          "userId": 7
+        },
+        {
+          "userId": 1
         },
         {
           "userId": 15
         },
         {
-          "userId": 17
-        },
-        {
-          "userId": 6
-        },
-        {
-          "userId": 2
+          "userId": "shdydcjf123"
         }
       ]
     },
     {
       "id": "2",
-      "title": "Hello World2",
+      "title": "경남빌딩 주차장",
       "bookmarks": [
         {
           "userId": 5
@@ -36,30 +42,39 @@
         },
         {
           "userId": 17
-        },
-        {
-          "userId": 3
-        },
-        {
-          "userId": 9
         },
         {
           "userId": 12
         },
         {
           "userId": 42
+        },
+        {
+          "userId": 4
+        },
+        {
+          "userId": 6
+        },
+        {
+          "userId": 11
+        },
+        {
+          "userId": 7
+        },
+        {
+          "userId": 10
+        },
+        {
+          "userId": "shdydcjf123"
         }
       ]
     },
     {
       "id": "3",
-      "title": "Hello World3",
+      "title": "골든타워 지하주차장",
       "bookmarks": [
         {
           "userId": 5
-        },
-        {
-          "userId": 4
         },
         {
           "userId": 15
@@ -72,18 +87,42 @@
         },
         {
           "userId": 42
+        },
+        {
+          "userId": 4
+        },
+        {
+          "userId": 6
+        },
+        {
+          "userId": 11
+        },
+        {
+          "userId": 13
+        },
+        {
+          "userId": 16
+        },
+        {
+          "userId": 10
+        },
+        {
+          "userId": "ryc123"
+        },
+        {
+          "userId": "ryc456"
+        },
+        {
+          "userId": "shdydcjf123"
         }
       ]
     },
     {
       "id": "4",
-      "title": "Hello World4",
+      "title": "어쩔티비 주차장",
       "bookmarks": [
         {
           "userId": 1
-        },
-        {
-          "userId": 4
         },
         {
           "userId": 12
@@ -95,10 +134,16 @@
           "userId": 17
         },
         {
-          "userId": 8
+          "userId": 2
         },
         {
-          "userId": 2
+          "userId": 4
+        },
+        {
+          "userId": 16
+        },
+        {
+          "userId": "shdydcjf123"
         }
       ]
     }

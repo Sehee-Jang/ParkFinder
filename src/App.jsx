@@ -6,29 +6,43 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import MyPage from "./pages/MyPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import BookmarkTestHome from "./pages/bookmarkTest/bookmarkTestHome";
+import BookmarkTestMyPage from "./pages/bookmarkTest/bookmarkTestMyPage";
 
 const App = () => {
-  const [user, setUser] = useState(null);
-
   return (
     <BrowserRouter>
-      <Layout user={user} setUser={setUser}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route
-            path="/mypage"
+            path="/bookmarkhome"
             element={
-              <ProtectedRoute user={user}>
-                {/* user가 없으면 로그인 페이지로 리디렉션 */}
-                <MyPage user={user} setUser={setUser} />
-                {/* MyPage 컴포넌트에 user와 setUser 전달 */}
+              <ProtectedRoute>
+                <BookmarkTestHome />
               </ProtectedRoute>
             }
           />
-        </Routes>
-      </Layout>
+          <Route
+            path="/bookmarkmypage"
+            element={
+              <ProtectedRoute>
+                <BookmarkTestMyPage />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
+        <Route
+          path="/mypage"
+          element={
+            <ProtectedRoute>
+              <MyPage />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 };

@@ -1,7 +1,14 @@
 import React from "react";
+import Bookmark from "../components/Bookmark";
+import Profile from "../components/Profile";
 
 const MyPage = () => {
-  return <div>MyPage</div>;
+  return (
+    <div className="grid w-screen min-h-screen">
+      <Profile></Profile>
+      <Bookmark></Bookmark>
+    </div>
+  );
 };
 
 export default MyPage;

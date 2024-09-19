@@ -36,14 +36,7 @@ const AuthForm = ({ mode, onSubmit }) => {
       />
       {/* 회원가입일 경우에만 이름, 닉네임 입력 필드 표시 */}
       {mode === "signup" && (
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="이름"
-          required
-        />
+        <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="이름" required />
       )}
       {mode === "signup" && (
         <input
