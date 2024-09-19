@@ -17,11 +17,13 @@ const Layout = ({ children, user, setUser }) => {
   return (
     <div>
       <header>
-        <nav>
+        <nav className="flex justify-between items-center">
           <Link to="/">홈</Link>
+
           <div className="space-x-4">
             {user ? (
               <>
+                <Link to="/mypage">마이페이지</Link>
                 <button onClick={handleLogout}>로그아웃</button>
               </>
             ) : (
