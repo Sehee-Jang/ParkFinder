@@ -5,9 +5,7 @@ const Home = () => {
   return (
     <div>
       Home
-      <div>
-        <Comments />
-      </div>
+      <div>{/* <Comments /> */}</div>
     </div>
   );
 };
