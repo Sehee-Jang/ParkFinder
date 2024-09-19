@@ -16,7 +16,7 @@ const Layout = ({ children, user, setUser }) => {
 
   return (
     <div>
-      <header>
+      {/* <header>
         <nav>
           <Link to="/">홈</Link>
           <div className="space-x-4">
@@ -29,8 +29,9 @@ const Layout = ({ children, user, setUser }) => {
             )}
           </div>
         </nav>
-      </header>
-      <main className="container mx-auto pt-10 main">{children}</main>
+      </header> */}
+      {/* <main className="container mx-auto pt-10 main">{children}</main> */}
+      <main>{children}</main>
     </div>
   );
 };
