@@ -11,12 +11,19 @@ const AuthForm = ({ mode, onSubmit }) => {
 
   const [errors, setErrors] = useState({
     id: "",
-    password: ""
+    password: "",
+    name: "",
+    nickname: ""
   });
 
   const validateForm = () => {
     let isValid = true;
-    let newErrors = { id: "", password: "" };
+    let newErrors = {
+      id: "",
+      password: "",
+      name: "",
+      nickname: ""
+    };
 
     // 아이디 유효성 검사: 최소 5자 이상 입력
     if (!formData.id || formData.id.length < 5) {
@@ -25,8 +32,14 @@ const AuthForm = ({ mode, onSubmit }) => {
     }
 
     // 비밀번호 유효성 검사: 최소 8자 이상 입력
-    if (!formData.password || formData.password < 8) {
+    if (!formData.password || formData.password.length < 8) {
       newErrors.password = "비밀번호는 최소 8자 이상이어야 합니다.";
+      isValid = false;
+    }
+
+    // 이름 유효성 검사: signup일때만
+    if (mode === "signup" && !formData.name) {
+      newErrors.name = "이름을 입력해주세요.";
       isValid = false;
     }
 
@@ -46,54 +59,74 @@ const AuthForm = ({ mode, onSubmit }) => {
 
     // 유효성 검사
     if (validateForm()) {
-      // 로그인 페이지에서 이미 완성된 handleLogin으로 onSubmit으로 줄 로직을 내려보내주고 있기때문에 onSubmit으로 온 것을 그대로 실행만 시켜주면 됨
+      // 유효성 검사가 통과되면 제출: 로그인 페이지에서 이미 완성된 handleLogin으로 onSubmit으로 줄 로직을 내려보내주고 있기때문에 onSubmit으로 온 것을 그대로 실행만 시켜주면 됨
       onSubmit(formData);
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className="mb-6 w-96">
         <input
           type="text"
           name="id"
-          value={FormData.id}
+          value={formData.id}
           onChange={handleChange}
           placeholder="아이디"
-          style={{ borderColor: errors.id ? "red" : "black" }} // 에러가 있을 경우 빨간 테두리
+          className={`bg-white text-black border ${
+            errors.id ? "border-red-500" : "border-gray-400"
+          } p-2 rounded w-full`}
           required
         />
-        {errors.id && <span style={{ color: "red" }}>{errors.id}</span>}
+        {errors.id && <span className="text-red-500">{errors.id}</span>}
       </div>
-      <div>
+      <div className="mb-6 w-96">
         <input
           type="password"
           name="password"
-          value={FormData.password}
+          value={formData.password}
           onChange={handleChange}
           placeholder="비밀번호"
-          style={{ borderColor: errors.password ? "red" : "black" }}
+          className={`bg-white text-black border ${
+            errors.password ? "border-red-500" : "border-gray-400"
+          } p-2 rounded w-full`}
           required
         />
-        {errors.password && <span style={{ color: "red" }}>{errors.password}</span>}
+        {errors.password && <span className="text-red-500">{errors.password}</span>}
       </div>
 
       {/* 회원가입일 경우에만 이름, 닉네임 입력 필드 표시 */}
       {mode === "signup" && (
-        <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="이름" required />
+        <div className="mb-6 w-96">
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="이름"
+            className={`bg-white text-black border ${
+              errors.name ? "border-red-500" : "border-gray-400"
+            } p-2 rounded w-full`}
+            required
+          />
+          {errors.name && <span className="text-red-500">{errors.name}</span>}
+        </div>
       )}
       {mode === "signup" && (
-        <input
-          type="text"
-          name="nickname"
-          value={formData.nickname}
-          onChange={handleChange}
-          placeholder="닉네임"
-          // className="w-full p-4 border border-gray-300 rounded-lg"
-        />
+        <div className="mb-6 w-96">
+          <input
+            type="text"
+            name="nickname"
+            value={formData.nickname}
+            onChange={handleChange}
+            placeholder="닉네임"
+            className="bg-white text-black border border-gray-400 p-2 rounded w-full"
+          />
+          {errors.nickname && <span className="text-red-500">{errors.nickname}</span>}
+        </div>
       )}
 
-      <button type="submit">
+      <button type="submit" className="bg-teal-500 text-white p-2 rounded w-full">
         {/* 만약 mode === "login"의 조건이 참이면 "로그인"이 출력, 거짓이면 "회원가입" 출력  */}
         {mode === "login" ? "로그인" : "회원가입"}
       </button>

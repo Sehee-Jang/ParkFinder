@@ -17,16 +17,21 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1>회원가입</h1>
-        <AuthForm mode="signup" onSubmit={handleSignup} />
-        <div>
-          <p>
-            이미 계정이 있으신가요? <Link to="/login">로그인</Link>
-          </p>
-        </div>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <div className="absolute top-4 left-4">
+        <Link to="/">
+          <span className="material-symbols-rounded">home</span>
+        </Link>
       </div>
+      <h1 className="text-4xl font-bold text-black mb-10">PARK FINDER</h1>
+      <AuthForm mode="signup" onSubmit={handleSignup} />
+      <p className="text-gray-600 mt-6">
+        이미 계정이 있으신가요?{" "}
+        <Link to="/login" className="text-teal-500">
+          로그인
+        </Link>
+      </p>
+      <footer className="text-gray-600 mt-6">© 2024 Park Finder All Rights Reserved</footer>
     </div>
   );
 };
