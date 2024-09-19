@@ -9,28 +9,67 @@
   ],
   "comments": [
     {
-      "id": "d66b",
-      "text": "zsss",
-      "userId": "chlwlals",
-      "nickname": "최햄식",
-      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
-      "createdAt": "2024-09-19T03:47:15.611Z"
-    },
-    {
-      "id": "be84",
-      "text": "ㄴㄴㄴ",
-      "userId": "jigong2024",
-      "nickname": "지공",
-      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/a2e0387c-19d7-4feb-be92-d635ad100a2d.jpg",
-      "createdAt": "2024-09-19T04:18:16.929Z"
-    },
-    {
-      "id": "afba",
-      "text": "ㅋㅋ",
+      "id": "8cf1",
+      "text": "캠퍼스프라자아파트",
       "userId": "jigong2024",
       "nickname": "지공",
       "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
-      "createdAt": "2024-09-19T04:20:39.404Z"
+      "placeId": "1100855572",
+      "createdAt": "2024-09-19T05:42:32.718Z"
+    },
+    {
+      "id": "05ae",
+      "text": "한림타워 주차장",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
+      "placeId": "775806830",
+      "createdAt": "2024-09-19T05:42:41.293Z"
+    },
+    {
+      "id": "ec5f",
+      "text": "삼진빌딩 주차장",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
+      "placeId": "1136543822",
+      "createdAt": "2024-09-19T05:42:48.708Z"
+    },
+    {
+      "id": "21bb",
+      "text": "웅진 빌딩 주차장",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
+      "placeId": "823353108",
+      "createdAt": "2024-09-19T05:42:58.889Z"
+    },
+    {
+      "id": "89c5",
+      "text": "한림타워 주차장\n",
+      "userId": "chlwlals",
+      "nickname": "최햄식",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
+      "placeId": "775806830",
+      "createdAt": "2024-09-19T05:43:29.699Z"
+    },
+    {
+      "id": "818a",
+      "text": "캠퍼스프라자아파트 유료 주차장\n",
+      "userId": "chlwlals",
+      "nickname": "최햄식",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
+      "placeId": "1100855572",
+      "createdAt": "2024-09-19T05:43:45.046Z"
+    },
+    {
+      "id": "ee39",
+      "text": "삼진빌딩 주차장",
+      "userId": "chlwlals",
+      "nickname": "최햄식",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
+      "placeId": "1136543822",
+      "createdAt": "2024-09-19T05:43:58.776Z"
     }
   ],
   "posts": [

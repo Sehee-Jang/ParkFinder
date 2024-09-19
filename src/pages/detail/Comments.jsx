@@ -5,7 +5,7 @@ import useAuthStore from "../../zustand/authStore";
 import { getUserProfile } from "../../api/auth";
 import { useEffect } from "react";
 
-const Comments = () => {
+const Comments = ({ placeId }) => {
   const { newComment, setNewComment, editingComment, setEditingComment } = useCommentStore();
 
   const { token, user, setUser } = useAuthStore();
@@ -38,15 +38,15 @@ const Comments = () => {
     isError,
     error
   } = useQuery({
-    queryKey: ["comments"],
-    queryFn: fetchComments
+    queryKey: ["comments", placeId],
+    queryFn: () => fetchComments(placeId)
   });
 
   // 새 댓글 생성
   const { mutate: add } = useMutation({
-    mutationFn: postComment,
+    mutationFn: (comment) => postComment({ ...comment, placeId }),
     onSuccess: () => {
-      queryClient.invalidateQueries(["comments"]);
+      queryClient.invalidateQueries(["comments", placeId]);
 
       alert("댓글이 추가되었습니다!");
     }
@@ -56,7 +56,7 @@ const Comments = () => {
   const { mutate: remove } = useMutation({
     mutationFn: deleteComment,
     onSuccess: () => {
-      queryClient.invalidateQueries(["comments"]);
+      queryClient.invalidateQueries(["comments", placeId]);
       alert("댓글이 삭제되었습니다!");
     }
   });
@@ -66,13 +66,13 @@ const Comments = () => {
     mutationFn: updateComment,
     onMutate: async ({ id, text }) => {
       // 이전 쿼리 데이터 취소
-      await queryClient.cancelQueries(["comments"]);
+      await queryClient.cancelQueries(["comments", placeId]);
 
       // 이전 값의 스냅샷 저장
-      const previousComments = queryClient.getQueryData(["comments"]);
+      const previousComments = queryClient.getQueryData(["comments", placeId]);
 
       // 새 댓글로 캐시를 즉시 업데이트
-      queryClient.setQueriesData(["comments"], (old) =>
+      queryClient.setQueryData(["comments", placeId], (old) =>
         old.map((comment) => (comment.id === id ? { ...comment, text } : comment))
       );
 
@@ -84,12 +84,12 @@ const Comments = () => {
     },
     onError: (err, newComment, context) => {
       //에러가 발생하면 이전 값으로 콜백
-      queryClient.setQueryData(["comments"], context.previousComments);
-      alert("댓글 수정 중 오류 발생했습니다!" + error.message);
+      queryClient.setQueryData(["comments", placeId], context.previousComments);
+      alert("댓글 수정 중 오류 발생했습니다!" + err.message);
     },
     onSettled: () => {
       // 성공 여부와 관계없이 쿼리를 다시 불러옴
-      queryClient.invalidateQueries(["comments"]);
+      queryClient.invalidateQueries(["comments", placeId]);
     }
   });
 
@@ -121,7 +121,8 @@ const Comments = () => {
         text: newComment,
         userId: user.id,
         nickname: user.nickname,
-        avatar: user.avatar
+        avatar: user.avatar,
+        placeId: placeId
       };
 
       add(comment);
@@ -134,6 +135,8 @@ const Comments = () => {
   if (isPending) return <div>로딩 중...</div>;
   if (isError) return <div>에러 발생: {error.message}</div>;
 
+  //placeId에 해당하는 댓글만 보여주기
+  const filteredComments = comments.filter((comment) => comment.placeId === placeId);
   return (
     <div>
       <h1>댓글 공간</h1>
@@ -152,7 +155,7 @@ const Comments = () => {
       )}
 
       <div>
-        {comments.map((comment) => (
+        {filteredComments.map((comment) => (
           <div key={comment.id}>
             {editingComment.id === comment.id ? (
               <>

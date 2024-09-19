@@ -323,7 +323,7 @@ const KakaoMap = () => {
                 ))}
                 {/* 댓글 컴포넌트  */}
                 <div>
-                  <Comments />
+                  <Comments placeId={openMarkerId} />
                 </div>
                 {/* 댓글 컴포넌트 */}
               </div>
