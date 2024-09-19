@@ -15,7 +15,6 @@ export const fetchComments = async () => {
 export const postComment = async (comment) => {
   const { data } = await commentApi.post("/", {
     ...comment,
-    userId: "s77772005", //임시로 ID 넣어놈.
     createdAt: new Date().toISOString()
   });
 

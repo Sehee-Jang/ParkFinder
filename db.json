@@ -9,16 +9,28 @@
   ],
   "comments": [
     {
-      "id": "3233",
-      "text": "댓글 수정 완료?ddd",
-      "userId": "s77772005",
-      "createdAt": "2024-09-13T09:39:12.588Z"
+      "id": "d66b",
+      "text": "zsss",
+      "userId": "chlwlals",
+      "nickname": "최햄식",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
+      "createdAt": "2024-09-19T03:47:15.611Z"
     },
     {
-      "id": "f043",
-      "text": "dd",
-      "userId": "s77772005",
-      "createdAt": "2024-09-13T09:39:08.103Z"
+      "id": "be84",
+      "text": "ㄴㄴㄴ",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/a2e0387c-19d7-4feb-be92-d635ad100a2d.jpg",
+      "createdAt": "2024-09-19T04:18:16.929Z"
+    },
+    {
+      "id": "afba",
+      "text": "ㅋㅋ",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
+      "createdAt": "2024-09-19T04:20:39.404Z"
     }
   ],
   "posts": [

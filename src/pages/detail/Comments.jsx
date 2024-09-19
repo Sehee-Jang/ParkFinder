@@ -1,11 +1,35 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteComment, fetchComments, postComment, updateComment } from "../../api/comments";
 import { useCommentStore } from "../../zustand/commentStore";
+import useAuthStore from "../../zustand/authStore";
+import { getUserProfile } from "../../api/auth";
+import { useEffect } from "react";
 
 const Comments = () => {
   const { newComment, setNewComment, editingComment, setEditingComment } = useCommentStore();
 
+  const { token, user, setUser } = useAuthStore();
+
   const queryClient = useQueryClient();
+
+  //사용자가 로그인 했는지 확인하는 함수
+  const isLoggedIn = !!user && user.success;
+
+  console.log("user =>", user);
+  console.log("token =>", token);
+
+  // 최신 유저 정보 가져오기
+  const { data: latestUserInfo } = useQuery({
+    queryKey: ["userInfo", user?.id],
+    queryFn: () => getUserProfile(token)
+  });
+
+  // 유저 정보 업데이트
+  useEffect(() => {
+    if (latestUserInfo) {
+      setUser(latestUserInfo);
+    }
+  }, [latestUserInfo, setUser]);
 
   //댓글 목록 불러오기
   const {
@@ -23,6 +47,7 @@ const Comments = () => {
     mutationFn: postComment,
     onSuccess: () => {
       queryClient.invalidateQueries(["comments"]);
+
       alert("댓글이 추가되었습니다!");
     }
   });
@@ -93,7 +118,10 @@ const Comments = () => {
 
     if (newComment.trim() !== "") {
       const comment = {
-        text: newComment
+        text: newComment,
+        userId: user.id,
+        nickname: user.nickname,
+        avatar: user.avatar
       };
 
       add(comment);
@@ -109,14 +137,20 @@ const Comments = () => {
   return (
     <div>
       <h1>댓글 공간</h1>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
-          placeholder="댓글을 입력하세요..."
-        />
-        <button type="submit">댓글 작성</button>
-      </form>
+      {/* 로그인한 사용자만 댓글 작성 폼 볼 수 있도록 */}
+      {isLoggedIn ? (
+        <form onSubmit={handleSubmit}>
+          <textarea
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+            placeholder="댓글을 입력하세요..."
+          />
+          <button type="submit">댓글 작성</button>
+        </form>
+      ) : (
+        <p>댓글을 작성하려면 로그인을 해주세요.</p>
+      )}
+
       <div>
         {comments.map((comment) => (
           <div key={comment.id}>
@@ -136,12 +170,19 @@ const Comments = () => {
               </>
             ) : (
               <>
+                <img src={comment.avatar} alt={`${comment.nickname}의 프로필`} className="W-12 h-12 rounded-full" />
+                <strong>{comment.nickname}</strong>
                 <p>{comment.text}</p>
                 <small>
                   {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
                 </small>
-                <button onClick={() => toggleEdit(comment.id, comment.text)}>수정</button>
-                <button onClick={() => remove(comment.id)}>삭제</button>
+                {/* 자신의 댓글에만 수정/삭제 버튼 표시 */}
+                {isLoggedIn && user.id === comment.userId && (
+                  <>
+                    <button onClick={() => toggleEdit(comment.id, comment.text)}>수정</button>
+                    <button onClick={() => remove(comment.id)}>삭제</button>
+                  </>
+                )}
               </>
             )}
           </div>
