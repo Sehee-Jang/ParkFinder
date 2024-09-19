@@ -169,6 +169,15 @@
       "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/d4c64075-d44c-4006-ba9c-8e687a7ac201.jpg",
       "placeId": "775806830",
       "createdAt": "2024-09-19T07:56:38.900Z"
+    },
+    {
+      "id": "352b",
+      "text": "ㅎㅎ",
+      "userId": "jigong2026",
+      "nickname": "코딩왕",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/d4c64075-d44c-4006-ba9c-8e687a7ac201.jpg",
+      "placeId": "1100855572",
+      "createdAt": "2024-09-19T08:11:25.257Z"
     }
   ],
   "posts": [

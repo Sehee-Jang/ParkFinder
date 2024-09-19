@@ -4,6 +4,7 @@ import { useCommentStore } from "../../zustand/commentStore";
 import useAuthStore from "../../zustand/authStore";
 import { getUserProfile } from "../../api/auth";
 import { useEffect } from "react";
+import { useMemo } from "react";
 
 const Comments = ({ placeId }) => {
   const { newComment, setNewComment, editingComment, setEditingComment } = useCommentStore();
@@ -21,7 +22,8 @@ const Comments = ({ placeId }) => {
   // 최신 유저 정보 가져오기
   const { data: latestUserInfo } = useQuery({
     queryKey: ["userInfo", user?.id],
-    queryFn: () => getUserProfile(token)
+    queryFn: () => getUserProfile(token),
+    enabled: !!user && !!token // 유저와 토큰이 있을 때만 쿼리 실행
   });
 
   // 유저 정보 업데이트
@@ -41,6 +43,22 @@ const Comments = ({ placeId }) => {
     queryKey: ["comments", placeId],
     queryFn: () => fetchComments(placeId)
   });
+
+  // 최신 프로필 정보와 댓글 데이터 결합 (클라이언트 측 업데이트)
+  const updatedComments = useMemo(() => {
+    if (!comments) return [];
+    return comments.map((comment) => {
+      if (comment.userId === user?.id) {
+        // 현재 로그인한 사용자의 댓글인 경우, 최신 프로필 정보로 업데이트
+        return {
+          ...comment,
+          nickname: user.nickname,
+          avatar: user.avatar
+        };
+      }
+      return comment;
+    });
+  }, [comments, user]);
 
   // 새 댓글 생성
   const { mutate: add } = useMutation({
@@ -127,7 +145,7 @@ const Comments = ({ placeId }) => {
   if (isError) return <div>에러 발생: {error.message}</div>;
 
   //placeId에 해당하는 댓글만 보여주기
-  const filteredComments = comments.filter((comment) => comment.placeId === placeId);
+  const filteredComments = updatedComments.filter((comment) => comment.placeId === placeId);
 
   return (
     <div>

@@ -30,8 +30,15 @@ export const deleteComment = async (id) => {
 
 // 서버에서 댓글 수정하는 함수
 export const updateComment = async ({ id, text }) => {
-  const { data } = await commentApi.patch(`/${id}`, {
+  await commentApi.patch(`/${id}`, {
     text,
     createdAt: new Date().toISOString()
   });
+};
+
+// 사용자의 모든 댓글 프로필 정보를 업데이트 하는 함수 (서버에서 업데이트)
+export const updateUserComments = async (userId, newProfileData) => {
+  const { data } = await commentApi.patch(`/user/${userId}`, newProfileData);
+
+  return data;
 };
