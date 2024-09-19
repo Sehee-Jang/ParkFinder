@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CustomOverlayMap, Map, MapMarker } from "react-kakao-maps-sdk";
+import Comments from "../pages/detail/Comments";
 // import { Link } from "react-router-dom";
 
 const { kakao } = window;
@@ -320,6 +321,11 @@ const KakaoMap = () => {
                     )}
                   </React.Fragment>
                 ))}
+                {/* 댓글 컴포넌트  */}
+                <div>
+                  <Comments />
+                </div>
+                {/* 댓글 컴포넌트 */}
               </div>
             </div>
           )}

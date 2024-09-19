@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteComment, fetchComments, postComment, updateComment } from "../api/comments";
-import { useCommentStore } from "../store/comments";
+import { deleteComment, fetchComments, postComment, updateComment } from "../../api/comments";
+import { useCommentStore } from "../../zustand/commentStore";
 
 const Comments = () => {
   const { newComment, setNewComment, editingComment, setEditingComment } = useCommentStore();
