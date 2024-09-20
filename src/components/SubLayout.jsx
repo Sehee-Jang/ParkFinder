@@ -1,5 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import useAuthStore from "../zustand/authStore";
+import { Outlet } from "react-router-dom";
 
 const SubLayout = () => {
 

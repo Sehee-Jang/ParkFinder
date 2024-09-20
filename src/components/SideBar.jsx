@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useAuthStore from "../zustand/authStore";
 import useMapStore from "../zustand/mapStore";
 import { useMapActions } from "../hooks/useMapActions";
@@ -41,6 +41,14 @@ const Sidebar = () => {
     searchPlaces();
     return false;
   };
+  const navigate = useNavigate();
+
+  const { clearAuth } = useAuthStore();
+
+  const handleLogout = () => {
+    clearAuth();
+    navigate("/");
+  };
 
   return (
     <aside className={`sidebar${isSidebarOpen ? "" : " closed"}`}>
@@ -57,7 +65,9 @@ const Sidebar = () => {
                 <Link to="/mypage" className="py-2 hover:bg-blue-500 text-white">
                   마이페이지
                 </Link>
-                <Link className="py-2 hover:bg-blue-500 text-white">로그아웃</Link>
+                <button onClick={handleLogout} className="py-2 hover:bg-blue-500 text-white">
+                  로그아웃
+                </button>
               </div>
             </div>
           ) : (
