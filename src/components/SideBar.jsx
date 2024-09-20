@@ -91,7 +91,7 @@ const Sidebar = () => {
                 onChange={(e) => setKeyword(e.target.value)}
               />
               <button type="submit">
-                <span className="material-symbols-rounded text-gray-400">search</span>
+                <span className="material-symbols-rounded text-zinc-400">search</span>
               </button>
             </div>
           </form>
@@ -109,18 +109,18 @@ const Sidebar = () => {
                 }}
               >
                 {/* 검색된 장소 상세 정보 표시 */}
-                <div className="flex justify-between mb-1">
-                  <div className="text-lg font-bold leading-6 text-blue-500">{data.place_name}</div>
-                  <BookmarkButton place={data} userId={user?.id} />
-                </div>
-                <div className="text-sm text-zinc-400">{data.address_name}</div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm">
-                    {data.distance >= 1000 ? `${(data.distance / 1000).toFixed(1)}km` : `${data.distance}m`}
-                  </span>
-                  <div className="flex gap-1">
+                <div className="flex gap-2 justify-between">
+                  <div className="flex flex-col gap-1 flex-1">
+                    <div className="text-lg font-bold leading-6 text-zinc-800">{data.place_name}</div>
+                    <div className="text-sm text-zinc-400">{data.address_name}</div>
+                    <span className="text-sm text-zinc-600">
+                      {data.distance >= 1000 ? `${(data.distance / 1000).toFixed(1)}km` : `${data.distance}m`}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-4 items-end justify-between">
+                    <BookmarkButton place={data} userId={user?.id} />
                     <button
-                      className="button button-xs"
+                      className="button button-2xs"
                       onClick={() => {
                         setIsSidebarDetailOpen(true);
                       }}
@@ -139,7 +139,7 @@ const Sidebar = () => {
             <div className="flex justify-center gap-1 my-6">
               {Array.from({ length: pagination.last }).map((_, index) => (
                 <button
-                  className={`button button-xs button-border ${
+                  className={`button button-xs button-border w-9 px-0  ${
                     currentPage === index + 1 ? "bg-teal-500 text-white hover:bg-teal-500 hover:text-white" : ""
                   }`}
                   key={index + 1}
@@ -157,6 +157,7 @@ const Sidebar = () => {
         <div className={`detail-wrap${isSidebarDetailOpen ? " open" : ""}`}>
           <div className="detail-container">
             <button
+              className="detail-close"
               onClick={() => {
                 setIsSidebarDetailOpen(false);
               }}
@@ -169,13 +170,13 @@ const Sidebar = () => {
                 {/* 해당 마커에 커스텀 오버레이 표시 */}
                 {openMarkerId === data.id && (
                   <>
-                    <div className="name">{data.place_name}</div>
-                    <div className="address">{data.address_name}</div>
-                    <div className="road-address">
-                      <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png" alt="지번" />
+                    <div className="text-xl text-zinc-800 font-bold mb-3">{data.place_name}</div>
+                    <div className="text-zinc-600 mb-1">{data.address_name}</div>
+                    <div className="flex items-center gap-2 text-sm text-zinc-400">
+                      <span className="flex items-center border border-zinc-300 rounded text-xs px-2 h-6">지번</span>
                       <p>{data.road_address_name === "" ? "-" : data.road_address_name}</p>
                     </div>
-                    {data.phone !== "" && <div>{data.phone}</div>}
+                    {data.phone !== "" && <div className="text-teal-500 mt-3">{data.phone}</div>}
                   </>
                 )}
               </React.Fragment>

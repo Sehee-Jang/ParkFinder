@@ -27,7 +27,7 @@ const BookmarkButton = ({ place, userId }) => {
         e.stopPropagation();
         handleClick();
       }}
-      className={`button button-xs button-border px-0 w-[32px] ${isBookmarked() ? "text-teal-500" : "text-zinc-300"}`}
+      className={`button button-2xs button-border px-0 w-8 ${isBookmarked() ? "text-teal-500" : "text-zinc-300"}`}
     >
       {isBookmarked() ? (
         <span className="material-symbols-rounded text-xl material-fill">star</span>

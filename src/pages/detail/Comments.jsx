@@ -158,23 +158,23 @@ const Comments = ({ placeId }) => {
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
             placeholder="댓글을 입력하세요..."
-            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#3cb8a6] "
+            className="w-full p-3 border border-zinc-300 rounded-md focus:ring-2 focus:ring-[#3cb8a6] "
           />
           <div className="flex flex-row justify-end">
             <button
               type="submit"
-              className="px-4 py-2 bg-[#3cb8a6] text-white text-sm rounded-md shadow-md hover:bg-[#2a9d8a]"
+              className="button button-xs shadow-md"
             >
               댓글 작성
             </button>
           </div>
         </form>
       ) : (
-        <p className="my-20 text-sm text-gray-600">댓글을 작성하려면 로그인을 해주세요.</p>
+        <p className="my-20 text-sm text-zinc-600">댓글을 작성하려면 로그인을 해주세요.</p>
       )}
 
       {/* 댓글 목록 표시 */}
-      <div className="space-y-5 max-h-[320px] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-[#3cb8a6] scrollbar-track-gray-200">
+      <div className="space-y-5 max-h-[320px] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-[#3cb8a6] scrollbar-track-zinc-200">
         {filteredComments.reverse().map((comment) => (
           <div
             key={comment.id}
@@ -216,7 +216,7 @@ const Comments = ({ placeId }) => {
 
                 <p>{comment.text}</p>
 
-                <small className="text-xs text-gray-500">
+                <small className="text-xs text-zinc-500">
                   {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
                 </small>
 

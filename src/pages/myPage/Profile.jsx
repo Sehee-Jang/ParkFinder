@@ -73,7 +73,7 @@ const Profile = () => {
       <img
         id="imgPrev"
         src={user.avatar || defaultImage}
-        className="rounded-full mt-2 border border-gray-400 ... size-60"
+        className="rounded-full mt-2 border border-zinc-400 ... size-60"
       />
       <div className="mx-10">
         <h1 className="text-5xl">
@@ -90,7 +90,7 @@ const Profile = () => {
             <span className="text-teal-500">닉네임 : </span>
             {isEdit ? (
               <input
-                className="rounded-md border border-gray-300 ..."
+                className="rounded-md border border-zinc-300 ..."
                 maxLength="12em"
                 ref={inputRef}
                 onChange={(e) => {
@@ -121,7 +121,7 @@ const Profile = () => {
             <h2 className="text-2xl">
               <input
                 type="file"
-                className="rounded-md border border-gray-300 ..."
+                className="rounded-md border border-zinc-300 ..."
                 maxLength="12em"
                 onChange={(e) => {
                   handleImageChange(e);
