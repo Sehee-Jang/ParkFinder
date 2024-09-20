@@ -117,7 +117,6 @@ const Sidebar = () => {
                     {data.distance >= 1000 ? `${(data.distance / 1000).toFixed(1)}km` : `${data.distance}m`}
                   </div>
                 </div>
-                <BookmarkButton place={data} userId={user?.id} />
                 <button
                   onClick={() => {
                     setIsSidebarDetailOpen(true);
@@ -125,7 +124,7 @@ const Sidebar = () => {
                 >
                   상세보기
                 </button>
-                <BookmarkButton place={data} userId={USER_ID} />
+                <BookmarkButton place={data} userId={user?.id} />
               </li>
             ))}
           </ul>

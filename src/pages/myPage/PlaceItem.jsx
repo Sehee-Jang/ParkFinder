@@ -1,5 +1,5 @@
 import React from "react";
-import BookmarkButton from "./BookmarkButton";
+import BookmarkButton from "../../components/BookmarkButton";
 
 const PlaceItem = ({ place, USER_ID }) => {
   return (

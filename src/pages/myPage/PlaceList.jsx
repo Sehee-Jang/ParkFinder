@@ -1,7 +1,7 @@
 import React from "react";
 import PlaceItem from "./PlaceItem";
-import { useGetPlaces } from "../hooks/useGetPlaces";
-import useAuthStore from "../zustand/authStore";
+import { useGetPlaces } from "../../hooks/useGetPlaces";
+import useAuthStore from "../../zustand/authStore";
 
 const PlaceList = () => {
   const { user } = useAuthStore();
