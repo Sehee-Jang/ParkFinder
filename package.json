@@ -8,10 +8,11 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "json-server": "json-server --watch db.json --port 5000"
+    "json-server": "json-server --watch db.json --port 5001"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.56.2",
+    "@tanstack/react-query-devtools": "^5.56.2",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.7",
     "postcss": "^8.4.47",

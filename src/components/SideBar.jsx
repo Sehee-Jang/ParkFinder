@@ -45,9 +45,6 @@ const Sidebar = ({ handleLogout }) => {
             <input className="w-full h-[40px] rounded-[8px] pl-4" placeholder="주차장" />
           </div>
         </div>
-        <Link to="/bookmarkhome" className="mb-4 hover:text-gray-400">
-          북마크 테스트
-        </Link>
       </nav>
     </aside>
   );
