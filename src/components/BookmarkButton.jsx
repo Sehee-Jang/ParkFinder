@@ -22,17 +22,19 @@ const BookmarkButton = ({ place, userId }) => {
   };
 
   return (
-    <button
-      onClick={(e) => {
-        e.stopPropagation();
-        handleClick();
-      }}
-      className={`rounded-lg text-white font-semibold focus:outline-none ${
-        isBookmarked() ? "bg-teal-500" : "bg-teal-100"
-      } transition-colors duration-300`}
-    >
-      {isBookmarked() ? "★" : "☆"}
-    </button>
+    <>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleClick();
+        }}
+        className={`rounded-lg text-white font-semibold focus:outline-none ${
+          isBookmarked() ? "bg-teal-500" : "bg-teal-100"
+        } transition-colors duration-300`}
+      >
+        {isBookmarked() ? "★" : "☆"}
+      </button>
+    </>
   );
 };
 
