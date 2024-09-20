@@ -20,37 +20,67 @@ const fetchPlace = async (id) => {
   }
 };
 
-const handleBookmarkToggle = async ({ id, userId, bookmarked }) => {
+const createPlaceAndUpdate = async ({ place, userId }) => {
+  // throw new Error("테스트용 에러");
+
   try {
-    const response = await fetchPlace(id);
-    // 장소 데이터를 id 값으로  하나만 가져옴
+    const places = await fetchPlaces();
 
-    // 즐겨찾기 상태 업데이트 하는건데 현재 사용자가 해당 게시물에 좋아요를 눌려져 있는 상태에서
-    // 해당 함수를 호출한 거라면 그 유저의 ID 값은 빼고 나머지를 bookmarkData에 담음
+    // places에 인자로 전달받은 place가 존재하는지의 여부
+    const existingPlace = places.find((existingPlace) => existingPlace.id === place.id);
 
-    // 그게 아니라면 현재 유저의 ID를 포함한 데이터를 bookmarkData에 담음
-
-    const bookmarkData = bookmarked
-      ? response.data.bookmarks.filter((bookmark) => bookmark.userId !== userId)
-      : [...response.data.bookmarks, { userId }];
-
-    //id값에 해당하는 게시물의 bookmarks(회원 ID 리스트)를 bookmarkData로 업뎃!
-    await axios.patch(`${API_URL}/${id}`, { bookmarks: bookmarkData });
-
-    return response;
+    if (existingPlace) {
+      return await updateBookmark(existingPlace, userId);
+    } else {
+      return await createNewPlace(place, userId);
+    }
   } catch (error) {
-    console.error("updateBookMark 즐겨찾기 업데이트 오류 => ", error);
+    console.error("장소 확인 중 오류 발생:", error);
+  }
+};
+
+// 북마크 업데이트 함수
+const updateBookmark = async (existingPlace, userId) => {
+  try {
+    //유저 아이디 여부
+    const userBookmarkExists = existingPlace.bookmarks.some((bookmark) => bookmark.userId === userId);
+
+    if (userBookmarkExists) {
+      // 유저의 아이디가 다른 것만 반환
+      existingPlace.bookmarks = existingPlace.bookmarks.filter((bookmark) => bookmark.userId !== userId);
+    } else {
+      existingPlace.bookmarks.push({ userId });
+    }
+
+    // 조건문에 따른 데이터를 업데이트함
+    const response = await axios.patch(`${API_URL}/${existingPlace.id}`, existingPlace);
+    return response.data;
+  } catch (error) {
+    console.error("북마크 업데이트 중 오류 발생:", error);
+  }
+};
+
+// 새로운 장소 생성 함수
+const createNewPlace = async (place, userId) => {
+  try {
+    const bookmarkData = {
+      id: place.id,
+      title: place.place_name,
+      address_name: place.address_name,
+      bookmarks: [{ userId }]
+    };
+
+    const response = await axios.post(API_URL, bookmarkData);
+    return response.data;
+  } catch (error) {
+    console.error("새로운 장소 생성 중 오류 발생:", error);
   }
 };
 
 const bookmarkApi = {
   fetchPlace,
   fetchPlaces,
-  handleBookmarkToggle
+  createPlaceAndUpdate
 };
 
 export default bookmarkApi;
-
-//zustand  --> 클라이언트 딴 전역 상태 관리
-//
-//tanStack Query ->> 서버 상태 관리

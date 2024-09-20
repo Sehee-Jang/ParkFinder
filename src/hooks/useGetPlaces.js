@@ -3,7 +3,7 @@ import bookmarkApi from "../api/bookmark";
 
 export const useGetPlaces = () => {
   return useQuery({
-    queryKey: ["posts"],
-    queryFn: bookmarkApi.fetchPlaces,
+    queryKey: ["places"],
+    queryFn: bookmarkApi.fetchPlaces
   });
 };
