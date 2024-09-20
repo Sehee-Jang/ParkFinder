@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "../components/ProtectedRoute";
-import Home from "../pages/Home";
+import Home from "../pages/main/Home";
 import Login from "../pages/join/Login";
 import Signup from "../pages/join/Signup";
-import MyPage from "../pages/MyPage";
+import MyPage from "../pages/myPage/MyPage";
 import MainLayout from "../components/MainLayout";
 import SubLayout from "../components/SubLayout";
 
@@ -13,8 +13,6 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
         </Route>
         <Route path="/" element={<SubLayout />}>
           <Route

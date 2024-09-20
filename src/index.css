@@ -2,104 +2,130 @@
 @tailwind components;
 @tailwind utilities;
 
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
+/* Pretendard */
+@font-face {
+  font-family: "Pretendard";
+  src: local(Pretendard-Thin), url("../assets/fonts/Pretendard-Thin.subset.woff2") format("woff2"),
+    url("../assets/fonts/Pretendard-Thin.subset.woff") format("woff");
+  font-weight: 100;
 }
-
-#root {
-  width: 100%;
+@font-face {
+  font-family: "Pretendard";
+  src: local(Pretendard-Light), url("../assets/fonts/Pretendard-Light.subset.woff2") format("woff2"),
+    url("../assets/fonts/Pretendard-Light.subset.woff") format("woff");
+  font-weight: 300;
 }
-
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+@font-face {
+  font-family: "Pretendard";
+  src: local(Pretendard-Regular), url("../assets/fonts/Pretendard-Regular.subset.woff2") format("woff2"),
+    url("../assets/fonts/Pretendard-Regular.subset.woff") format("woff");
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
-a {
+@font-face {
+  font-family: "Pretendard";
+  src: local(Pretendard-Medium), url("../assets/fonts/Pretendard-Medium.subset.woff2") format("woff2"),
+    url("../assets/fonts/Pretendard-Medium.subset.woff") format("woff");
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
+@font-face {
+  font-family: "Pretendard";
+  src: local(Pretendard-SemiBold), url("../assets/fonts/Pretendard-SemiBold.subset.woff2") format("woff2"),
+    url("../assets/fonts/Pretendard-SemiBold.subset.woff") format("woff");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: local(Pretendard-Bold), url("../assets/fonts/Pretendard-Bold.subset.woff2") format("woff2"),
+    url("../assets/fonts/Pretendard-Bold.subset.woff") format("woff");
+  font-weight: 700;
 }
 
-body {
-  margin: 0;
+@layer base {
+  /* 구글 아이콘을 위한 스타일 속성 */
+  .material-symbols-rounded {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3); /* 스크롤바 색상 */
+    border-radius: 12px; /* 스크롤바 둥근 테두리 */
+    background-clip: padding-box;
+    border: 5px solid transparent;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--beige-color); /* 스크롤바 뒷 배경 색상 */
+  }
+  ::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@layer components {
+}
+
+.contents {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: row;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.sidebar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  transition: 0.2s;
+}
+.sidebar.closed {
+  margin-left: -390px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.sidebar-container {
+  width: 390px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-right: 1px solid #ddd; /* gray color */
+  overflow-y: auto;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-/* 구글 아이콘을 위한 스타일 속성 */
-.material-symbols-rounded {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+.sidebar-open-btn {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  background-color: white;
+  width: 30px;
+  height: 80px;
+  border: 1px solid #ddd;
+  border-left: 0;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .map-container {
   position: relative;
 }
 
-.overlay {
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  background-color: white;
+.overlay-map {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #71717a;
 }
-
-.arrow {
+.overlay-map .arrow {
   width: 20px;
   height: 10px;
   overflow: hidden;
@@ -108,23 +134,16 @@ button:focus-visible {
   left: 50%;
   transform: translateX(-50%);
 }
-
-.arrow::before {
+.overlay-map .arrow::before {
   content: "";
   width: 12px;
   height: 12px;
-  border: 1px solid #bbb;
-  background-color: white;
+  background-color: #71717a;
   transform: rotate(45deg);
   transform-origin: 0 0;
   position: absolute;
   bottom: 6px;
   left: 50%;
-}
-
-.place-name {
-  font-size: 16px;
-  padding: 10px 5px 10px 10px;
 }
 
 .detail-link {
@@ -162,48 +181,6 @@ button:focus-visible {
 .keyword-btn:hover {
   background-color: #f0ad4e; /* warning color */
 }
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  bottom: 0;
-  transition: 0.2s;
-  display: flex;
-  flex-direction: row;
-}
-.sidebar.closed {
-  transform: translateX(-100%);
-}
-
-.sidebar-container {
-  width: 390px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-right: 1px solid #ddd; /* gray color */
-  overflow-y: auto;
-}
-
-.sidebar-open-btn {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  right: -30px;
-  transform: translateY(-50%);
-  background-color: white;
-  width: 30px;
-  height: 80px;
-  border: 1px solid #ddd;
-  border-left: 0;
-  transition: 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
-
-/* .sidebar-open-btn.closed {
-  right: -30px;
-} */
 
 .list {
   padding: 0;
@@ -297,6 +274,11 @@ button:focus-visible {
 }
 
 .detail-wrap {
+  position: absolute;
+  top: 0;
+  right: calc((100% + 24px) * -1);
+  width: calc(100% + 24px);
+  height: 100vh;
   padding: 24px 0 24px 24px;
 }
 .detail-container {
@@ -320,44 +302,33 @@ button:focus-visible {
   }
 }
 
-.go-back-button {
+.my-location-button {
   position: absolute;
   bottom: 20px;
   right: 20px;
   z-index: 10;
-  width: 55px;
-  height: 55px;
-  background: no-repeat white url("https://cdn-icons-png.flaticon.com/128/406/406217.png") center/contain;
-  background-size: 70%;
-  border-radius: 10px;
-  border: 1px solid #6c757d; /* secondary color */
-}
-.go-back-txt {
-  position: absolute;
-  bottom: 30px;
-  right: 80px;
-  z-index: 10;
-  width: 90px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 20px;
-  text-align: center;
-  color: white;
-  background-color: #007bff; /* primary color */
+  width: 52px;
+  height: 52px;
+  background-image: url("assets/images/my-location@2x.png");
+  background-position: 50% 50%;
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .re-search {
   position: fixed;
-  color: white;
-  font-size: 14px;
-  text-align: center;
-  bottom: 80px;
-  transform: translateX(-50%);
+  bottom: 50px;
   left: 50%;
   z-index: 10;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 16px;
+  text-align: center;
   width: 160px;
   height: 40px;
-  line-height: 40px;
-  border-radius: 30px;
-  background-color: #007bff; /* primary color */
+  border-radius: 8px;
+  background-color: #14b8a6;
 }
