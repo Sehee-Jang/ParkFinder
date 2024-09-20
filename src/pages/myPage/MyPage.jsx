@@ -1,6 +1,6 @@
 import React from "react";
 import Bookmark from "../../components/Bookmark";
-import Profile from "../../components/Profile";
+import Profile from "./Profile";
 
 const MyPage = () => {
   return (
