@@ -23,8 +23,6 @@ const KakaoMap = () => {
   } = useMapStore();
   const { moveLatLng, searchPlaces } = useMapActions();
 
-  console.log(location);
-
   // 컴포넌트가 처음 로드될 때 사용자 위치를 가져옴
   useEffect(() => {
     getUserCurrentPosition();
