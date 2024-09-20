@@ -16,14 +16,14 @@ const Comments = ({ placeId }) => {
   //사용자가 로그인 했는지 확인하는 함수
   const isLoggedIn = !!user && user.success;
 
-  // 최신 유저 정보 가져오기
+  //최신 유저 정보 가져오기
   const { data: latestUserInfo } = useQuery({
     queryKey: ["userInfo", user?.id],
     queryFn: () => getUserProfile(token),
     enabled: !!user && !!token // 유저와 토큰이 있을 때만 쿼리 실행
   });
 
-  // 유저 정보 업데이트
+  //유저 정보 업데이트
   useEffect(() => {
     if (latestUserInfo) {
       setUser(latestUserInfo);
@@ -41,12 +41,12 @@ const Comments = ({ placeId }) => {
     queryFn: () => fetchComments(placeId)
   });
 
-  // 최신 프로필 정보와 댓글 데이터 결합 (클라이언트 측 업데이트)
+  //최신 프로필 정보와 댓글 데이터 결합 (클라이언트 측 업데이트)
   const updatedComments = useMemo(() => {
     if (!comments) return [];
     return comments.map((comment) => {
       if (comment.userId === user?.id) {
-        // 현재 로그인한 사용자의 댓글인 경우, 최신 프로필 정보로 업데이트
+        //현재 로그인한 사용자의 댓글인 경우, 최신 프로필 정보로 업데이트
         return {
           ...comment,
           nickname: user.nickname,
@@ -57,7 +57,7 @@ const Comments = ({ placeId }) => {
     });
   }, [comments, user]);
 
-  // 새 댓글 생성
+  //새 댓글 생성
   const { mutate: add } = useMutation({
     mutationFn: (comment) => postComment({ ...comment, placeId }),
     onSuccess: () => {
@@ -67,7 +67,7 @@ const Comments = ({ placeId }) => {
     }
   });
 
-  // 댓글 삭제
+  //댓글 삭제
   const { mutate: remove } = useMutation({
     mutationFn: deleteComment,
     onSuccess: () => {
@@ -76,25 +76,25 @@ const Comments = ({ placeId }) => {
     }
   });
 
-  // 댓글 수정 (낙관적 업데이트 적용)
+  //댓글 수정 (낙관적 업데이트 적용)
   const { mutate: edit } = useMutation({
     mutationFn: updateComment,
     onMutate: async ({ id, text }) => {
-      // 이전 쿼리 데이터 취소
+      //이전 쿼리 데이터 취소
       await queryClient.cancelQueries(["comments", placeId]);
 
-      // 이전 값의 스냅샷 저장
+      //이전 값의 스냅샷 저장
       const previousComments = queryClient.getQueryData(["comments", placeId]);
 
-      // 새 댓글로 캐시를 즉시 업데이트
+      //새 댓글로 캐시를 즉시 업데이트
       queryClient.setQueryData(["comments", placeId], (old) =>
         old.map((comment) => (comment.id === id ? { ...comment, text } : comment))
       );
 
-      // 수정 모드 즉시 종료
+      //수정 모드 즉시 종료
       setEditingComment(null, "");
 
-      // 이전 값 오류때 쓸 수도 있으니 리턴해줌
+      //이전 값 오류때 쓸 수도 있으니 리턴해줌
       return { previousComments };
     },
     onError: (err, newComment, context) => {
@@ -103,12 +103,12 @@ const Comments = ({ placeId }) => {
       alert("댓글 수정 중 오류 발생했습니다!" + err.message);
     },
     onSettled: () => {
-      // 성공 여부와 관계없이 쿼리를 다시 불러옴
+      //성공 여부와 관계없이 쿼리를 다시 불러옴
       queryClient.invalidateQueries(["comments", placeId]);
     }
   });
 
-  // 댓글 수정 제출 핸들러 함수
+  //댓글 수정 제출 핸들러 함수
   const handleEditSubmit = (e) => {
     e.preventDefault();
     if (editingComment.text.trim() !== "") {
@@ -118,7 +118,7 @@ const Comments = ({ placeId }) => {
     setEditingComment(null, "");
   };
 
-  // 댓글 제출 핸들러 함수
+  //댓글 제출 핸들러 함수
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -137,7 +137,7 @@ const Comments = ({ placeId }) => {
     }
   };
 
-  // 로딩 상태 및 에러 처리
+  //로딩 상태 및 에러 처리
   if (isPending) return <div>로딩 중...</div>;
   if (isError) return <div>에러 발생: {error.message}</div>;
 
@@ -156,7 +156,7 @@ const Comments = ({ placeId }) => {
             className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#3cb8a6] "
           />
           <div className="flex flex-row justify-end">
-            <button type="submit" className=" px-4 py-2 bg-[#3cb8a6] text-white rounded-md hover:bg-[#2a9d8a]">
+            <button type="submit" className="px-4 py-2 bg-[#3cb8a6] text-white rounded-md hover:bg-[#2a9d8a]">
               댓글 작성
             </button>
           </div>
@@ -171,63 +171,59 @@ const Comments = ({ placeId }) => {
           <div key={comment.id} className="bg-white p-4 rounded-lg border shadow">
             {/* 수정 모드일 때 댓글 수정폼 표시 */}
             {editingComment.id === comment.id ? (
-              <>
-                <form onSubmit={handleEditSubmit}>
-                  <textarea
-                    value={editingComment.text}
-                    onChange={(e) => setEditingComment(comment.id, e.target.value)}
-                    placeholder="수정하시려는 내용을 입력해주세요."
-                    className="w-full border p-1 rounded-md"
-                  />
-                  <div className="flex flex-row justify-end gap-1">
-                    <button type="submit" className="px-2 py-1 text-sm rounded hover:bg-blue-300 hover:text-white">
-                      완료
+              <form onSubmit={handleEditSubmit}>
+                <textarea
+                  value={editingComment.text}
+                  onChange={(e) => setEditingComment(comment.id, e.target.value)}
+                  placeholder="수정하시려는 내용을 입력해주세요."
+                  className="w-full border p-1 rounded-md"
+                />
+                <div className="flex flex-row justify-end gap-1">
+                  <button type="submit" className="px-2 py-1 text-sm rounded hover:bg-blue-300 hover:text-white">
+                    완료
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setEditingComment(null, "")}
+                    className="px-2 py-1 text-sm rounded hover:bg-red-300 hover:text-white"
+                  >
+                    취소
+                  </button>
+                </div>
+              </form>
+            ) : (
+              //일반 댓글 표시
+
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-row items-center gap-2">
+                  <img src={comment.avatar} alt={`${comment.nickname}의 프로필`} className="W-12 h-12 rounded-full" />
+                  <strong>{comment.nickname}</strong>
+                </div>
+
+                <p>{comment.text}</p>
+
+                <small className="text-xs text-gray-500">
+                  {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
+                </small>
+
+                {/* 자신의 댓글에만 수정/삭제 버튼 표시 */}
+                {isLoggedIn && user.id === comment.userId ? (
+                  <div className="flex flex-row justify-end items-center gap-1">
+                    <button
+                      onClick={() => setEditingComment(comment.id, comment.text)}
+                      className="px-2 py-1 text-sm rounded hover:bg-blue-300 hover:text-white"
+                    >
+                      수정
                     </button>
                     <button
-                      type="button"
-                      onClick={() => setEditingComment(null, "")}
+                      onClick={() => remove(comment.id)}
                       className="px-2 py-1 text-sm rounded hover:bg-red-300 hover:text-white"
                     >
-                      취소
+                      삭제
                     </button>
                   </div>
-                </form>
-              </>
-            ) : (
-              // 일반 댓글 표시
-              <>
-                {" "}
-                <div className="flex flex-col gap-4">
-                  <div className="flex flex-row items-center gap-2">
-                    <img src={comment.avatar} alt={`${comment.nickname}의 프로필`} className="W-12 h-12 rounded-full" />
-                    <strong>{comment.nickname}</strong>
-                  </div>
-
-                  <p>{comment.text}</p>
-
-                  <small className="text-xs text-gray-500">
-                    {comment.userId}_{new Date(comment.createdAt).toLocaleString()}
-                  </small>
-
-                  {/* 자신의 댓글에만 수정/삭제 버튼 표시 */}
-                  {isLoggedIn && user.id === comment.userId && (
-                    <div className="flex flex-row justify-end items-center gap-1">
-                      <button
-                        onClick={() => setEditingComment(comment.id, comment.text)}
-                        className="px-2 py-1 text-sm rounded hover:bg-blue-300 hover:text-white"
-                      >
-                        수정
-                      </button>
-                      <button
-                        onClick={() => remove(comment.id)}
-                        className="px-2 py-1 text-sm rounded hover:bg-red-300 hover:text-white"
-                      >
-                        삭제
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </>
+                ) : null}
+              </div>
             )}
           </div>
         ))}
