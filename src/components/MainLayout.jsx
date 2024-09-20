@@ -12,7 +12,7 @@ const MainLayout = () => {
   };
 
   return (
-    <div className="flex flex-row w-[1920px]">
+    <div className="contents">
       <Sidebar handleLogout={handleLogout} />
       <main className="flex-1">
         <Outlet />
