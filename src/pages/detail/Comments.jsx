@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useMemo } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import defaultImage from "../../asset/images/default_img.png";
+import defaultImage from "../../assets/images/default_img.png";
 
 const Comments = ({ placeId }) => {
   const { newComment, setNewComment, editingComment, setEditingComment } = useCommentStore();
@@ -199,7 +199,6 @@ const Comments = ({ placeId }) => {
               </form>
             ) : (
               //일반 댓글 표시
-
               <div className="flex flex-col gap-4">
                 <div className="flex flex-row items-center gap-2">
                   <img
