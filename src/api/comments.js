@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Axios 인스턴스 생성
 export const commentApi = axios.create({
-  baseURL: "http://localhost:5000/comments"
+  baseURL: "http://localhost:5001/comments"
 });
 
 // 서버에서 댓글 불러오는 함수
@@ -15,7 +15,6 @@ export const fetchComments = async () => {
 export const postComment = async (comment) => {
   const { data } = await commentApi.post("/", {
     ...comment,
-    userId: "s77772005", //임시로 ID 넣어놈.
     createdAt: new Date().toISOString()
   });
 
@@ -31,7 +30,7 @@ export const deleteComment = async (id) => {
 
 // 서버에서 댓글 수정하는 함수
 export const updateComment = async ({ id, text }) => {
-  const { data } = await commentApi.patch(`/${id}`, {
+  await commentApi.patch(`/${id}`, {
     text,
     createdAt: new Date().toISOString()
   });
