@@ -26,9 +26,9 @@ const Sidebar = () => {
     isSidebarDetailOpen,
     setIsSidebarDetailOpen
   } = useMapStore();
+
   const { moveLatLng, searchPlaces } = useMapActions();
   const { user, token, clearAuth } = useAuthStore();
-  const USER_ID = user?.id;
 
   // 클릭한 마커로 중심 좌표 이동 및 검색 수행 함수
   useEffect(() => {
@@ -111,7 +111,7 @@ const Sidebar = () => {
                 {/* 검색된 장소 상세 정보 표시 */}
                 <div className="flex justify-between mb-1">
                   <div className="text-lg font-bold leading-6 text-blue-500">{data.place_name}</div>
-                  <BookmarkButton place={data} userId={USER_ID} />
+                  <BookmarkButton place={data} userId={user?.id} />
                 </div>
                 <div className="text-sm text-zinc-400">{data.address_name}</div>
                 <div className="flex items-center justify-between">
@@ -139,7 +139,9 @@ const Sidebar = () => {
             <div className="flex justify-center gap-1 my-6">
               {Array.from({ length: pagination.last }).map((_, index) => (
                 <button
-                  className={`button button-xs button-border ${currentPage === index + 1 ? "bg-teal-500 text-white hover:bg-teal-500 hover:text-white" : ""}`}
+                  className={`button button-xs button-border ${
+                    currentPage === index + 1 ? "bg-teal-500 text-white hover:bg-teal-500 hover:text-white" : ""
+                  }`}
                   key={index + 1}
                   onClick={() => setCurrentPage(index + 1)}
                 >
@@ -189,7 +191,10 @@ const Sidebar = () => {
 
       <button
         className={`sidebar-open-btn${isSidebarOpen ? "" : " closed"}`}
-        onClick={() => {setIsSidebarOpen(!isSidebarOpen); setIsSidebarDetailOpen(false);}}
+        onClick={() => {
+          setIsSidebarOpen(!isSidebarOpen);
+          setIsSidebarDetailOpen(false);
+        }}
       >
         <span className="material-symbols-rounded text-zinc-500">chevron_left</span>
       </button>

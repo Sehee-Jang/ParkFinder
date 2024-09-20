@@ -5,7 +5,7 @@ import useAuthStore from "../../zustand/authStore";
 import { getUserProfile } from "../../api/auth";
 import { useEffect } from "react";
 import { useMemo } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import defaultImage from "../../assets/images/default_img.png";
 
@@ -151,7 +151,6 @@ const Comments = ({ placeId }) => {
 
   return (
     <div>
-      <ToastContainer position="top-right" autoClose={1000} closeOnClick draggable transition:Bounce />
       {/* 로그인한 사용자만 댓글 작성 폼 표시*/}
       {isLoggedIn ? (
         <form onSubmit={handleSubmit} className="my-8">

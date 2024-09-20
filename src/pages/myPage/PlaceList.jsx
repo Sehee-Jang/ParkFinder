@@ -1,7 +1,7 @@
 import React from "react";
 import PlaceItem from "./PlaceItem";
-import { useGetPlaces } from "../hooks/useGetPlaces";
-import useAuthStore from "../zustand/authStore";
+import { useGetPlaces } from "../../hooks/useGetPlaces";
+import useAuthStore from "../../zustand/authStore";
 
 const PlaceList = () => {
   const { user } = useAuthStore();
@@ -15,9 +15,8 @@ const PlaceList = () => {
   const filteredPlaces = data.filter((place) => place.bookmarks.some((bookmark) => bookmark.userId === USER_ID));
 
   return (
-    <div className="flex w-full flex-row items-center gap-[15px]">
+    <div className="grid grid-cols-4 gap-8 justify-items-center">
       {filteredPlaces.length ? (
-        // 데이터가 있는 경우 필터된 장소 리스트 렌더링
         filteredPlaces.map((place) => <PlaceItem key={place.id} place={place} USER_ID={USER_ID} />)
       ) : (
         <>북마크한 장소가 없습니다.</>
