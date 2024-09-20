@@ -175,7 +175,7 @@ const Comments = ({ placeId }) => {
       )}
 
       {/* 댓글 목록 표시 */}
-      <div className="space-y-5 max-h-[500px] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-[#3cb8a6] scrollbar-track-gray-200">
+      <div className="space-y-5 max-h-[320px] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-[#3cb8a6] scrollbar-track-gray-200">
         {filteredComments.reverse().map((comment) => (
           <div
             key={comment.id}
