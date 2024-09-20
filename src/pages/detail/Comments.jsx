@@ -5,6 +5,8 @@ import useAuthStore from "../../zustand/authStore";
 import { getUserProfile } from "../../api/auth";
 import { useEffect } from "react";
 import { useMemo } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Comments = ({ placeId }) => {
   const { newComment, setNewComment, editingComment, setEditingComment } = useCommentStore();
@@ -63,7 +65,7 @@ const Comments = ({ placeId }) => {
     onSuccess: () => {
       queryClient.invalidateQueries(["comments", placeId]);
 
-      alert("댓글이 추가되었습니다!");
+      toast.success("댓글이 추가되었습니다!");
     }
   });
 
@@ -72,7 +74,7 @@ const Comments = ({ placeId }) => {
     mutationFn: deleteComment,
     onSuccess: () => {
       queryClient.invalidateQueries(["comments", placeId]);
-      alert("댓글이 삭제되었습니다!");
+      toast.error("댓글이 삭제되었습니다!");
     }
   });
 
@@ -91,6 +93,8 @@ const Comments = ({ placeId }) => {
         old.map((comment) => (comment.id === id ? { ...comment, text } : comment))
       );
 
+      toast("댓글이 수정되었습니다!");
+
       //수정 모드 즉시 종료
       setEditingComment(null, "");
 
@@ -100,7 +104,7 @@ const Comments = ({ placeId }) => {
     onError: (err, newComment, context) => {
       //에러가 발생하면 이전 값으로 콜백
       queryClient.setQueryData(["comments", placeId], context.previousComments);
-      alert("댓글 수정 중 오류 발생했습니다!" + err.message);
+      toast.success("댓글 수정 중 오류 발생했습니다!" + err.message);
     },
     onSettled: () => {
       //성공 여부와 관계없이 쿼리를 다시 불러옴
@@ -146,6 +150,7 @@ const Comments = ({ placeId }) => {
 
   return (
     <div>
+      <ToastContainer position="top-right" autoClose={1000} closeOnClick draggable transition:Bounce />
       {/* 로그인한 사용자만 댓글 작성 폼 표시*/}
       {isLoggedIn ? (
         <form onSubmit={handleSubmit} className="my-8">
