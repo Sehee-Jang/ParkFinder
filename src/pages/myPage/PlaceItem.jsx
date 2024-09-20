@@ -13,7 +13,7 @@ const PlaceItem = ({ place, USER_ID }) => {
           <div className="text-[16px] font-bold">{place.title}</div>
           <BookmarkButton place={place} userId={USER_ID} />
         </div>
-        <div className="text-gray-500 text-[14px]">{place.address_name}</div>
+        <div className="text-zinc-500 text-[14px]">{place.address_name}</div>
       </div>
     </div>
   );
