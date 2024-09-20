@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import AuthForm from "../components/AuthForm";
-import { getUserProfile, login } from "../api/auth";
-import useAuthStore from "../zustand/authStore";
+import AuthForm from "../../components/AuthForm";
+import { getUserProfile, login } from "../../api/auth";
+import useAuthStore from "../../zustand/authStore";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,12 +26,22 @@ const Login = () => {
     }
   };
   return (
-    <div>
-      <h1>로그인</h1>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <div className="absolute top-4 left-4">
+        <Link to="/">
+          <span className="material-symbols-rounded">home</span>
+        </Link>
+      </div>
+
+      <h1 className="text-4xl font-bold text-black mb-10">PARK FINDER</h1>
       <AuthForm mode="login" onSubmit={handleLogin} />
-      <p>
-        계정이 없으신가요? <Link to="/signup">회원가입</Link>
+      <p className="text-gray-600 mt-6">
+        계정이 없으신가요?{" "}
+        <Link to="/signup" className="text-teal-500">
+          회원가입
+        </Link>
       </p>
+      <footer className="text-gray-600 mt-6">© 2024 Park Finder All Rights Reserved</footer>
     </div>
   );
 };
