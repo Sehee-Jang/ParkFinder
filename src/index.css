@@ -91,6 +91,10 @@
   }
 }
 
+
+#root {
+  width : 100%;
+}
 .contents {
   display: flex;
   flex-direction: row;
