@@ -2,7 +2,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import useAuthStore from "../zustand/authStore";
 import Sidebar from "./SideBar";
 
-const Layout = () => {
+const MainLayout = () => {
   const navigate = useNavigate();
   const { clearAuth } = useAuthStore();
 
@@ -12,7 +12,7 @@ const Layout = () => {
   };
 
   return (
-    <div className="flex flex-row w-[1920px]">
+    <div className="contents">
       <Sidebar handleLogout={handleLogout} />
       <main className="flex-1">
         <Outlet />
@@ -21,4 +21,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default MainLayout;

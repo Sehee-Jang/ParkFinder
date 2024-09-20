@@ -1,6 +1,6 @@
 import React from "react";
-import AuthForm from "../components/AuthForm";
-import { register } from "../api/auth";
+import AuthForm from "../../components/AuthForm";
+import { register } from "../../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
