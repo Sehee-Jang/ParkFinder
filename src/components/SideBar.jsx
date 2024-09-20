@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useAuthStore from "../zustand/authStore";
 import useMapStore from "../zustand/mapStore";
 import { useMapActions } from "../hooks/useMapActions";
 import BookmarkButton from "./BookmarkButton";
+import Comments from "../pages/detail/Comments";
 
 const Sidebar = () => {
   const { token, user, clearAuth } = useAuthStore();
@@ -23,9 +24,9 @@ const Sidebar = () => {
     isSidebarDetailOpen,
     setIsSidebarDetailOpen
   } = useMapStore();
+
   const { moveLatLng, searchPlaces } = useMapActions();
 
-  const navigate = useNavigate();
   // 클릭한 마커로 중심 좌표 이동 및 검색 수행 함수
   useEffect(() => {
     if (!map || !location.center) return;
@@ -39,6 +40,7 @@ const Sidebar = () => {
     searchPlaces();
     return false;
   };
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     clearAuth();
@@ -60,9 +62,9 @@ const Sidebar = () => {
                 <Link to="/mypage" className="py-2 hover:bg-blue-500 text-white">
                   마이페이지
                 </Link>
-                <Link className="py-2 hover:bg-blue-500 text-white" onClick={handleLogout}>
+                <button onClick={handleLogout} className="py-2 hover:bg-blue-500 text-white">
                   로그아웃
-                </Link>
+                </button>
               </div>
             </div>
           ) : (
@@ -123,6 +125,7 @@ const Sidebar = () => {
                 >
                   상세보기
                 </button>
+                <BookmarkButton place={data} userId={USER_ID} />
               </li>
             ))}
           </ul>
@@ -172,6 +175,11 @@ const Sidebar = () => {
                 )}
               </React.Fragment>
             ))}
+
+            {/* 댓글 컴포넌트  */}
+            <div>
+              <Comments placeId={openMarkerId} />
+            </div>
           </div>
         </div>
       )}

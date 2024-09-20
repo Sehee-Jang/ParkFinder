@@ -28,7 +28,6 @@ export const useMapActions = () => {
       `${keyword} 주차장`,
       (data, status, pagination) => {
         if (status === kakao.maps.services.Status.OK) {
-          console.log(data);
           displayPlaces(data);
 
           // 검색 결과만을 기준으로 지도 영역을 조정
