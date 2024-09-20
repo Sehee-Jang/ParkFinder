@@ -9,76 +9,22 @@
   ],
   "comments": [
     {
-      "id": "8cf1",
-      "text": "캠퍼스프라자아파트",
-      "userId": "jigong2024",
-      "nickname": "지공",
-      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
-      "placeId": "1100855572",
-      "createdAt": "2024-09-19T05:42:32.718Z"
-    },
-    {
-      "id": "05ae",
-      "text": "여기 주차공간 개별로,,,\n다른곳 가서 주차하세요~!!!!",
-      "userId": "jigong2024",
-      "nickname": "지공",
-      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
-      "placeId": "775806830",
-      "createdAt": "2024-09-19T07:15:07.891Z"
-    },
-    {
-      "id": "ec5f",
-      "text": "삼진빌딩 주차장",
-      "userId": "jigong2024",
-      "nickname": "지공",
-      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
-      "placeId": "1136543822",
-      "createdAt": "2024-09-19T05:42:48.708Z"
-    },
-    {
-      "id": "21bb",
-      "text": "웅진 빌딩 주차장",
-      "userId": "jigong2024",
-      "nickname": "지공",
-      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
-      "placeId": "823353108",
-      "createdAt": "2024-09-19T05:42:58.889Z"
-    },
-    {
       "id": "89c5",
-      "text": "한림타워 주차장\n",
+      "text": "나름 괜찮았아요!\n",
       "userId": "chlwlals",
       "nickname": "최햄식",
       "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
       "placeId": "775806830",
-      "createdAt": "2024-09-19T05:43:29.699Z"
-    },
-    {
-      "id": "818a",
-      "text": "캠퍼스프라자아파트 유료 주차장\n",
-      "userId": "chlwlals",
-      "nickname": "최햄식",
-      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
-      "placeId": "1100855572",
-      "createdAt": "2024-09-19T05:43:45.046Z"
+      "createdAt": "2024-09-20T01:49:54.079Z"
     },
     {
       "id": "ee39",
-      "text": "삼진빌딩 주차장",
+      "text": "주차공간이 조금 좁네요 ㅠㅠ",
       "userId": "chlwlals",
       "nickname": "최햄식",
       "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
       "placeId": "1136543822",
-      "createdAt": "2024-09-19T05:43:58.776Z"
-    },
-    {
-      "id": "874f",
-      "text": "ㅎㅎㅎ",
-      "userId": "jigong2024",
-      "nickname": "지공",
-      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/80f8db84-3c6c-473b-ab72-9e2ea476b1e7.jpg",
-      "placeId": "1100855572",
-      "createdAt": "2024-09-19T07:20:59.010Z"
+      "createdAt": "2024-09-20T01:50:08.060Z"
     },
     {
       "id": "9017",
@@ -160,6 +106,69 @@
       "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/d4c64075-d44c-4006-ba9c-8e687a7ac201.jpg",
       "placeId": "1100855572",
       "createdAt": "2024-09-19T08:11:25.257Z"
+    },
+    {
+      "id": "b972",
+      "text": "주차장이 너무 비싸요!",
+      "userId": "chlwlals",
+      "nickname": "초코",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
+      "placeId": "1100855572",
+      "createdAt": "2024-09-19T12:25:22.329Z"
+    },
+    {
+      "id": "b7db",
+      "text": "주차공간이 좁아서 초보운전자에게는 어려울 것 같아요.",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-20/b422377d-a09b-487c-9ee3-1bafa5187b06.jpg",
+      "placeId": "1100855572",
+      "createdAt": "2024-09-20T01:46:56.759Z"
+    },
+    {
+      "id": "3816",
+      "text": "위치가 좋아서 주차하고 어디든 가기 편해요~",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-20/b422377d-a09b-487c-9ee3-1bafa5187b06.jpg",
+      "placeId": "775806830",
+      "createdAt": "2024-09-20T01:47:14.296Z"
+    },
+    {
+      "id": "59ae",
+      "text": "주차 요원이 친절하세요 :)",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-20/b422377d-a09b-487c-9ee3-1bafa5187b06.jpg",
+      "placeId": "1136543822",
+      "createdAt": "2024-09-20T01:47:30.138Z"
+    },
+    {
+      "id": "bd36",
+      "text": "시간당 주차료가 조금 비싼감이 있지만 주차공간이 넓어서 좋았네요~~",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-20/b422377d-a09b-487c-9ee3-1bafa5187b06.jpg",
+      "placeId": "823353108",
+      "createdAt": "2024-09-20T01:48:07.422Z"
+    },
+    {
+      "id": "ffc7",
+      "text": "good!",
+      "userId": "jigong2025",
+      "nickname": "빵빵이",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/a7984935-cd8f-47f4-90dd-9e2f8d3498b5.jpg",
+      "placeId": "823353108",
+      "createdAt": "2024-09-20T01:49:06.917Z"
+    },
+    {
+      "id": "13f7",
+      "text": "위치가 좋네요~",
+      "userId": "chlwlals",
+      "nickname": "햄식이",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
+      "placeId": "823353108",
+      "createdAt": "2024-09-20T01:50:19.845Z"
     }
   ],
   "posts": [

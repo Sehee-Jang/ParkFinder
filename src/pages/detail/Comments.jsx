@@ -162,7 +162,7 @@ const Comments = ({ placeId }) => {
           </div>
         </form>
       ) : (
-        <p className="my-8 text-gray-600">댓글을 작성하려면 로그인을 해주세요.</p>
+        <p className="my-20 text-gray-600">댓글을 작성하려면 로그인을 해주세요.</p>
       )}
 
       {/* 댓글 목록 표시 */}
