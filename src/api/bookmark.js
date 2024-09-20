@@ -1,11 +1,6 @@
 import axios from "axios";
 
-<<<<<<< HEAD
-const API_URL = "http://localhost:5001/posts";
-=======
-// const API_URL = "http://localhost:5000/posts";
 const API_URL = "http://localhost:5001/places";
->>>>>>> f315956ce113b03a039190178e995edfc0123f29
 
 const fetchPlaces = async () => {
   try {
