@@ -4,7 +4,7 @@ import { getUserProfile, updateProfile } from "../../api/auth";
 import useAuthStore from "../../zustand/authStore";
 
 const Profile = () => {
-  //로컬 스토리지에서 userAccessToken 가져옴 => 추후 세션 스토리지 방식으로 변경 시 세션 스토리지 방식으로 변경 필요
+  // 로컬 스토리지에서 userAccessToken 가져옴 => 추후 세션 스토리지 방식으로 변경 시 세션 스토리지 방식으로 변경 필요
   // const localAccessToken = localStorage.getItem("accessToken");
   const { token } = useAuthStore();
 
