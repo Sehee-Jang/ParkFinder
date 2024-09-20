@@ -41,9 +41,7 @@ const KakaoMap = () => {
     };
   }, [map]);
 
-  useEffect(() => {
-    
-  },[isSidebarOpen])
+  useEffect(() => {}, [isSidebarOpen]);
 
   // 현재 위치로 돌아가기
   const handleGoBack = () => {
@@ -81,7 +79,7 @@ const KakaoMap = () => {
 
   return (
     <>
-      <div className="map-container">
+      <div className="relative">
         {/* 지도 컴포넌트 */}
         <Map center={location.center} style={{ width: "100%", height: "100vh" }} level={3} onCreate={setMap}>
           {/* 현재 위치 마커 표시 */}
@@ -89,15 +87,15 @@ const KakaoMap = () => {
             position={location.center}
             image={{
               src: myLocation,
-              size: { width: 24, height: 24 }
+              size: { width: 42, height: 42 }
             }}
           />
-          {/* 현재 내 위치로 돌아가는 버튼 */}
-          <button className="my-location-button" onClick={handleGoBack} />
           {/* 현 지도에서 키워드 재검색 버튼 */}
-          <button className="re-search" onClick={handleReSearch}>
+          <button className="button button-sm re-search" onClick={handleReSearch}>
             현 지도 내 검색
           </button>
+          {/* 현재 위치 버튼 */}
+          <button className="my-location-button" onClick={handleGoBack} />
 
           {/* 검색된 장소 마커 표시 */}
           {searchs.map((data) => (
@@ -107,13 +105,13 @@ const KakaoMap = () => {
                 position={{ lat: data.y, lng: data.x }}
                 image={{
                   src: pinMarker,
-                  size: { width: 34, height: 34 }
+                  size: { width: 32, height: 48 }
                 }}
                 onClick={() => handleMapMarker(data)}
               />
               {/* 해당 마커에 커스텀 오버레이 표시 */}
               {openMarkerId === data.id && (
-                <CustomOverlayMap yAnchor={2.1} position={{ lat: data.y, lng: data.x }} clickable>
+                <CustomOverlayMap yAnchor={2.6} position={{ lat: data.y, lng: data.x }} clickable>
                   <div className="overlay-map">
                     <span>{data.place_name}</span>
                     <span className="arrow" />
