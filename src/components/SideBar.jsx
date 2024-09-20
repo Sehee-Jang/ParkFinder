@@ -4,6 +4,7 @@ import useAuthStore from "../zustand/authStore";
 import useMapStore from "../zustand/mapStore";
 import { useMapActions } from "../hooks/useMapActions";
 import BookmarkButton from "./BookmarkButton";
+import Comments from "../pages/detail/Comments";
 
 const Sidebar = () => {
   const { token } = useAuthStore();
@@ -166,6 +167,11 @@ const Sidebar = () => {
                 )}
               </React.Fragment>
             ))}
+
+            {/* 댓글 컴포넌트  */}
+            <div>
+              <Comments placeId={openMarkerId} />
+            </div>
           </div>
         </div>
       )}
