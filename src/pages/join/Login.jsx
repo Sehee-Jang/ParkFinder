@@ -20,6 +20,7 @@ const Login = () => {
       // console.log("userProfile => ", userProfile);
 
       setAuth(userProfile, loginData.accessToken);
+    
       navigate("/"); // 로그인 후 홈으로 이동
     } catch (error) {
       alert("로그인에 실패했습니다. 다시 시도해주세요.");
