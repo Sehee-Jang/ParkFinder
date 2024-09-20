@@ -2,11 +2,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "../components/ProtectedRoute";
 import BookmarkTestHome from "../pages/bookmarkTest/bookmarkTestHome";
 import BookmarkTestMyPage from "../pages/bookmarkTest/bookmarkTestMyPage";
-import MainLayout from "../components/MainLayout";
-import Home from "../pages/main/Home";
+import Home from "../pages/Home";
 import Login from "../pages/join/Login";
 import Signup from "../pages/join/Signup";
-import MyPage from "../pages/myPage/MyPage";
+import MyPage from "../pages/MyPage";
+import { useState } from "react";
+import MainLayout from "../components/MainLayout";
+import SubLayout from "../components/SubLayout";
 
 const Router = () => {
   return (
@@ -14,12 +16,10 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
           <Route
             path="/bookmarkhome"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute authOnly={true}>
                 <BookmarkTestHome />
               </ProtectedRoute>
             }
@@ -27,21 +27,38 @@ const Router = () => {
           <Route
             path="/bookmarkmypage"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute authOnly={true}>
                 <BookmarkTestMyPage />
               </ProtectedRoute>
             }
           />
         </Route>
-
-        <Route
-          path="/mypage"
-          element={
-            <ProtectedRoute>
-              <MyPage />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/" element={<SubLayout />}>
+          <Route
+            path="/login"
+            element={
+              <ProtectedRoute>
+                <Login />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <ProtectedRoute>
+                <Signup />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mypage"
+            element={
+              <ProtectedRoute authOnly={true}>
+                <MyPage />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
