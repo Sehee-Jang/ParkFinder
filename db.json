@@ -21,31 +21,14 @@
       "createdAt": "2024-09-13T09:39:08.103Z"
     }
   ],
-  "posts": [
+  "places": [
     {
-      "id": "1",
-      "title": "만석공원 주차장",
+      "id": "17557862",
+      "title": "경기도교육청 주차장2",
+      "address_name": "경기 수원시 장안구 조원동 495",
       "bookmarks": [
         {
-          "userId": 17
-        },
-        {
-          "userId": 2
-        },
-        {
-          "userId": 13
-        },
-        {
-          "userId": 18
-        },
-        {
-          "userId": 7
-        },
-        {
-          "userId": 1
-        },
-        {
-          "userId": 15
+          "userId": "ryc456"
         },
         {
           "userId": "shdydcjf123"
@@ -53,113 +36,48 @@
       ]
     },
     {
-      "id": "2",
-      "title": "경남빌딩 주차장",
+      "id": "17555221",
+      "title": "경기도교육청 3주차장",
+      "address_name": "경기 수원시 장안구 조원동 495-2",
       "bookmarks": [
         {
-          "userId": 5
-        },
-        {
-          "userId": 15
-        },
-        {
-          "userId": 17
-        },
-        {
-          "userId": 12
-        },
-        {
-          "userId": 42
-        },
-        {
-          "userId": 4
-        },
-        {
-          "userId": 6
-        },
-        {
-          "userId": 11
-        },
-        {
-          "userId": 7
-        },
-        {
-          "userId": 10
+          "userId": "shdydcjf123"
         }
       ]
     },
     {
-      "id": "3",
-      "title": "골든타워 지하주차장",
+      "id": "17555270",
+      "title": "경기도교육청 주차장1",
+      "address_name": "경기 수원시 장안구 조원동 495",
       "bookmarks": [
-        {
-          "userId": 5
-        },
-        {
-          "userId": 15
-        },
-        {
-          "userId": 17
-        },
-        {
-          "userId": 7
-        },
-        {
-          "userId": 42
-        },
-        {
-          "userId": 4
-        },
-        {
-          "userId": 6
-        },
-        {
-          "userId": 11
-        },
-        {
-          "userId": 13
-        },
-        {
-          "userId": 16
-        },
-        {
-          "userId": 10
-        },
-        {
-          "userId": "ryc123"
-        },
         {
           "userId": "ryc456"
         }
       ]
     },
     {
-      "id": "4",
-      "title": "어쩔티비 주차장",
+      "id": "17557500",
+      "title": "경기도교육청 주차장4",
+      "address_name": "경기 수원시 장안구 조원동 476-1",
       "bookmarks": [
         {
-          "userId": 1
-        },
+          "userId": "shdydcjf123"
+        }
+      ]
+    },
+    {
+      "id": "398694450",
+      "title": "공영주차장",
+      "address_name": "제주특별자치도 제주시 추자면 대서리 4-41",
+      "bookmarks": [
         {
-          "userId": 12
-        },
-        {
-          "userId": 15
-        },
-        {
-          "userId": 17
-        },
-        {
-          "userId": 2
-        },
-        {
-          "userId": 4
-        },
-        {
-          "userId": 16
+          "userId": "ryc123"
         },
         {
           "userId": "shdydcjf123"
+        },
+        {
+          "userId": "ryc456"
         }
       ]
     }

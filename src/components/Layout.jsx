@@ -3,8 +3,9 @@ import useAuthStore from "../zustand/authStore";
 import Sidebar from "./SideBar";
 
 const Layout = () => {
-  const navigate = useNavigate();
   const { clearAuth } = useAuthStore();
+
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     clearAuth();
@@ -14,7 +15,7 @@ const Layout = () => {
   return (
     <div className="flex flex-row w-[1920px]">
       <Sidebar handleLogout={handleLogout} />
-      <main className="flex-1">
+      <main className="flex-1 w-3/4">
         <Outlet />
       </main>
     </div>

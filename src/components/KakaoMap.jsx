@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CustomOverlayMap, Map, MapMarker } from "react-kakao-maps-sdk";
+import BookmarkButton from "./BookmarkButton";
+import useAuthStore from "../zustand/authStore";
 // import { Link } from "react-router-dom";
 
 const { kakao } = window;
@@ -30,6 +32,10 @@ const KakaoMap = () => {
   const [isSidebarDetailOpen, setIsSidebarDetailOpen] = useState(false);
   // 마지막으로 이동한 지도의 중심 좌표 저장 상태 변수
   const [lastCenter, setLastCenter] = useState(null);
+
+  const { user } = useAuthStore();
+
+  const USER_ID = user?.id;
 
   console.log(isSidebarDetailOpen);
 
@@ -245,32 +251,35 @@ const KakaoMap = () => {
             </form>
             <ul className="list">
               {/* 검색된 장소들 목록으로 표시 */}
-              {search.map((data) => (
-                <li
-                  className={`item ${data.id === openMarkerId ? "selected" : ""}`}
-                  key={data.id}
-                  onClick={() => {
-                    setOpenMarkerId(data.id);
-                    moveLatLng(data);
-                  }}
-                >
-                  {/* 검색된 장소 상세 정보 표시 */}
-                  <div className="name">{data.place_name}</div>
-                  <div className="address">{data.address_name}</div>
-                  <div className="info-container">
-                    <div className="distance">
-                      {data.distance >= 1000 ? `${(data.distance / 1000).toFixed(1)}km` : `${data.distance}m`}
-                    </div>
-                  </div>
-                  <button
+              {search.map((data) => {
+                return (
+                  <li
+                    className={`item ${data.id === openMarkerId ? "selected" : ""}`}
+                    key={data.id}
                     onClick={() => {
-                      setIsSidebarDetailOpen(true);
+                      setOpenMarkerId(data.id);
+                      moveLatLng(data);
                     }}
                   >
-                    상세보기
-                  </button>
-                </li>
-              ))}
+                    {/* 검색된 장소 상세 정보 표시 */}
+                    <div className="name">{data.place_name}</div>
+                    <div className="address">{data.address_name}</div>
+                    <div className="info-container">
+                      <div className="distance">
+                        {data.distance >= 1000 ? `${(data.distance / 1000).toFixed(1)}km` : `${data.distance}m`}
+                      </div>
+                      <BookmarkButton place={data} userId={USER_ID} />
+                    </div>
+                    <button
+                      onClick={() => {
+                        setIsSidebarDetailOpen(true);
+                      }}
+                    >
+                      상세보기
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
             {/* 검색 결과가 없을 경우 표시 */}
             {search.length === 0 && <div className="no-list">검색된 결과가 없습니다.</div>}
