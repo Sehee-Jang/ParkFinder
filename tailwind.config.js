@@ -2,7 +2,10 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ["Pretendard", "Nanum Gothic", "Apple SD Gothic Neo", "Helvetica", "Arial", "sans-serif"]
+    },
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 };

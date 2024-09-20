@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import ProtectedRoute from "../components/ProtectedRoute";
-import BookmarkTestHome from "../pages/bookmarkTest/bookmarkTestHome";
-import BookmarkTestMyPage from "../pages/bookmarkTest/bookmarkTestMyPage";
+// import BookmarkTestHome from "../pages/bookmarkTest/bookmarkTestHome";
+// import BookmarkTestMyPage from "../pages/bookmarkTest/bookmarkTestMyPage";
 import MyPage from "../pages/MyPage/MyPage";
 import Login from "../pages/join/Login";
 import Signup from "../pages/join/Signup";
 import MainLayout from "../components/MainLayout";
 import SubLayout from "../components/SubLayout";
-import Home from "../pages/Home";
+import Home from "../pages/main/Home";
 
 const Router = () => {
   return (
@@ -16,7 +16,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route
+          {/* <Route
             path="/bookmarkhome"
             element={
               <ProtectedRoute authOnly={true}>
@@ -31,7 +31,7 @@ const Router = () => {
                 <BookmarkTestMyPage />
               </ProtectedRoute>
             }
-          />
+          /> */}
         </Route>
         <Route path="/" element={<SubLayout />}>
           <Route
