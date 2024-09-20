@@ -126,15 +126,6 @@
       "createdAt": "2024-09-20T01:46:56.759Z"
     },
     {
-      "id": "3816",
-      "text": "위치가 좋아서 주차하고 어디든 가기 편해요~!",
-      "userId": "jigong2024",
-      "nickname": "지공",
-      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-20/b422377d-a09b-487c-9ee3-1bafa5187b06.jpg",
-      "placeId": "775806830",
-      "createdAt": "2024-09-20T05:34:59.603Z"
-    },
-    {
       "id": "59ae",
       "text": "주차 요원이 친절하세요 :)",
       "userId": "jigong2024",
@@ -169,6 +160,33 @@
       "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-19/b4a750bf-b21e-4eb6-8693-bc7a6a6fa341.jpg",
       "placeId": "823353108",
       "createdAt": "2024-09-20T01:50:19.845Z"
+    },
+    {
+      "id": "3558",
+      "text": "여기 주차하기 괜찮은 것 같아요~~짱",
+      "userId": "jigong2024",
+      "nickname": "지공",
+      "avatar": "https://react-jwt-avatar.s3.ap-northeast-2.amazonaws.com/24-09-20/b422377d-a09b-487c-9ee3-1bafa5187b06.jpg",
+      "placeId": "775806830",
+      "createdAt": "2024-09-20T05:40:18.921Z"
+    },
+    {
+      "id": "311a",
+      "text": "zz",
+      "userId": "chlwlals1",
+      "nickname": "chlwlals",
+      "avatar": null,
+      "placeId": "1100855572",
+      "createdAt": "2024-09-20T05:41:35.691Z"
+    },
+    {
+      "id": "cfe5",
+      "text": "xx",
+      "userId": "chlwlals1",
+      "nickname": "chlwlals",
+      "avatar": null,
+      "placeId": "775806830",
+      "createdAt": "2024-09-20T05:52:27.008Z"
     }
   ],
   "posts": [
