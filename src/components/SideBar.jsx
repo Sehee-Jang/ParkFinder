@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useAuthStore from "../zustand/authStore";
 import useMapStore from "../zustand/mapStore";
 import { useMapActions } from "../hooks/useMapActions";
+import BookmarkButton from "./BookmarkButton";
 
 const Sidebar = () => {
   const { token } = useAuthStore();
@@ -23,6 +24,8 @@ const Sidebar = () => {
     setIsSidebarDetailOpen
   } = useMapStore();
   const { moveLatLng, searchPlaces } = useMapActions();
+  const { user } = useAuthStore();
+  const USER_ID = user?.id;
 
   // 클릭한 마커로 중심 좌표 이동 및 검색 수행 함수
   useEffect(() => {
@@ -113,6 +116,7 @@ const Sidebar = () => {
                 >
                   상세보기
                 </button>
+                <BookmarkButton place={data} userId={USER_ID} />
               </li>
             ))}
           </ul>
