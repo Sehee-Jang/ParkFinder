@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { getUserProfile, updateProfile } from "../../api/auth";
 import useAuthStore from "../../zustand/authStore";
 
+
 const Profile = () => {
   //로컬 스토리지에서 userAccessToken 가져옴 => 추후 세션 스토리지 방식으로 변경 시 세션 스토리지 방식으로 변경 필요
   // const localAccessToken = localStorage.getItem("accessToken");
@@ -65,7 +66,7 @@ const Profile = () => {
 
   return (
     <div className="flex items-center my-4 justify-center">
-      <img id ="imgPrev" src={user.avatar} className="rounded-full mt-2 border border-gray-400 ... size-60" />
+      <img id ="imgPrev" src={user.avatar || "public\images\og.jpg"} className="rounded-full mt-2 border border-gray-400 ... size-60" />
       <div className="mx-10">
         <h1>
           <span className="text-teal-500 font-bold">{user.nickname}님,</span>

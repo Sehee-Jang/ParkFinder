@@ -2,7 +2,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import useAuthStore from "../zustand/authStore";
 import Sidebar from "./SideBar";
 
-const Layout = () => {
+const MainLayout = () => {
   const navigate = useNavigate();
   const { clearAuth } = useAuthStore();
 
@@ -21,4 +21,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default MainLayout;
