@@ -41,8 +41,8 @@ const Profile = () => {
     mutationFn: (formData) => updateProfile(formData, token),
     onSuccess: () => {
       queryClient.invalidateQueries(["user"]);
-      setIsEdit(false);   
-      toast.success("프로필 변경이 완료되dd었습니다.");
+      setIsEdit(false);
+      toast.success("프로필 변경이 완료되었습니다.");
     },
     onError: () => {
       toast.fail("프로필 변경 중 오류가 발생했습니다.");
