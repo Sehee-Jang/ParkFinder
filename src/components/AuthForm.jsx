@@ -120,7 +120,7 @@ const AuthForm = ({ mode, onSubmit }) => {
         </div>
       )}
 
-      <button type="submit" className="bg-teal-500 text-white p-2 rounded w-full">
+      <button type="submit" className="button w-full">
         {/* 만약 mode === "login"의 조건이 참이면 "로그인"이 출력, 거짓이면 "회원가입" 출력  */}
         {mode === "login" ? "로그인" : "회원가입"}
       </button>

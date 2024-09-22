@@ -95,7 +95,7 @@ input:autofill:active {
     @apply bg-white border border-zinc-300 px-4 rounded-lg w-full h-12;
   }
   .button {
-    @apply flex items-center justify-center bg-teal-500 hover:bg-teal-600 text-white font-medium px-5 rounded-lg h-12 transition-all;
+    @apply flex items-center justify-center bg-teal-500 hover:bg-teal-600 text-white font-medium px-5 rounded-lg h-12 transition-all cursor-pointer;
   }
   .button-2xs {
     @apply text-sm rounded-md px-3 h-8;
@@ -114,6 +114,9 @@ input:autofill:active {
   }
   .text-button {
     @apply font-medium text-white hover:text-zinc-900 p-1 transition-all;
+  }
+  .no-list{
+    @apply text-lg text-zinc-600 text-center p-4
   }
 }
 
@@ -217,12 +220,6 @@ input:autofill:active {
 }
 .detail-close:hover {
   background-color: #f4f4f5;
-}
-
-.no-list {
-  font-size: 16px;
-  padding: 24px;
-  color: #52525b;
 }
 
 /* 카카오맵 */
