@@ -22,9 +22,9 @@ const Signup = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-zinc-100">
  
       <div className="absolute top-4 left-4">
-        <Link to="/">
+        {/* <Link to="/">
           <span className="material-symbols-rounded">home</span>
-        </Link>
+        </Link> */}
       </div>
       <h1 className="text-4xl font-bold text-black mb-10">PARK FINDER</h1>
       <AuthForm mode="signup" onSubmit={handleSignup} />
