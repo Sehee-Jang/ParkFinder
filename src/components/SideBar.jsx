@@ -49,6 +49,7 @@ const Sidebar = () => {
   const handleLogout = () => {
     clearAuth();
     navigate("/");
+    setIsSidebarDetailOpen(false);
   };
 
   return (
@@ -62,7 +63,7 @@ const Sidebar = () => {
             <div className="flex items-center gap-2">
               {token ? (
                 <>
-                  <Link to="/mypage" className="text-button">
+                  <Link to="/mypage" onClick={() => setIsSidebarDetailOpen(false)} className="text-button">
                     마이페이지
                   </Link>
                   <button onClick={handleLogout} className="text-button">
@@ -71,10 +72,10 @@ const Sidebar = () => {
                 </>
               ) : (
                 <>
-                  <Link to="/login" className="text-button">
+                  <Link to="/login" onClick={() => setIsSidebarDetailOpen(false)} className="text-button">
                     로그인
                   </Link>
-                  <Link to="/signup" className="text-button">
+                  <Link to="/signup" onClick={() => setIsSidebarDetailOpen(false)} className="text-button">
                     회원가입
                   </Link>
                 </>
@@ -133,7 +134,7 @@ const Sidebar = () => {
             ))}
           </ul>
           {/* 검색 결과가 없을 경우 표시 */}
-          {searchs.length === 0 && <div className="no-list">검색된 결과가 없습니다.</div>}
+          {searchs.length === 0 && <div className="no-list mt-5">검색된 결과가 없습니다.</div>}
           {/* 검색 결과 있고, 페이지가 있는 경우 페이지 번호 표시 */}
           {pagination && searchs.length > 0 && (
             <div className="flex justify-center gap-1 my-6">

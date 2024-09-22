@@ -74,22 +74,22 @@ const Profile = () => {
         src={user.avatar || defaultImage}
         className="rounded-full mt-2 border border-zinc-400 ... size-60"
       />
-      <div className="mx-10">
-        <h1 className="text-5xl">
+      <div className="ml-10">
+        <h1 className="text-5xl mb-5">
           <span className="text-teal-500 font-bold">{user.nickname}님,</span>
           환영합니다.
         </h1>
-        <h2 className="text-2xl my-2 font-bold">
-          <span className="text-teal-500">ID : </span>
+        <h2 className="text-2xl my-2">
+          <span className="text-teal-500 font-bold">ID : </span>
           {user.id}
         </h2>
 
         <div className="my-2 flex items-center">
-          <h2 className="text-2xl ">
-            <span className="text-teal-500">닉네임 : </span>
+          <h2 className="text-2xl">
+            <span className="text-teal-500 font-bold">닉네임 : </span>
             {isEdit ? (
               <input
-                className="rounded-md border border-zinc-300 ..."
+                className="input w-auto ..."
                 maxLength="12em"
                 ref={inputRef}
                 onChange={(e) => {
@@ -102,7 +102,7 @@ const Profile = () => {
             )}
           </h2>
           <div
-            className="mx-2 text-teal-500 cursor-pointer underline font-bold"
+            className="mx-2"
             onClick={() => {
               if (!isEdit) {
                 setNickname(user.nickname);
@@ -111,7 +111,9 @@ const Profile = () => {
               }
             }}
           >
-            {isEdit ? null : "수정"}
+            {isEdit ? null : (
+              <span className="button button-2xs ml-1">수정</span>
+            )}
           </div>
         </div>
 
@@ -120,7 +122,7 @@ const Profile = () => {
             <h2 className="text-2xl">
               <input
                 type="file"
-                className="rounded-md border border-zinc-300 ..."
+                className="input ..."
                 maxLength="12em"
                 onChange={(e) => {
                   handleImageChange(e);
@@ -128,7 +130,7 @@ const Profile = () => {
               ></input>
             </h2>
             <div
-              className="mx-2 text-teal-500 cursor-pointer underline font-bold"
+              className="mx-2 button"
               onClick={() => {
                 if (isEdit) {
                   // 저장 모드 일 때 저장 버튼 클릭 시..

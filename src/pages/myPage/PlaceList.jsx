@@ -15,13 +15,17 @@ const PlaceList = () => {
   const filteredPlaces = data.filter((place) => place.bookmarks.some((bookmark) => bookmark.userId === USER_ID));
 
   return (
-    <div className="grid grid-cols-4 gap-8 justify-items-center">
-      {filteredPlaces.length ? (
-        filteredPlaces.map((place) => <PlaceItem key={place.id} place={place} USER_ID={USER_ID} />)
+    <>
+      {filteredPlaces.length === 0 ? (
+        <div className="no-list mt-10">북마크한 장소가 없습니다.</div>
       ) : (
-        <>북마크한 장소가 없습니다.</>
+        <div className="grid grid-cols-4 gap-6 justify-items-center mt-8">
+          {filteredPlaces.map((place) => (
+            <PlaceItem key={place.id} place={place} USER_ID={USER_ID} />
+          ))}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

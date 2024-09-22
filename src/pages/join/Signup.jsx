@@ -30,11 +30,10 @@ const Signup = () => {
       <AuthForm mode="signup" onSubmit={handleSignup} />
       <p className="text-zinc-600 mt-6">
         이미 계정이 있으신가요?{" "}
-        <Link to="/login" className="text-teal-500">
+        <Link to="/login" className="text-teal-500 font-semibold pl-1">
           로그인
         </Link>
       </p>
-      <footer className="text-zinc-600 mt-6">© 2024 Park Finder All Rights Reserved</footer>
     </div>
   );
 };

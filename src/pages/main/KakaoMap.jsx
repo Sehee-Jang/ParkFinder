@@ -75,7 +75,7 @@ const KakaoMap = () => {
     }
   };
 
-  if (location.isLoading) return <div>Loading...</div>;
+  if (location.isLoading) return <div>로딩중...</div>;
 
   return (
     <>
