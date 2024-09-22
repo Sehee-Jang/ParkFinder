@@ -22,7 +22,7 @@ https://naver.com/
 주차장을 빠르고, 정확하게 찾을 수 있는 Service - Park Finder
 
 ## 팀소개
-조아영 - https://github.com/ayoung-j](https://github.com/ayoung-j)
+조아영 - https://github.com/ayoung-j](https://github.com/ayoung-j) <br><br>
 노용철 - https://github.com/RYC0208
 장세희 - https://github.com/Sehee-Jang
 최지민 - http://github.com/jigong2024
