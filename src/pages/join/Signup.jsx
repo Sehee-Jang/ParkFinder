@@ -2,6 +2,8 @@ import React from "react";
 import AuthForm from "../../components/AuthForm";
 import { register } from "../../api/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -9,15 +11,18 @@ const Signup = () => {
   const handleSignup = async (formData) => {
     try {
       await register(formData);
-      alert("회원가입이 완료되었습니다. 로그인해주세요.");
-      navigate("/login");
+      toast.success("회원가입이 완료되었습니다. 로그인해주세요.");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500); // 1.5초 후에 페이지 이동
     } catch (error) {
-      alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+      toast.error("회원가입에 실패했습니다. 다시 시도해주세요.");
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-zinc-100">
+ 
       <div className="absolute top-4 left-4">
         <Link to="/">
           <span className="material-symbols-rounded">home</span>

@@ -45,7 +45,7 @@ const Profile = () => {
       toast.success("프로필 변경이 완료되었습니다.");
     },
     onError: () => {
-      toast.fail("프로필 변경 중 오류가 발생했습니다.");
+      toast.error("프로필 변경 중 오류가 발생했습니다.");
     }
   });
 
@@ -69,7 +69,6 @@ const Profile = () => {
 
   return (
     <div className="flex items-center my-4 justify-center">
-      <ToastContainer position="top-right" autoClose={1000} closeOnClick draggable transition:Bounce />
       <img
         id="imgPrev"
         src={user.avatar || defaultImage}
