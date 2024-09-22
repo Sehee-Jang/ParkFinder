@@ -195,61 +195,91 @@ createdAt: new Date().toISOString()
 
 ## 프로젝트 파일 구조
 📦src
- ┣ 📂api
- ┃ ┣ 📜auth.js
- ┃ ┣ 📜bookmark.js
- ┃ ┗ 📜comments.js
  ┣ 📂assets
- ┃ ┣ 📂fonts
- ┃ ┃ ┣ 📜Pretendard-Bold.subset.woff
- ┃ ┃ ┣ 📜Pretendard-Bold.subset.woff2
- ┃ ┃ ┣ 📜Pretendard-Light.subset.woff
- ┃ ┃ ┣ 📜Pretendard-Light.subset.woff2
- ┃ ┃ ┣ 📜Pretendard-Medium.subset.woff
- ┃ ┃ ┣ 📜Pretendard-Medium.subset.woff2
- ┃ ┃ ┣ 📜Pretendard-Regular.subset.woff
- ┃ ┃ ┣ 📜Pretendard-Regular.subset.woff2
- ┃ ┃ ┣ 📜Pretendard-SemiBold.subset.woff
- ┃ ┃ ┗ 📜Pretendard-SemiBold.subset.woff2
- ┃ ┗ 📂images
- ┃ ┃ ┣ 📜default_img.png
- ┃ ┃ ┣ 📜my-location@2x.png
- ┃ ┃ ┗ 📜pin-marker@2x.png
- ┣ 📂components
- ┃ ┣ 📜AuthForm.jsx
- ┃ ┣ 📜BookmarkButton.jsx
- ┃ ┣ 📜MainLayout.jsx
- ┃ ┣ 📜ProtectedRoute.jsx
- ┃ ┣ 📜SideBar.jsx
- ┃ ┗ 📜SubLayout.jsx
- ┣ 📂hooks
- ┃ ┣ 📜useCreatePlaceAndUpdate.js
- ┃ ┣ 📜useGetPlaces.js
- ┃ ┗ 📜useMapActions.js
+ ┃ ┣ 📜back-btn.png
+ ┃ ┣ 📜bookmark-off.png
+ ┃ ┣ 📜bookmark-on.png
+ ┃ ┣ 📜down.png
+ ┃ ┣ 📜favicon.ico
+ ┃ ┣ 📜github-mark.png
+ ┃ ┣ 📜github.svg
+ ┃ ┣ 📜logo.png
+ ┃ ┣ 📜next.png
+ ┃ ┣ 📜no-image.png
+ ┃ ┣ 📜prev.png
+ ┃ ┣ 📜react.svg
+ ┃ ┣ 📜up.png
+ ┃ ┗ 📜velog.svg
+ ┣ 📂context
+ ┃ ┗ 📜UserConext.jsx
+ ┣ 📂layout
+ ┃ ┣ 📂footer
+ ┃ ┃ ┣ 📜Footer.jsx
+ ┃ ┃ ┗ 📜FooterStyle.js
+ ┃ ┣ 📂header
+ ┃ ┃ ┣ 📜Header.jsx
+ ┃ ┃ ┗ 📜HeaderStyle.js
+ ┃ ┗ 📜Layout.jsx
  ┣ 📂pages
+ ┃ ┣ 📂components
+ ┃ ┃ ┣ 📂Form
+ ┃ ┃ ┃ ┣ 📜Form.jsx
+ ┃ ┃ ┃ ┗ 📜FormStyle.js
+ ┃ ┃ ┗ 📜TuiEditor.jsx
  ┃ ┣ 📂detail
- ┃ ┃ ┗ 📜Comments.jsx
- ┃ ┣ 📂join
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📂comment
+ ┃ ┃ ┃ ┃ ┣ 📜CommentItem.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜Comments.jsx
+ ┃ ┃ ┃ ┃ ┣ 📜CommentsStyle.js
+ ┃ ┃ ┃ ┃ ┗ 📜CommentUpdateForm.jsx
+ ┃ ┃ ┃ ┗ 📜getPost.js
+ ┃ ┃ ┣ 📂context
+ ┃ ┃ ┃ ┗ 📜CommentContext.jsx
+ ┃ ┃ ┣ 📂hooks
+ ┃ ┃ ┃ ┗ 📜useComments.js
+ ┃ ┃ ┣ 📂modify
+ ┃ ┃ ┃ ┣ 📜Modify.jsx
+ ┃ ┃ ┃ ┗ 📜ModifyStyle.js
+ ┃ ┃ ┣ 📜Detail.jsx
+ ┃ ┃ ┗ 📜DetailStyle.js
+ ┃ ┣ 📂login
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📜LoginInput.jsx
+ ┃ ┃ ┃ ┗ 📜LoginInputStyle.js
  ┃ ┃ ┣ 📜Login.jsx
- ┃ ┃ ┗ 📜Signup.jsx
+ ┃ ┃ ┗ 📜LoginStyle.js
  ┃ ┣ 📂main
- ┃ ┃ ┣ 📜Home.jsx
- ┃ ┃ ┗ 📜KakaoMap.jsx
- ┃ ┗ 📂myPage
- ┃ ┃ ┣ 📜Bookmark.jsx
- ┃ ┃ ┣ 📜MyPage.jsx
- ┃ ┃ ┣ 📜PlaceItem.jsx
- ┃ ┃ ┣ 📜PlaceList.jsx
- ┃ ┃ ┗ 📜Profile.jsx
+ ┃ ┃ ┣ 📜Main.jsx
+ ┃ ┃ ┗ 📜MainStyle.js
+ ┃ ┣ 📂mypage
+ ┃ ┃ ┣ 📂board
+ ┃ ┃ ┃ ┣ 📜BookMark.jsx
+ ┃ ┃ ┃ ┗ 📜MyBoard.jsx
+ ┃ ┃ ┣ 📂mymodify
+ ┃ ┃ ┃ ┣ 📜Mymodify.jsx
+ ┃ ┃ ┃ ┗ 📜MymodifyStyle.js
+ ┃ ┃ ┣ 📜Mypage.jsx
+ ┃ ┃ ┗ 📜MypageStyle.js
+ ┃ ┣ 📂signup
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📜SignupInput.jsx
+ ┃ ┃ ┃ ┗ 📜SignupInputStyle.js
+ ┃ ┃ ┣ 📜Signup.jsx
+ ┃ ┃ ┗ 📜SignupStyle.js
+ ┃ ┗ 📂write
+ ┃ ┃ ┣ 📜Write.jsx
+ ┃ ┃ ┗ 📜WriteStyle.js
  ┣ 📂shared
+ ┃ ┣ 📂components
+ ┃ ┃ ┗ 📜PrivateRoute.jsx
  ┃ ┗ 📜Router.jsx
- ┣ 📂zustand
- ┃ ┣ 📜authStore.js
- ┃ ┣ 📜commentStore.js
- ┃ ┗ 📜mapStore.js
+ ┣ 📂supabase
+ ┃ ┗ 📜supabase.js
+ ┣ 📜App.css
  ┣ 📜App.jsx
- ┣ 📜index.css
- ┗ 📜main.jsx
+ ┣ 📜main.jsx
+ ┗ 📜reset.css
 
 
 ## Trouble Shooting
