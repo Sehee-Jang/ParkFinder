@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { getUserProfile, updateProfile } from "../../api/auth";
 import useAuthStore from "../../zustand/authStore";
 import defaultImage from "../../assets/images/default_img.png";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Profile = () => {
@@ -45,7 +45,7 @@ const Profile = () => {
       toast.success("프로필 변경이 완료되었습니다.");
     },
     onError: () => {
-      toast.fail("프로필 변경 중 오류가 발생했습니다.");
+      toast.error("프로필 변경 중 오류가 발생했습니다.");
     }
   });
 
@@ -69,7 +69,6 @@ const Profile = () => {
 
   return (
     <div className="flex items-center justify-center my-4">
-      <ToastContainer position="top-right" autoClose={1000} closeOnClick draggable transition:Bounce />
       <img
         id="imgPrev"
         src={user.avatar || defaultImage}
@@ -112,9 +111,7 @@ const Profile = () => {
               }
             }}
           >
-            {isEdit ? null : (
-              <span className="button button-2xs ml-1">수정</span>
-            )}
+            {isEdit ? null : <span className="button button-2xs ml-1">수정</span>}
           </div>
         </div>
 
