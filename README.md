@@ -194,92 +194,9 @@ createdAt: new Date().toISOString()
 
 
 ## 프로젝트 파일 구조
-📦src
- ┣ 📂assets
- ┃ ┣ 📜back-btn.png
- ┃ ┣ 📜bookmark-off.png
- ┃ ┣ 📜bookmark-on.png
- ┃ ┣ 📜down.png
- ┃ ┣ 📜favicon.ico
- ┃ ┣ 📜github-mark.png
- ┃ ┣ 📜github.svg
- ┃ ┣ 📜logo.png
- ┃ ┣ 📜next.png
- ┃ ┣ 📜no-image.png
- ┃ ┣ 📜prev.png
- ┃ ┣ 📜react.svg
- ┃ ┣ 📜up.png
- ┃ ┗ 📜velog.svg
- ┣ 📂context
- ┃ ┗ 📜UserConext.jsx
- ┣ 📂layout
- ┃ ┣ 📂footer
- ┃ ┃ ┣ 📜Footer.jsx
- ┃ ┃ ┗ 📜FooterStyle.js
- ┃ ┣ 📂header
- ┃ ┃ ┣ 📜Header.jsx
- ┃ ┃ ┗ 📜HeaderStyle.js
- ┃ ┗ 📜Layout.jsx
- ┣ 📂pages
- ┃ ┣ 📂components
- ┃ ┃ ┣ 📂Form
- ┃ ┃ ┃ ┣ 📜Form.jsx
- ┃ ┃ ┃ ┗ 📜FormStyle.js
- ┃ ┃ ┗ 📜TuiEditor.jsx
- ┃ ┣ 📂detail
- ┃ ┃ ┣ 📂components
- ┃ ┃ ┃ ┣ 📂comment
- ┃ ┃ ┃ ┃ ┣ 📜CommentItem.jsx
- ┃ ┃ ┃ ┃ ┣ 📜Comments.jsx
- ┃ ┃ ┃ ┃ ┣ 📜CommentsStyle.js
- ┃ ┃ ┃ ┃ ┗ 📜CommentUpdateForm.jsx
- ┃ ┃ ┃ ┗ 📜getPost.js
- ┃ ┃ ┣ 📂context
- ┃ ┃ ┃ ┗ 📜CommentContext.jsx
- ┃ ┃ ┣ 📂hooks
- ┃ ┃ ┃ ┗ 📜useComments.js
- ┃ ┃ ┣ 📂modify
- ┃ ┃ ┃ ┣ 📜Modify.jsx
- ┃ ┃ ┃ ┗ 📜ModifyStyle.js
- ┃ ┃ ┣ 📜Detail.jsx
- ┃ ┃ ┗ 📜DetailStyle.js
- ┃ ┣ 📂login
- ┃ ┃ ┣ 📂components
- ┃ ┃ ┃ ┣ 📜LoginInput.jsx
- ┃ ┃ ┃ ┗ 📜LoginInputStyle.js
- ┃ ┃ ┣ 📜Login.jsx
- ┃ ┃ ┗ 📜LoginStyle.js
- ┃ ┣ 📂main
- ┃ ┃ ┣ 📜Main.jsx
- ┃ ┃ ┗ 📜MainStyle.js
- ┃ ┣ 📂mypage
- ┃ ┃ ┣ 📂board
- ┃ ┃ ┃ ┣ 📜BookMark.jsx
- ┃ ┃ ┃ ┗ 📜MyBoard.jsx
- ┃ ┃ ┣ 📂mymodify
- ┃ ┃ ┃ ┣ 📜Mymodify.jsx
- ┃ ┃ ┃ ┗ 📜MymodifyStyle.js
- ┃ ┃ ┣ 📜Mypage.jsx
- ┃ ┃ ┗ 📜MypageStyle.js
- ┃ ┣ 📂signup
- ┃ ┃ ┣ 📂components
- ┃ ┃ ┃ ┣ 📜SignupInput.jsx
- ┃ ┃ ┃ ┗ 📜SignupInputStyle.js
- ┃ ┃ ┣ 📜Signup.jsx
- ┃ ┃ ┗ 📜SignupStyle.js
- ┃ ┗ 📂write
- ┃ ┃ ┣ 📜Write.jsx
- ┃ ┃ ┗ 📜WriteStyle.js
- ┣ 📂shared
- ┃ ┣ 📂components
- ┃ ┃ ┗ 📜PrivateRoute.jsx
- ┃ ┗ 📜Router.jsx
- ┣ 📂supabase
- ┃ ┗ 📜supabase.js
- ┣ 📜App.css
- ┣ 📜App.jsx
- ┣ 📜main.jsx
- ┗ 📜reset.css
+![image](https://github.com/user-attachments/assets/d5c5855d-b48d-4a97-8b50-3b62d0fc2d0a)
+
+
 
 
 ## Trouble Shooting
