@@ -23,10 +23,10 @@ https://naver.com/
 
 ## 팀소개
 조아영 - https://github.com/ayoung-j](https://github.com/ayoung-j) <br><br>
-노용철 - https://github.com/RYC0208
-장세희 - https://github.com/Sehee-Jang
-최지민 - http://github.com/jigong2024
-홍승우 - https://github.com/FujiiKaze97
+노용철 - https://github.com/RYC0208 <br><br>
+장세희 - https://github.com/Sehee-Jang <br><br>
+최지민 - http://github.com/jigong2024 <br><br> 
+홍승우 - https://github.com/FujiiKaze97 
 
 
 ## 프로젝트 계기
