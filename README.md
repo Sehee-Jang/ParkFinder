@@ -41,19 +41,48 @@ https://naver.com/<br/>
 <br/>
 
 ## 💜 주요기능
-#### 메인화면
+### 메인화면
 ![메인화면](https://github.com/user-attachments/assets/9d750d6d-c63d-459d-a55d-fe70a823bedb)
+``` jsx
+useEffect(() => {
+  if (!map || !location.center) return;
+  setOpenMarkerId(null);
+  searchPlaces(location.center, currentPage); // 검색 실행
+}, [map, searchValue, currentPage, location.center]); // searchValue(map, location.center, currentPage)가 변경되면, searchPlaces 함수를 호출하여 검색
 
-#### 주차장 상세 조회
+// 검색하기
+const handleSearch = (e) => {
+  e.preventDefault();
+  setSearchValue(keyword); // 최종적으로 입력된 검색어를 설정
+  setIsSidebarDetailOpen(false); // 검색 시 사이드바 상세 정보 닫기
+  return false;
+};
+
+// 폼 제출 시 searchValue에 최종 입력된 keyword 전달
+<form onSubmit={handleSearch}>
+  <div className="search-input">
+    <input type="text" value={keyword} placeholder="주차장 앞 키워드만 입력해 주세요" className="input"
+      onChange={(e) => setKeyword(e.target.value)} // 입력된 값을 실시간으로 keyword에 저장
+    />
+    <button type="submit"><span className="material-symbols-rounded text-zinc-400">search</span></button>
+  </div>
+</form>
+```
+**검색 기능 구현**<br/>
+검색창에 글자를 입력할 때마다 searchPlaces()가 호출되지 않도록 최적화된 방식을 적용했습니다.<br />
+사용자가 입력을 완료한 후, 최종적으로 입력된 검색어(searchValue)에 대해서만 검색이 이루어지도록 설계하여 불필요한 API 요청 및 함수 호출을 방지했습니다.<br />
+이를 통해 성능을 최적화했으며, 사용자가 검색어를 입력하는 도중 성급하게 검색이 실행되지 않도록 하여 불필요한 검색 결과를 줄임으로써 사용자 경험을 크게 개선할 수 있었습니다.
+
+### 주차장 상세 조회
 ![주차장 상세 조회](https://github.com/user-attachments/assets/e5da9f0b-eae6-4c31-919d-e7f909338d3e)
 
-#### 주자장 검색
+### 주자장 검색
 ![주차장 검색](https://github.com/user-attachments/assets/e73a18a9-743b-4ee5-b3aa-d6eff3a0a415)
 
-#### 주자창 즐겨찾기
+### 주자창 즐겨찾기
 ![주차장 즐겨찾기 기능](https://github.com/user-attachments/assets/70db5418-f74e-46b5-995e-3797b764ee55)
 
-#### 댓글 추가
+### 댓글 추가
 ![댓글 추가](https://github.com/user-attachments/assets/88cdcae1-e3e4-40d4-8ab5-800fb47e1910)
 ``` jsx
 const { data: latestUserInfo } = useQuery({
@@ -80,24 +109,22 @@ const updatedComments = useMemo(() => {
   });
 }, [comments, user]);
 ```
-최신 유저 정보와 댓글 데이터 동기화<br/>
+**최신 유저 정보와 댓글 데이터 동기화**<br/>
 : useQuery를 사용해 최신 유저 정보를 가져오고 useEffect를 사용해 전역 상태를 업데이트 해주고 이를 통해 최신 유저 정보를 유지할 수 있었습니다.<br/>
 : useMemo를 사용해 댓글 목록과 유저 정보가 변경될 때만 댓글 데이터를 재계산합니다. 이는 불필요한 렌더링을 방지하여 애플리케이션의 성능을 향상시킵니다.<br/>
 불필요한 렌더링을 방지할 수 있어서 자랑스러운 코드라고 생각합니다!<br/>
 
-#### 댓글 수정 및 삭제
+### 댓글 수정 및 삭제
 ![댓글 수정 및 삭제](https://github.com/user-attachments/assets/ebb53187-4054-44c7-85c1-02dece44b1ba)
 
-#### 회원가입
-![회원가입](https://github.com/user-attachments/assets/c6d5fe74-754b-4c1e-842e-1183dfadebbe)
+### 회원가입
 
-#### 로그인
-![로그인](https://github.com/user-attachments/assets/eb8764df-16ae-4827-9c2a-31d3ccdfb20f)
+### 로그인
 
-#### 로그아웃
+### 로그아웃
 ![로그아웃](https://github.com/user-attachments/assets/a80d6f4b-216c-4b10-aff2-8d1bee7c7110)
 
-#### 프로필 수정
+### 프로필 수정
 ![프로필 수정](https://github.com/user-attachments/assets/96604818-81b9-467d-a20a-ae642e7e5e9c)
 ``` jsx
 const handleImageChange = (e) => {
@@ -109,9 +136,7 @@ const handleImageChange = (e) => {
   }
 };
 ```
-파일을 url로 변환하여 파일 등록 후 이미지는 변경된 것처럼 사용자에게 표시하되, <br/>
-전송 프로토콜 규칙에 맞추어 file은  url형식이 아닌 file 형식 그 자체로 전송하도록<br/>
-Problem solve 한 것을 자랑스러운 코드라고 생각합니다.
+파일을 url로 변환하여 파일 등록 후 이미지는 변경된 것처럼 사용자에게 표시하되, 전송 프로토콜 규칙에 맞추어 file은  url형식이 아닌 file 형식 그 자체로 전송하도록 Problem solve 한 것을 자랑스러운 코드라고 생각합니다.
 <br/>
 
 ## ⏲️ 개발기간
@@ -176,14 +201,21 @@ db.json - 댓글 , 즐겨찾기 Feature에서 사용 중
 <br/>
 
 ## 🎨 와이어프레임
+<details>
+  <summary><b>Park Finder 와이어프레임</b></summary>
+
 ![image](https://github.com/user-attachments/assets/8238b91c-d199-47f1-b0eb-b11d35ee850a)
 ![image](https://github.com/user-attachments/assets/be62e9c1-7e58-4bcb-b7ac-dc0c74ae32ab)
 ![image](https://github.com/user-attachments/assets/91b07d77-f0d2-4a6d-a068-2c1f45eed93a)
 ![image](https://github.com/user-attachments/assets/663913f7-d12a-42ee-9a5f-00cffd315bdb)
-
+</details>
+	
 ## 📋 API 명세서
 서버 API_URL : https://moneyfulpublicpolicy.co.kr/<br/>
+<details>
+  <summary><b>API 명세서</b></summary>
 <br/>
+	
 **회원가입**
 ```
 Request
@@ -276,10 +308,14 @@ Response
   "success": true
 }
 ```
-
+</details>
+	
 ### Comment Api
 서버 API_URL : https://moneyfulpublicpolicy.co.kr/
-
+<details>
+  <summary><b>Comment Api</b></summary>
+<br/>
+	
 **댓글 확인**
 ```
 Request
@@ -307,83 +343,87 @@ URL PATH + ${id}
 text(변경할 댓글),
 createdAt: new Date().toISOString()
 ```
+</details>
 <br />
 
 ## 📦 프로젝트 파일 구조
 <details>
-  <summary>Park Finder 파일 구조</summary>
- ┣ 📂public<br/>
- ┃ ┗ 📂images<br/>
- ┃ ┃ ┣ 📂favicon<br/>
- ┃ ┃ ┃ ┣ 📜browserconfig.xml<br/>
- ┃ ┃ ┃ ┣ 📜favicon-16x16.png<br/>
- ┃ ┃ ┃ ┣ 📜favicon-32x32.png<br/>
- ┃ ┃ ┃ ┣ 📜favicon-96x96.png<br/>
- ┃ ┃ ┃ ┣ 📜favicon.ico<br/>
- ┃ ┃ ┃ ┗ 📜manifest.json<br/>
- ┃ ┃ ┗ 📜og.jpg<br/>
- ┣ 📂src<br/>
- ┃ ┣ 📂api<br/>
- ┃ ┃ ┣ 📜auth.js<br/>
- ┃ ┃ ┣ 📜bookmark.js<br/>
- ┃ ┃ ┗ 📜comments.js<br/>
- ┃ ┣ 📂assets<br/>
- ┃ ┃ ┣ 📂fonts<br/>
- ┃ ┃ ┃ ┣ 📜Pretendard.subset.woff<br/>
- ┃ ┃ ┃ ┗ 📜Pretendard.subset.woff2<br/>
- ┃ ┃ ┗ 📂images<br/>
- ┃ ┃ ┃ ┣ 📜default_img.png<br/>
- ┃ ┃ ┃ ┣ 📜my-location@2x.png<br/>
- ┃ ┃ ┃ ┗ 📜pin-marker@2x.png<br/>
- ┃ ┣ 📂components<br/>
- ┃ ┃ ┣ 📜AuthForm.jsx<br/>
- ┃ ┃ ┣ 📜BookmarkButton.jsx<br/>
- ┃ ┃ ┣ 📜MainLayout.jsx<br/>
- ┃ ┃ ┣ 📜ProtectedRoute.jsx<br/>
- ┃ ┃ ┣ 📜SideBar.jsx<br/>
- ┃ ┃ ┗ 📜SubLayout.jsx<br/>
- ┃ ┣ 📂hooks<br/>
- ┃ ┃ ┣ 📜useCreatePlaceAndUpdate.js<br/>
- ┃ ┃ ┣ 📜useGetPlaces.js<br/>
- ┃ ┃ ┗ 📜useMapActions.js<br/>
- ┃ ┣ 📂pages<br/>
- ┃ ┃ ┣ 📂detail<br/>
- ┃ ┃ ┃ ┗ 📜Comments.jsx<br/>
- ┃ ┃ ┣ 📂join<br/>
- ┃ ┃ ┃ ┣ 📜Login.jsx<br/>
- ┃ ┃ ┃ ┗ 📜Signup.jsx<br/>
- ┃ ┃ ┣ 📂main<br/>
- ┃ ┃ ┃ ┣ 📜Home.jsx<br/>
- ┃ ┃ ┃ ┗ 📜KakaoMap.jsx<br/>
- ┃ ┃ ┗ 📂myPage<br/>
- ┃ ┃ ┃ ┣ 📜Bookmark.jsx<br/>
- ┃ ┃ ┃ ┣ 📜MyPage.jsx<br/>
- ┃ ┃ ┃ ┣ 📜PlaceItem.jsx<br/>
- ┃ ┃ ┃ ┣ 📜PlaceList.jsx<br/>
- ┃ ┃ ┃ ┗ 📜Profile.jsx<br/>
- ┃ ┣ 📂shared<br/>
- ┃ ┃ ┗ 📜Router.jsx<br/>
- ┃ ┣ 📂zustand<br/>
- ┃ ┃ ┣ 📜authStore.js<br/>
- ┃ ┃ ┣ 📜commentStore.js<br/>
- ┃ ┃ ┗ 📜mapStore.js<br/>
- ┃ ┣ 📜App.jsx<br/>
- ┃ ┣ 📜index.css<br/>
- ┃ ┗ 📜main.jsx<br/>
- ┣ 📜.env.local<br/>
- ┣ 📜.gitignore<br/>
- ┣ 📜.prettierrc<br/>
- ┣ 📜db.json<br/>
- ┣ 📜eslint.config.js<br/>
- ┣ 📜index.html<br/>
- ┣ 📜package.json<br/>
- ┣ 📜postcss.config.js<br/>
- ┣ 📜README.md<br/>
- ┣ 📜tailwind.config.js<br/>
- ┣ 📜vite.config.js<br/>
- ┗ 📜yarn.lock<br/>
+  <summary><b>Park Finder 파일 구조</b></summary>
+
+```
+ ┣ 📂public
+ ┃ ┗ 📂images
+ ┃ ┃ ┣ 📂favicon
+ ┃ ┃ ┃ ┣ 📜browserconfig.xml
+ ┃ ┃ ┃ ┣ 📜favicon-16x16.png
+ ┃ ┃ ┃ ┣ 📜favicon-32x32.png
+ ┃ ┃ ┃ ┣ 📜favicon-96x96.png
+ ┃ ┃ ┃ ┣ 📜favicon.ico
+ ┃ ┃ ┃ ┗ 📜manifest.json
+ ┃ ┃ ┗ 📜og.jpg
+ ┣ 📂src
+ ┃ ┣ 📂api
+ ┃ ┃ ┣ 📜auth.js
+ ┃ ┃ ┣ 📜bookmark.js
+ ┃ ┃ ┗ 📜comments.js
+ ┃ ┣ 📂assets
+ ┃ ┃ ┣ 📂fonts
+ ┃ ┃ ┃ ┣ 📜Pretendard.subset.woff
+ ┃ ┃ ┃ ┗ 📜Pretendard.subset.woff2
+ ┃ ┃ ┗ 📂images
+ ┃ ┃ ┃ ┣ 📜default_img.png
+ ┃ ┃ ┃ ┣ 📜my-location@2x.png
+ ┃ ┃ ┃ ┗ 📜pin-marker@2x.png
+ ┃ ┣ 📂components
+ ┃ ┃ ┣ 📜AuthForm.jsx
+ ┃ ┃ ┣ 📜BookmarkButton.jsx
+ ┃ ┃ ┣ 📜MainLayout.jsx
+ ┃ ┃ ┣ 📜ProtectedRoute.jsx
+ ┃ ┃ ┣ 📜SideBar.jsx
+ ┃ ┃ ┗ 📜SubLayout.jsx
+ ┃ ┣ 📂hooks
+ ┃ ┃ ┣ 📜useCreatePlaceAndUpdate.js
+ ┃ ┃ ┣ 📜useGetPlaces.js
+ ┃ ┃ ┗ 📜useMapActions.js
+ ┃ ┣ 📂pages
+ ┃ ┃ ┣ 📂detail
+ ┃ ┃ ┃ ┗ 📜Comments.jsx
+ ┃ ┃ ┣ 📂join
+ ┃ ┃ ┃ ┣ 📜Login.jsx
+ ┃ ┃ ┃ ┗ 📜Signup.jsx
+ ┃ ┃ ┣ 📂main
+ ┃ ┃ ┃ ┣ 📜Home.jsx
+ ┃ ┃ ┃ ┗ 📜KakaoMap.jsx
+ ┃ ┃ ┗ 📂myPage
+ ┃ ┃ ┃ ┣ 📜Bookmark.jsx
+ ┃ ┃ ┃ ┣ 📜MyPage.jsx
+ ┃ ┃ ┃ ┣ 📜PlaceItem.jsx
+ ┃ ┃ ┃ ┣ 📜PlaceList.jsx
+ ┃ ┃ ┃ ┗ 📜Profile.jsx
+ ┃ ┣ 📂shared
+ ┃ ┃ ┗ 📜Router.jsx
+ ┃ ┣ 📂zustand
+ ┃ ┃ ┣ 📜authStore.js
+ ┃ ┃ ┣ 📜commentStore.js
+ ┃ ┃ ┗ 📜mapStore.js
+ ┃ ┣ 📜App.jsx
+ ┃ ┣ 📜index.css
+ ┃ ┗ 📜main.jsx
+ ┣ 📜.env.local
+ ┣ 📜.gitignore
+ ┣ 📜.prettierrc
+ ┣ 📜db.json
+ ┣ 📜eslint.config.js
+ ┣ 📜index.html
+ ┣ 📜package.json
+ ┣ 📜postcss.config.js
+ ┣ 📜README.md
+ ┣ 📜tailwind.config.js
+ ┣ 📜vite.config.js
+ ┗ 📜yarn.lock
+```
 </details>
-<br />
+<br/>
 
 ## 💥 Trouble Shooting
 ### 1. 프로필 기능 구현 시 프로젝트 환경에 따라 진행이 어려운 문제
@@ -396,6 +436,7 @@ createdAt: new Date().toISOString()
 #### 해결 방법, 개선 사항
 - 같은 상황에서, 프로필 구현을 사용자 api에 존재하는 avatar를 통해 파일을 base64형식이나 url 방식으로 전달한 것이 아닌 ,파일 형식 그대로 전송
 - 불러올 때만 url 형식으로 불러오면 된다는 케이스를 트러블슈팅 중 확인하여 , 해당 사항 반영 후 완료
+<br/>
 
 ### 2. 댓글 수정 시 UI 반응성 저하
 #### 문제상황
@@ -410,7 +451,7 @@ createdAt: new Date().toISOString()
 - 오류 발생 시 이전 상태로 자동 롤백
 <br />
 
-## 👋 Project Remind  & 프로젝트 소감 
+## 🗨 Project Remind  & 프로젝트 소감 
 #### 조아영
 카카오 API의 여러 기능을 실제 서비스에 적용해보는 유익한 경험이었습니다. 팀원들과의 협업 과정에서 다양한 이슈들이 발생했지만 원활한 소통을 통해 신속히 해결할 수 있었습니다. 이번 프로젝트를 통해 API 통합 및 협업의 중요성을 깊이 이해할 수 있었습니다.
 
