@@ -22,7 +22,7 @@ https://naver.com/<br/>
 
 ## 👨‍🏫 프로젝트 소개
 **"Park Finder" - 주차장을 빠르고 정확하게 찾을 수 있는 웹 서비스**<br/>
-도심 지역에서 주차 문제는 점점 더 심화되고 있으며, 이에 따라 주차장을 손쉽게 찾을 수 있는 서비스에 대한 필요성이 증가하고 있습니다.<br/>
+도심 지역에서 주차 문제는 점점 더 심화되고 있고, 이에 따라 주차장을 손쉽게 찾을 수 있는 서비스에 대한 필요성이 증가하고 있습니다.<br/>
 기존의 지도 서비스는 주차장 정보가 부족하거나 사용자 경험이 불편한 경우가 많았기 때문에, 이를 개선하고자 "Park Finder"를 개발하게 되었습니다.<br/>
 <br/>
 
@@ -42,8 +42,10 @@ https://naver.com/<br/>
 
 ## 💜 주요기능
 #### 메인화면
+![메인화면](https://github.com/user-attachments/assets/9d750d6d-c63d-459d-a55d-fe70a823bedb)
 
 #### 주차장 상세 조회
+![주차장 상세 조회](https://github.com/user-attachments/assets/e5da9f0b-eae6-4c31-919d-e7f909338d3e)
 
 #### 주자장 검색
 ![주차장 검색](https://github.com/user-attachments/assets/e73a18a9-743b-4ee5-b3aa-d6eff3a0a415)
@@ -53,6 +55,35 @@ https://naver.com/<br/>
 
 #### 댓글 추가
 ![댓글 추가](https://github.com/user-attachments/assets/88cdcae1-e3e4-40d4-8ab5-800fb47e1910)
+``` jsx
+const { data: latestUserInfo } = useQuery({
+  queryKey: ["userInfo", user?.id],
+  queryFn: () => getUserProfile(token),
+  enabled: !!user && !!token // 유저와 토큰이 있을 때만 쿼리 실행
+});
+useEffect(() => {
+  if (latestUserInfo) {
+    setUser(latestUserInfo);
+  }
+}, [latestUserInfo, setUser]);
+const updatedComments = useMemo(() => {
+  if (!comments) return [];
+  return comments.map((comment) => {
+    if (comment.userId === user?.id) {
+      return {
+        ...comment,
+        nickname: user.nickname,
+        avatar: user.avatar
+      };
+    }
+    return comment;
+  });
+}, [comments, user]);
+```
+최신 유저 정보와 댓글 데이터 동기화<br/>
+: useQuery를 사용해 최신 유저 정보를 가져오고 useEffect를 사용해 전역 상태를 업데이트 해주고 이를 통해 최신 유저 정보를 유지할 수 있었습니다.<br/>
+: useMemo를 사용해 댓글 목록과 유저 정보가 변경될 때만 댓글 데이터를 재계산합니다. 이는 불필요한 렌더링을 방지하여 애플리케이션의 성능을 향상시킵니다.<br/>
+불필요한 렌더링을 방지할 수 있어서 자랑스러운 코드라고 생각합니다!<br/>
 
 #### 댓글 수정 및 삭제
 ![댓글 수정 및 삭제](https://github.com/user-attachments/assets/ebb53187-4054-44c7-85c1-02dece44b1ba)
@@ -68,7 +99,6 @@ https://naver.com/<br/>
 
 #### 프로필 수정
 ![프로필 수정](https://github.com/user-attachments/assets/96604818-81b9-467d-a20a-ae642e7e5e9c)
-
 ``` jsx
 const handleImageChange = (e) => {
   const file = e.target.files[0];
@@ -79,7 +109,8 @@ const handleImageChange = (e) => {
   }
 };
 ```
-파일을 url로 변환하여 파일 등록 후 이미지는 변경된 것처럼 사용자에게 표시하되, 전송 프로토콜 규칙에 맞추어 file은  url형식이 아닌 file 형식 그 자체로 전송하도록
+파일을 url로 변환하여 파일 등록 후 이미지는 변경된 것처럼 사용자에게 표시하되, <br/>
+전송 프로토콜 규칙에 맞추어 file은  url형식이 아닌 file 형식 그 자체로 전송하도록<br/>
 Problem solve 한 것을 자랑스러운 코드라고 생각합니다.
 <br/>
 
@@ -381,7 +412,7 @@ createdAt: new Date().toISOString()
 
 ## 👋 Project Remind  & 프로젝트 소감 
 #### 조아영
-카카오 API의 여러 기능을 활용해 실제 서비스에 적용해보는 유익한 경험이었습니다. 팀원들과의 협업 과정에서 다양한 이슈들이 발생했지만 원활한 소통을 통해 신속히 해결할 수 있었습니다. 이번 프로젝트를 통해 API 통합 및 협업의 중요성을 깊이 이해할 수 있었습니다.
+카카오 API의 여러 기능을 실제 서비스에 적용해보는 유익한 경험이었습니다. 팀원들과의 협업 과정에서 다양한 이슈들이 발생했지만 원활한 소통을 통해 신속히 해결할 수 있었습니다. 이번 프로젝트를 통해 API 통합 및 협업의 중요성을 깊이 이해할 수 있었습니다.
 
 #### 노용철
 
