@@ -28,6 +28,5 @@ export const updateProfile = async (formData, token) => {
       "Content-Type": "multipart/form-data"
     }
   });
-
   return response.data;
 };

@@ -3,9 +3,7 @@ import PlaceList from "./PlaceList";
 
 const Bookmark = () => {
   return (
-    <div className="flex items-center my-4 justify-center">
-      <PlaceList isMyPage={true} />
-    </div>
+    <PlaceList />
   );
 };
 

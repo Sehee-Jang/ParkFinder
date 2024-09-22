@@ -1,10 +1,10 @@
 import React from "react";
-import Bookmark from "../../components/Bookmark";
+import Bookmark from "./Bookmark";
 import Profile from "./Profile";
 
 const MyPage = () => {
   return (
-    <div className="grid w-screen min-h-screen">
+    <div className="container mx-auto">
       <Profile></Profile>
       <Bookmark></Bookmark>
     </div>

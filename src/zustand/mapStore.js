@@ -25,6 +25,9 @@ const useMapStore = create((set) => ({
   // 검색에 사용될 키워드
   keyword: "",
   setKeyword: (state) => set({ keyword: state }),
+  // 실제 검색 시 사용되는 값
+  searchValue: "",
+  setSearchValue: (state) => set({ searchValue: state }),
   // 검색 결과
   searchs: [],
   setSearchs: (newSearchs) => set({ searchs: newSearchs }),
