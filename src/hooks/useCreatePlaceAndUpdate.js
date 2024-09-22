@@ -1,4 +1,6 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import bookmarkApi from "../api/bookmark";
 
 export const useCreatePlaceAndUpdate = () => {
@@ -20,8 +22,10 @@ export const useCreatePlaceAndUpdate = () => {
         const userBookmarkExists = placeToUpdate.bookmarks.some((bookmark) => bookmark.userId === updateData.userId);
 
         if (userBookmarkExists) {
+          toast.error("북마크가 삭제되었습니다!");
           placeToUpdate.bookmarks = placeToUpdate.bookmarks.filter((bookmark) => bookmark.userId !== updateData.userId);
         } else {
+          toast.success("북마크가 추가되었습니다!");
           placeToUpdate.bookmarks = [...placeToUpdate.bookmarks, { userId: updateData.userId }];
         }
 

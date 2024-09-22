@@ -73,9 +73,7 @@ const AuthForm = ({ mode, onSubmit }) => {
           value={formData.id}
           onChange={handleChange}
           placeholder="아이디"
-          className={`bg-white text-black border ${
-            errors.id ? "border-red-500" : "border-gray-400"
-          } p-2 rounded w-full`}
+          className={`input ${errors.id ? "border-red-500" : ""}`}
           required
         />
         {errors.id && <span className="text-red-500">{errors.id}</span>}
@@ -87,9 +85,7 @@ const AuthForm = ({ mode, onSubmit }) => {
           value={formData.password}
           onChange={handleChange}
           placeholder="비밀번호"
-          className={`bg-white text-black border ${
-            errors.password ? "border-red-500" : "border-gray-400"
-          } p-2 rounded w-full`}
+          className={`input ${errors.password ? "border-red-500" : ""}`}
           required
         />
         {errors.password && <span className="text-red-500">{errors.password}</span>}
@@ -104,9 +100,7 @@ const AuthForm = ({ mode, onSubmit }) => {
             value={formData.name}
             onChange={handleChange}
             placeholder="이름"
-            className={`bg-white text-black border ${
-              errors.name ? "border-red-500" : "border-gray-400"
-            } p-2 rounded w-full`}
+            className={`input ${errors.name ? "border-red-500" : ""}`}
             required
           />
           {errors.name && <span className="text-red-500">{errors.name}</span>}
@@ -120,13 +114,13 @@ const AuthForm = ({ mode, onSubmit }) => {
             value={formData.nickname}
             onChange={handleChange}
             placeholder="닉네임"
-            className="bg-white text-black border border-gray-400 p-2 rounded w-full"
+            className="input"
           />
           {errors.nickname && <span className="text-red-500">{errors.nickname}</span>}
         </div>
       )}
 
-      <button type="submit" className="bg-teal-500 text-white p-2 rounded w-full">
+      <button type="submit" className="button w-full">
         {/* 만약 mode === "login"의 조건이 참이면 "로그인"이 출력, 거짓이면 "회원가입" 출력  */}
         {mode === "login" ? "로그인" : "회원가입"}
       </button>

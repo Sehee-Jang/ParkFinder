@@ -2,6 +2,9 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useEffect, useRef, useState } from "react";
 import { getUserProfile, updateProfile } from "../../api/auth";
 import useAuthStore from "../../zustand/authStore";
+import defaultImage from "../../assets/images/default_img.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Profile = () => {
   // 로컬 스토리지에서 userAccessToken 가져옴 => 추후 세션 스토리지 방식으로 변경 시 세션 스토리지 방식으로 변경 필요
@@ -39,9 +42,10 @@ const Profile = () => {
     onSuccess: () => {
       queryClient.invalidateQueries(["user"]);
       setIsEdit(false);
+      toast.success("프로필 변경이 완료되었습니다.");
     },
     onError: () => {
-      alert("프로필 변경 중 오류가 발생했습니다.");
+      toast.fail("프로필 변경 중 오류가 발생했습니다.");
     }
   });
 
@@ -56,32 +60,37 @@ const Profile = () => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
 
-    if(file) {
+    if (file) {
       const objectUrl = URL.createObjectURL(file); // 파일을 URL로 변환
-      document.getElementById('imgPrev').src = objectUrl;
+      document.getElementById("imgPrev").src = objectUrl;
       setImgSrc(file);
     }
   };
 
   return (
-    <div className="flex items-center my-4 justify-center">
-      <img id ="imgPrev" src={user.avatar} className="rounded-full mt-2 border border-gray-400 ... size-60" />
-      <div className="mx-10">
-        <h1>
+    <div className="flex items-center justify-center my-4">
+      <ToastContainer position="top-right" autoClose={1000} closeOnClick draggable transition:Bounce />
+      <img
+        id="imgPrev"
+        src={user.avatar || defaultImage}
+        className="rounded-full mt-2 border border-zinc-400 ... size-60"
+      />
+      <div className="ml-10">
+        <h1 className="text-5xl mb-5">
           <span className="text-teal-500 font-bold">{user.nickname}님,</span>
           환영합니다.
         </h1>
-        <h2 className="text-2xl my-2 font-bold">
-          <span className="text-teal-500">ID : </span>
+        <h2 className="text-2xl my-2">
+          <span className="text-teal-500 font-bold">ID : </span>
           {user.id}
         </h2>
 
         <div className="my-2 flex items-center">
-          <h2 className="text-2xl ">
-            <span className="text-teal-500">닉네임 : </span>
+          <h2 className="text-2xl">
+            <span className="text-teal-500 font-bold">닉네임 : </span>
             {isEdit ? (
               <input
-                className="rounded-md border border-gray-300 ..."
+                className="input w-auto ..."
                 maxLength="12em"
                 ref={inputRef}
                 onChange={(e) => {
@@ -94,7 +103,7 @@ const Profile = () => {
             )}
           </h2>
           <div
-            className="mx-2 text-teal-500 cursor-pointer underline font-bold"
+            className="mx-2"
             onClick={() => {
               if (!isEdit) {
                 setNickname(user.nickname);
@@ -103,7 +112,9 @@ const Profile = () => {
               }
             }}
           >
-            {isEdit ? null : "수정"}
+            {isEdit ? null : (
+              <span className="button button-2xs ml-1">수정</span>
+            )}
           </div>
         </div>
 
@@ -112,7 +123,7 @@ const Profile = () => {
             <h2 className="text-2xl">
               <input
                 type="file"
-                className="rounded-md border border-gray-300 ..."
+                className="input ..."
                 maxLength="12em"
                 onChange={(e) => {
                   handleImageChange(e);
@@ -120,7 +131,7 @@ const Profile = () => {
               ></input>
             </h2>
             <div
-              className="mx-2 text-teal-500 cursor-pointer underline font-bold"
+              className="mx-2 button"
               onClick={() => {
                 if (isEdit) {
                   // 저장 모드 일 때 저장 버튼 클릭 시..

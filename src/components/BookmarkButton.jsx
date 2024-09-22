@@ -27,11 +27,13 @@ const BookmarkButton = ({ place, userId }) => {
         e.stopPropagation();
         handleClick();
       }}
-      className={`rounded-lg text-white font-semibold focus:outline-none ${
-        isBookmarked() ? "bg-teal-500" : "bg-teal-100"
-      } transition-colors duration-300`}
+      className={`button button-2xs button-border px-0 w-8 ${isBookmarked() ? "text-teal-500" : "text-zinc-300"}`}
     >
-      {isBookmarked() ? "★" : "☆"}
+      {isBookmarked() ? (
+        <span className="material-symbols-rounded text-xl material-fill">star</span>
+      ) : (
+        <span className="material-symbols-rounded text-xl">star</span>
+      )}
     </button>
   );
 };
