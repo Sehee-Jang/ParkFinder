@@ -46,20 +46,28 @@ https://naver.com/<br/>
 #### 주차장 상세 조회
 
 #### 주자장 검색
+![주차장 검색](https://github.com/user-attachments/assets/e73a18a9-743b-4ee5-b3aa-d6eff3a0a415)
 
 #### 주자창 즐겨찾기
+![주차장 즐겨찾기 기능](https://github.com/user-attachments/assets/70db5418-f74e-46b5-995e-3797b764ee55)
 
 #### 댓글 추가
+![댓글 추가](https://github.com/user-attachments/assets/88cdcae1-e3e4-40d4-8ab5-800fb47e1910)
 
 #### 댓글 수정 및 삭제
+![댓글 수정 및 삭제](https://github.com/user-attachments/assets/ebb53187-4054-44c7-85c1-02dece44b1ba)
 
 #### 회원가입
+![회원가입](https://github.com/user-attachments/assets/c6d5fe74-754b-4c1e-842e-1183dfadebbe)
 
 #### 로그인
+![로그인](https://github.com/user-attachments/assets/eb8764df-16ae-4827-9c2a-31d3ccdfb20f)
 
 #### 로그아웃
+![로그아웃](https://github.com/user-attachments/assets/a80d6f4b-216c-4b10-aff2-8d1bee7c7110)
 
 #### 프로필 수정
+![프로필 수정](https://github.com/user-attachments/assets/96604818-81b9-467d-a20a-ae642e7e5e9c)
 
 ``` jsx
 const handleImageChange = (e) => {
@@ -268,6 +276,7 @@ URL PATH + ${id}
 text(변경할 댓글),
 createdAt: new Date().toISOString()
 ```
+<br />
 
 ## 📦 프로젝트 파일 구조
 <details>
