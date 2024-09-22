@@ -2,7 +2,7 @@ import React from "react";
 import AuthForm from "../../components/AuthForm";
 import { register } from "../../api/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
@@ -12,9 +12,7 @@ const Signup = () => {
     try {
       await register(formData);
       toast.success("회원가입이 완료되었습니다. 로그인해주세요.");
-      setTimeout(() => {
-        navigate("/login");
-      }, 1500); // 1.5초 후에 페이지 이동
+      navigate("/login");
     } catch (error) {
       toast.error("회원가입에 실패했습니다. 다시 시도해주세요.");
     }

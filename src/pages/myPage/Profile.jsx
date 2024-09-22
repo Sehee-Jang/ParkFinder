@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { getUserProfile, updateProfile } from "../../api/auth";
 import useAuthStore from "../../zustand/authStore";
 import defaultImage from "../../assets/images/default_img.png";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Profile = () => {
