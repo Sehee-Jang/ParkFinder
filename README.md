@@ -82,12 +82,32 @@ const handleSearch = (e) => {
 ### 주자창 즐겨찾기
 ![주차장 즐겨찾기 기능](https://github.com/user-attachments/assets/70db5418-f74e-46b5-995e-3797b764ee55)
 ``` jsx
+const createPlaceAndUpdate = async ({ place, userId }) => {
+  try {
+    const places = await fetchPlaces();
+    const existingPlace = places.find((existingPlace) => existingPlace.id === place.id);
+
+    if (existingPlace) {
+      return await updateBookmark(existingPlace, userId);
+    } else {
+      return await createNewPlace(place, userId);
+    }
+
+  } catch (error) {
+    console.error("장소 확인 중 오류 발생:", error);
+  }
+};
 
 ```
 북마크 기능은 머니풀 서버의 유저 테이블을 수정할 수 없었기 때문에
 북마크 버튼을 누르면 해당 장소에 대한 데이터를 db.json 담아서 북마크 버튼을 누른
-사용자의 id를 장소의 bookmakrs 배열에 기록하였습니다. 내가 누른 북마크의 UI를 변경시키고
+사용자의 id를 장소의 bookmarks 배열에 기록하였습니다. 내가 누른 북마크의 UI를 변경시키고
 마이페이지에서도 그 리스트를 확인할 수 있습니다.
+
+db.json에 인자로 전달받은 장소의 데이터가 이미 존재하는지의 여부에 따라서
+createNewPlace 혹은 updateBookmark 함수를 호출할 수 있도록 조건문을 넣어주었습니다.
+
+사용자 경험 향상을 위해 Tanstack Query의 onMutate 옵션을 사용하여 낙관적 업데이트를 구현했습니다.
 
 ### 댓글 추가
 ![댓글 추가](https://github.com/user-attachments/assets/88cdcae1-e3e4-40d4-8ab5-800fb47e1910)
