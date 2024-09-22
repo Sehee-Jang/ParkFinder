@@ -81,6 +81,13 @@ const handleSearch = (e) => {
 
 ### 주자창 즐겨찾기
 ![주차장 즐겨찾기 기능](https://github.com/user-attachments/assets/70db5418-f74e-46b5-995e-3797b764ee55)
+``` jsx
+
+```
+북마크 기능은 머니풀 서버의 유저 테이블을 수정할 수 없었기 때문에
+북마크 버튼을 누르면 해당 장소에 대한 데이터를 db.json 담아서 북마크 버튼을 누른
+사용자의 id를 장소의 bookmakrs 배열에 기록하였습니다. 내가 누른 북마크의 UI를 변경시키고
+마이페이지에서도 그 리스트를 확인할 수 있습니다.
 
 ### 댓글 추가
 ![댓글 추가](https://github.com/user-attachments/assets/88cdcae1-e3e4-40d4-8ab5-800fb47e1910)
