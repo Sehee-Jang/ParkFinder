@@ -194,67 +194,8 @@ createdAt: new Date().toISOString()
 
 
 ## 프로젝트 파일 구조
-<<<<<<< HEAD
-📦src
- ┣ 📂api
- ┃ ┣ 📜auth.js
- ┃ ┣ 📜bookmark.js
- ┃ ┗ 📜comments.js
- ┣ 📂assets
- ┃ ┣ 📂fonts
- ┃ ┃ ┣ 📜Pretendard-Bold.subset.woff
- ┃ ┃ ┣ 📜Pretendard-Bold.subset.woff2
- ┃ ┃ ┣ 📜Pretendard-Light.subset.woff
- ┃ ┃ ┣ 📜Pretendard-Light.subset.woff2
- ┃ ┃ ┣ 📜Pretendard-Medium.subset.woff
- ┃ ┃ ┣ 📜Pretendard-Medium.subset.woff2
- ┃ ┃ ┣ 📜Pretendard-Regular.subset.woff
- ┃ ┃ ┣ 📜Pretendard-Regular.subset.woff2
- ┃ ┃ ┣ 📜Pretendard-SemiBold.subset.woff
- ┃ ┃ ┗ 📜Pretendard-SemiBold.subset.woff2
- ┃ ┗ 📂images
- ┃ ┃ ┣ 📜default_img.png
- ┃ ┃ ┣ 📜my-location@2x.png
- ┃ ┃ ┗ 📜pin-marker@2x.png
- ┣ 📂components
- ┃ ┣ 📜AuthForm.jsx
- ┃ ┣ 📜BookmarkButton.jsx
- ┃ ┣ 📜MainLayout.jsx
- ┃ ┣ 📜ProtectedRoute.jsx
- ┃ ┣ 📜SideBar.jsx
- ┃ ┗ 📜SubLayout.jsx
- ┣ 📂hooks
- ┃ ┣ 📜useCreatePlaceAndUpdate.js
- ┃ ┣ 📜useGetPlaces.js
- ┃ ┗ 📜useMapActions.js
- ┣ 📂pages
- ┃ ┣ 📂detail
- ┃ ┃ ┗ 📜Comments.jsx
- ┃ ┣ 📂join
- ┃ ┃ ┣ 📜Login.jsx
- ┃ ┃ ┗ 📜Signup.jsx
- ┃ ┣ 📂main
- ┃ ┃ ┣ 📜Home.jsx
- ┃ ┃ ┗ 📜KakaoMap.jsx
- ┃ ┗ 📂myPage
- ┃ ┃ ┣ 📜Bookmark.jsx
- ┃ ┃ ┣ 📜MyPage.jsx
- ┃ ┃ ┣ 📜PlaceItem.jsx
- ┃ ┃ ┣ 📜PlaceList.jsx
- ┃ ┃ ┗ 📜Profile.jsx
- ┣ 📂shared
- ┃ ┗ 📜Router.jsx
- ┣ 📂zustand
- ┃ ┣ 📜authStore.js
- ┃ ┣ 📜commentStore.js
- ┃ ┗ 📜mapStore.js
- ┣ 📜App.jsx
- ┣ 📜index.css
- ┗ 📜main.jsx
-=======
 ![image](https://github.com/user-attachments/assets/d5c5855d-b48d-4a97-8b50-3b62d0fc2d0a)
 
->>>>>>> 0b90ebb77bc3c49a9377e90951fb5b085e003946
 
 
 
