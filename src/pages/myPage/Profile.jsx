@@ -111,9 +111,7 @@ const Profile = () => {
               }
             }}
           >
-            {isEdit ? null : (
-              <span className="button button-2xs ml-1">수정</span>
-            )}
+            {isEdit ? null : <span className="button button-2xs ml-1">수정</span>}
           </div>
         </div>
 
