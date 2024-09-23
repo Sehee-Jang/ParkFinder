@@ -7,7 +7,7 @@ const PlaceItem = ({ place, USER_ID }) => {
       key={place.id}
       className="flex flex-col items-center justify-between w-full h-[230px] gap-[5px] rounded-[8px] border border"
     >
-      <div className="h-3/5 bg-teal-100 w-full rounded-t-lg"></div>
+      <div className="h-3/5 bg-teal-100 w-full rounded-t-lg bg-[url('/images/favicon/ms-icon-310x310.png')] bg-cover bg-center"></div>
       <div className="flex flex-col w-full h-2/5 p-4">
         <div className="flex flex-row items-center w-full justify-between">
           <div className="text-[16px] font-bold">{place.title}</div>
