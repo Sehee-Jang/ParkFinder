@@ -9,8 +9,6 @@ export const useCreatePlaceAndUpdate = () => {
   return useMutation({
     mutationFn: bookmarkApi.createPlaceAndUpdate,
     onMutate: async (updateData) => {
-      console.log("온뮤테데이터->", updateData);
-
       await queryClient.cancelQueries({ queryKey: ["places"] });
 
       const previousPlaces = queryClient.getQueryData(["places"]);

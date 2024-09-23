@@ -68,7 +68,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex items-center justify-center my-4">
+    <div className="flex items-center my-4 justify-center">
       <img
         id="imgPrev"
         src={user.avatar || defaultImage}
