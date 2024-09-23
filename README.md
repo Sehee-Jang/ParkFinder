@@ -2,7 +2,7 @@
 ![image](https://github.com/user-attachments/assets/8b6eeca3-41f6-4816-92bc-ffb7641e68de)
 
 ## 🔗 배포 링크 
-https://naver.com/<br/>
+https://parkfinder.fujiikaze.kr/<br/>
 <br/>
 
 ## 📖 목차
@@ -145,8 +145,10 @@ const updatedComments = useMemo(() => {
 ![댓글 수정 및 삭제](https://github.com/user-attachments/assets/ebb53187-4054-44c7-85c1-02dece44b1ba)
 
 ### 회원가입
+![회원가입](https://github.com/user-attachments/assets/48dae8ec-74be-45d7-ba68-c868aa628270)
 
 ### 로그인
+![로그인](https://github.com/user-attachments/assets/8a592ab6-37ab-484a-90c9-75d5035d3808)
 
 ### 로그아웃
 ![로그아웃](https://github.com/user-attachments/assets/a80d6f4b-216c-4b10-aff2-8d1bee7c7110)
