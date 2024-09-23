@@ -1,14 +1,11 @@
 # Park Finder
-
 ![image](https://github.com/user-attachments/assets/8b6eeca3-41f6-4816-92bc-ffb7641e68de)
 
 ## 🔗 배포 링크
-
 https://parkfinder.fujiikaze.kr/<br/>
 <br/>
 
 ## 📖 목차
-
 1. [프로젝트 소개](#-프로젝트-소개)
 2. [팀소개](#-팀소개)
 3. [프로젝트 목적](#-프로젝트-목적)
@@ -24,14 +21,12 @@ https://parkfinder.fujiikaze.kr/<br/>
     <br/>
 
 ## 👨‍🏫 프로젝트 소개
-
 **"Park Finder" - 주차장을 빠르고 정확하게 찾을 수 있는 웹 서비스**<br/>
 도심 지역에서 주차 문제는 점점 더 심화되고 있고, 이에 따라 주차장을 손쉽게 찾을 수 있는 서비스에 대한 필요성이 증가하고 있습니다.<br/>
 기존의 지도 서비스는 주차장 정보가 부족하거나 사용자 경험이 불편한 경우가 많았기 때문에, 이를 개선하고자 "Park Finder"를 개발하게 되었습니다.<br/>
 <br/>
 
 ## 👨‍👩‍👧‍👦 팀소개
-
 조아영 - https://github.com/ayoung-j<br/>
 노용철 - https://github.com/RYC0208<br/>
 장세희 - https://github.com/Sehee-Jang<br/>
@@ -40,7 +35,6 @@ https://parkfinder.fujiikaze.kr/<br/>
 <br/>
 
 ## 💡 프로젝트 목적
-
 카카오 API를 활용하여 사용자에게 가장 가까운 주차장을 실시간으로 제공하고, 지도 상에 정확한 위치를 표시하여 사용자 편의를 극대화하는 것을 목표로 합니다.<br/>
 빠른 검색 속도와 직관적인 UI, 최신 주차장 정보 제공을 통해 기존 지도 서비스와 차별화된 경험을 제공합니다.<br/>
 이를 통해 사용자는 실시간 위치 기반으로 주차장을 쉽게 검색하고 정보를 확인할 수 있습니다.<br/>
@@ -287,16 +281,13 @@ const handleImageChange = (e) => {
 ![Github](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)
 
 ### ✔️ IDE
-
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white)
 
 ### ✔️ Framework
-
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![React_Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 ### ✔️ Deploy
-
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 ![Glitch](https://img.shields.io/badge/Glitch-2800ff?style=for-the-badge&logo=glitch&logoColor=white)
 
@@ -366,7 +357,7 @@ db.json - 댓글 , 즐겨찾기 Feature에서 사용 중
 ```
 Request
 Method → POST
-URL PATH → /register
+URL PATH →  /register
 Body ⬇️​
 JSON
 {
@@ -377,8 +368,8 @@ JSON
 ​
 Response
 {
-"message": "회원가입 완료",
-"success": true
+  "message": "회원가입 완료",
+  "success": true
 }
 ```
 
@@ -387,12 +378,12 @@ Response
 ```
 Request
 Method → POST
-URL PATH → /login
+URL PATH →  /login
 Body ⬇️​
 JSON
 {
-"id":"유저 아이디",
-"password": "유저 비밀번호"
+  "id":"유저 아이디",
+  "password": "유저 비밀번호"
 }
 ​
 Query string ⬇️ (선택)
@@ -403,11 +394,11 @@ accessToken 유효시간 조정을 위한 query string
 ​
 Response
 {
-"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiY2FiYyIsImlhdCI6MTcwMDgxNDQyMCwiZXhwIjoxNzAwODE4MDIwfQ.8hWOHHEzDPzumnqCU7jyoi3zFhr-HNZvC7_pzBfOeuU",
-"userId": "유저 아이디",
-"success": true,
-"avatar": "프로필 이미지",
-"nickname": "유저 닉네임"
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiY2FiYyIsImlhdCI6MTcwMDgxNDQyMCwiZXhwIjoxNzAwODE4MDIwfQ.8hWOHHEzDPzumnqCU7jyoi3zFhr-HNZvC7_pzBfOeuU",
+  "userId": "유저 아이디",
+  "success": true,
+  "avatar": "프로필 이미지",
+  "nickname": "유저 닉네임"
 }
 ```
 
@@ -416,7 +407,7 @@ Response
 ```
 Request
 Method → GET
-URL PATH → /user
+URL PATH →  /user
 Header ⬇️​
 {
   "Authorization": "Bearer AccessToken"
@@ -424,10 +415,10 @@ Header ⬇️​
 ​
 Response
 {
-"id": "사용자 아이디",
-"nickname": "사용자 닉네임",
-"avatar": null,
-"success": true
+  "id": "사용자 아이디",
+  "nickname": "사용자 닉네임",
+  "avatar": null,
+  "success": true
 }
 ```
 
@@ -436,7 +427,7 @@ Response
 ```
 Request
 Method → PATCH
-URL PATH → /profile
+URL PATH →  /profile
 Header ⬇️​
 {
   "Authorization": "Bearer AccessToken"
@@ -451,10 +442,10 @@ FORM
 ​
 Response
 {
-"avatar": "변경된 이미지 URL",
-"nickname": "변경된 닉네임",
-"message": "프로필이 업데이트되었습니다.",
-"success": true
+  "avatar": "변경된 이미지 URL",
+  "nickname": "변경된 닉네임",
+  "message": "프로필이 업데이트되었습니다.",
+  "success": true
 }
 ```
 
@@ -500,35 +491,6 @@ createdAt: new Date().toISOString()
 </details>
 <br />
 
-<<<<<<< HEAD
-
-## 프로젝트 파일 구조
-
-<<<<<<< HEAD
-
-![image](https://github.com/user-attachments/assets/d5c5855d-b48d-4a97-8b50-3b62d0fc2d0a)
-
-=======
-<<<<<<< HEAD
-📦src
-┣ 📂api
-┃ ┣ 📜auth.js
-┃ ┣ 📜bookmark.js
-┃ ┗ 📜comments.js
-┣ 📂assets
-┃ ┣ 📂fonts
-┃ ┃ ┣ 📜Pretendard-Bold.subset.woff
-┃ ┃ ┣ 📜Pretendard-Bold.subset.woff2
-┃ ┃ ┣ 📜Pretendard-Light.subset.woff
-┃ ┃ ┣ 📜Pretendard-Light.subset.woff2
-┃ ┃ ┣ 📜Pretendard-Medium.subset.woff
-┃ ┃ ┣ 📜Pretendard-Medium.subset.woff2
-┃ ┃ ┣ 📜Pretendard-Regular.subset.woff
-┃ ┃ ┣ 📜Pretendard-Regular.subset.woff2
-┃ ┃ ┣ 📜Pretendard-SemiBold.subset.woff
-┃ ┃ ┗ 📜Pretendard-SemiBold.subset.woff2
-=======
-
 ## 📦 프로젝트 파일 구조
 
 <details>
@@ -536,7 +498,6 @@ createdAt: new Date().toISOString()
 
 ```
  ┣ 📂public
->>>>>>> cce5afba468fd42e59a0b8c2c1ea014a8131f0cb
  ┃ ┗ 📂images
  ┃ ┃ ┣ 📂favicon
  ┃ ┃ ┃ ┣ 📜browserconfig.xml
@@ -612,95 +573,45 @@ createdAt: new Date().toISOString()
 <br/>
 
 ## 💥 Trouble Shooting
-
 ### 1. 프로필 기능 구현 시 프로젝트 환경에 따라 진행이 어려운 문제
-
 #### 문제상황
-
 - 당초 프로필 기능을 구현하려 하니, 우선 json-server와 캠프에서 제공해주는 api로는 온전한 이미지 파일 저장이 어려운 상황
 - base64로 인코딩을 하면 이미지 파일의 길이가 가변적으로 매우 늘어남
 - 렌더링 이슈, 속도 저하 이슈가 나올 수도 있기에, 가능하면 닉네임 수정만 구현하는 방향에서 프로필 수정은 완료하라 라는 피드백
 - 허나 마이 페이지에서 프로필 사진 수정이 없다면, 대부분에 웹 사이트에서 프로필 수정 시에는 이미지 수정이 대부분 존재하기에 아쉬운 상황
 
 #### 해결 방법, 개선 사항
-
 - 같은 상황에서, 프로필 구현을 사용자 api에 존재하는 avatar를 통해 파일을 base64형식이나 url 방식으로 전달한 것이 아닌 ,파일 형식 그대로 전송
 - 불러올 때만 url 형식으로 불러오면 된다는 케이스를 트러블슈팅 중 확인하여 , 해당 사항 반영 후 완료
   <br/>
 
 ### 2. 댓글 수정 시 UI 반응성 저하
-
 #### 문제상황
-
 - 디테일 페이지에서 댓글 수정 시 수정은 성공적으로 되지만 서버 응답을 기다려야해서 서버 응답 대기 후 UI 업데이트가 되는 문제점
 
-<<<<<<< HEAD
-
-> > > > > > > e2a4ab101829ebf4fd9359a13e70186f39e42954
-
-## Trouble Shooting
-
-### 1. 프로필 기능 구현 시 프로젝트 환경에 따라 진행이 어려운 문제.
-
-당초 프로필 기능을 구현하려 하니, 우선 json-server와 캠프에서 제공해주는 api로는
-온전한 이미지 파일 저장이 어려운 상황 -> base64로 인코딩을 하면 이미지 파일의 길이가 가변적으로 매우 늘어남
--> 렌더링 이슈, 속도 저하 이슈가 나올 수도 있기에, 가능하면 닉네임 수정만 구현하는 방향에서 프로필 수정은 완료하라 라는 피드백
--> 허나 마이 페이지에서 프로필 사진 수정이 없다면, 대부분에 웹 사이트에서 프로필 수정 시에는 이미지 수정이 대부분 존재하기에 아쉬운 상황
--> 같은 상황에서, 프로필 구현을 사용자 api에 존재하는 avatar를 통해 파일을 base64형식이나 url 방식으로 전달한 것이 아닌 ,파일 형식 그대로 전송하고,
-불러올 때만 url 형식으로 불러오면 된다는 케이스를 트러블슈팅 중 확인하여 , 해당 사항 반영 후 완료
-
-## Project Remind & 프로젝트 소감
-
-### 조아영
-
-### 노용철
-
-### 김세희
-
-### 최지민
-
-### 홍승우
-
-# 팀원 간 서로 존중하고 ,의견 충돌없이 대부분의 방향성에서 부드럽게 흘러갔던 프로젝트였습니다.
-
 #### 해결 방법
-
 - Tanstack Query를 활용한 낙관적 업데이트(Optimistic Updates) 구현
 
 #### 개선 사항
-
 - 즉각적인 UI 업데이트로 사용자 경험 향상
 - 네트워크 지연에 관계없디 반응성 있는 인터페이스 제공
 - 오류 발생 시 이전 상태로 자동 롤백
   <br />
 
 ## 🗨 Project Remind & 프로젝트 소감
-
 #### 조아영
-
 카카오 API의 여러 기능을 실제 서비스에 적용해보는 유익한 경험이었습니다. 팀원들과의 협업 과정에서 다양한 이슈들이 발생했지만 원활한 소통을 통해 신속히 해결할 수 있었습니다. 이번 프로젝트를 통해 API 통합 및 협업의 중요성을 깊이 이해할 수 있었습니다.
 
 #### 노용철
-
 Zustand와 Tanstack Query를 사용하여 클라이언트 전역 상태 및 서버 상태를 관리하여 효율적으로 로직을 분배하는 방법을 알게 되었고 팀과 협업하여 서로에게 필요한 부분들에 대해 소통하여 개선하는 방식이 좋았으며 외부 API를 사용하여 웹 서비스의 퀄리티를 올리고 사용자에게 더 나은 서비스를 경험시킬 수 있다고 생각했습니다
 
 #### 장세희
-
 이번 프로젝트 기간동안 팀워크가 너무 좋고 팀 분위기가 좋아서 큰 문제없이 프로젝트를 잘 마무리 할 수 있었던거 같습니다. 소통은 물론 피드백 또한 즉각적으로 이루어져서 너무 좋았고, 서로를 존중하고 배려한다는 것을 많이 느낄 수 있었습니다! 프로젝트 기간동안 연휴가 겹쳤음에도 불구하고 다들 너무 고생 많으셨고 다음 팀프로젝트에도 다시 만났으면 좋겠습니다! :)
 
 #### 최지민
-
 이번 프로젝트를 통해 Tanstack Query의 강력한 기능을 실제로 경험할 수 있었습니다. 특히 낙곽적 업데이트 구현 과정에서 사용자 경험 개선의 중요성을 깊이 이해하게 되었습니다. 또한, 팀원들과의 원활한 협업 덕분에 기술적 도전을 효과적으로 극복할 수 있었고 이는 프로젝트의 성공에 큰 도움이 되었습니다!
 
 #### 홍승우
-
 팀원 간 서로 존중하고 ,의견 충돌없이 대부분의 방향성에서 부드럽게 흘러갔던 프로젝트였습니다.
-<<<<<<< HEAD
-
-> > > > > > > cce5afba468fd42e59a0b8c2c1ea014a8131f0cb
-> > > > > > > 전달 사항이 있을 때마다, Slack, 구두를 통한 커뮤니케이션을 통해, 각자 맡은 역할을 , 필수 구현 사항에 맞게 적절히 구현 할 수 있는 구현 시간 내에서 잘 구현했다고 생각합니다.
-> > > > > > > 아쉬운 점으로는 Git PR에 대한 comment나 코드 리뷰를 제대로 활용하지는 못하였기에, 추후 시간이 된다면 이를 활용할 수 있었으면 좋겠다는 생각도 듭니다.
-> > > > > > > =======
-> > > > > > > 전달 사항이 있을 때마다, Slack, 구두를 통한 커뮤니케이션을 통해, 각자 맡은 역할을 , 필수 구현 사항에 맞게 적절히 구현 할 수 있는 구현 시간 내에서 잘 구현했다고 생각합니다.
-> > > > > > > 아쉬운 점으로는 Git PR에 대한 comment나 코드 리뷰를 제대로 활용하지는 못하였기에, 추후 시간이 된다면 이를 활용할 수 있었으면 좋겠다는 생각도 듭니다.
-> > > > > > > 78bd5012f25fea7f05636bd4573c5f98c2b59dee
+전달 사항이 있을 때마다, Slack, 구두를 통한 커뮤니케이션을 통해, 각자 맡은 역할을 , 필수 구현 사항에 맞게 적절히 구현 할 수 있는 구현 시간 내에서 잘 구현했다고 생각합니다.
+아쉬운 점으로는 Git PR에 대한 comment나 코드 리뷰를 제대로 활용하지는 못하였기에, 추후 시간이 된다면 이를 활용할 수 있었으면 좋겠다는 생각도 듭니다.
