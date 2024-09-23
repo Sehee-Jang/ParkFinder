@@ -162,9 +162,7 @@ const updatedComments = useMemo(() => {
 ![댓글 수정 및 삭제](https://github.com/user-attachments/assets/ebb53187-4054-44c7-85c1-02dece44b1ba)
 
 ### 회원가입
-
-![회원가입](https://github.com/user-attachments/assets/48dae8ec-74be-45d7-ba68-c868aa628270)
-
+![회원가입](https://github.com/user-attachments/assets/be94b5b9-80c8-453b-9283-169099f9ae29)
 ```jsx
 const handleSignup = async (formData) => {
   try {
@@ -182,8 +180,7 @@ Toast 알림: react-toastify를 활용하여 회원가입 성공 및 실패 시 
 유효성 검사: 회원가입 폼에서는 이름과 닉네임 필드를 추가하여 유효성을 검사하고 있습니다.
 
 ### 로그인
-
-![로그인](https://github.com/user-attachments/assets/8a592ab6-37ab-484a-90c9-75d5035d3808)
+![로그인](https://github.com/user-attachments/assets/2fb0795f-d7bd-4a33-99b6-35af85dedd5c)
 
 ```jsx
 const handleLogin = async (formData) => {
