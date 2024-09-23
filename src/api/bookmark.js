@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5001/places";
+const API_URL = "https://far-spotty-helicopter.glitch.me/places";
 
 const fetchPlaces = async () => {
   try {

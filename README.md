@@ -4,7 +4,7 @@
 
 ## 🔗 배포 링크
 
-https://naver.com/<br/>
+https://parkfinder.fujiikaze.kr/<br/>
 <br/>
 
 ## 📖 목차
@@ -56,7 +56,7 @@ https://naver.com/<br/>
 
 ![주차장 상세 조회](https://github.com/user-attachments/assets/e5da9f0b-eae6-4c31-919d-e7f909338d3e)
 
-### 주자장 검색
+### 주차장 검색
 
 ![주차장 검색](https://github.com/user-attachments/assets/e73a18a9-743b-4ee5-b3aa-d6eff3a0a415)
 
@@ -97,7 +97,7 @@ const handleSearch = (e) => {
 사용자가 입력을 완료한 후, 최종적으로 입력된 검색어(searchValue)에 대해서만 검색이 이루어지도록 설계하여 불필요한 API 요청 및 함수 호출을 방지했습니다.<br />
 이를 통해 성능을 최적화했으며, 사용자가 검색어를 입력하는 도중 성급하게 검색이 실행되지 않도록 하여 불필요한 검색 결과를 줄임으로써 사용자 경험을 크게 개선할 수 있었습니다.
 
-### 주자창 즐겨찾기
+### 주차장 즐겨찾기
 
 ![주차장 즐겨찾기 기능](https://github.com/user-attachments/assets/70db5418-f74e-46b5-995e-3797b764ee55)
 
@@ -169,7 +169,11 @@ const updatedComments = useMemo(() => {
 
 ### 회원가입
 
+![회원가입](https://github.com/user-attachments/assets/48dae8ec-74be-45d7-ba68-c868aa628270)
+
 ### 로그인
+
+![로그인](https://github.com/user-attachments/assets/8a592ab6-37ab-484a-90c9-75d5035d3808)
 
 ### 로그아웃
 
@@ -278,9 +282,12 @@ db.json - 댓글 , 즐겨찾기 Feature에서 사용 중
 ![image](https://github.com/user-attachments/assets/663913f7-d12a-42ee-9a5f-00cffd315bdb)
 
 </details>
-	
+<br/>
+
 ## 📋 API 명세서
+
 서버 API_URL : https://moneyfulpublicpolicy.co.kr/<br/>
+
 <details>
   <summary><b>API 명세서</b></summary>
 <br/>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useCreatePlaceAndUpdate } from "../hooks/useCreatePlaceAndUpdate";
 import { useGetPlaces } from "../hooks/useGetPlaces";
+import { toast } from "react-toastify";
 
 const BookmarkButton = ({ place, userId }) => {
   const { mutate: createBookmark } = useCreatePlaceAndUpdate();
@@ -16,7 +17,7 @@ const BookmarkButton = ({ place, userId }) => {
 
   const handleClick = () => {
     if (!userId) {
-      return alert("로그인 유저만 가능합니다.");
+      return toast.error("로그인 유저만 가능합니다.");
     }
     createBookmark({ place, userId });
   };
