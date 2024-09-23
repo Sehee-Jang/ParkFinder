@@ -20,7 +20,7 @@ https://parkfinder.fujiikaze.kr/<br/>
 9. [API 명세서](#-api-명세서)
 10. [프로젝트 파일 구조](#-프로젝트-파일-구조)
 11. [Trouble Shooting](#-trouble-shooting)
-12. [Project Remind & 프로젝트 소감](#-project-remind---프로젝트-소감)
+12. [Project Remind & 프로젝트 소감](#-project-remind--프로젝트-소감)
     <br/>
 
 ## 👨‍🏫 프로젝트 소개
@@ -296,8 +296,8 @@ const handleImageChange = (e) => {
 ![React_Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 ### ✔️ Deploy
-
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Glitch](https://img.shields.io/badge/Glitch-2800ff?style=for-the-badge&logo=glitch&logoColor=white)
 
 ### ✔️ DBMS
 
