@@ -15,6 +15,7 @@ export const fetchComments = async () => {
 export const postComment = async (comment) => {
   const { data } = await commentApi.post("/", {
     ...comment,
+    id: new Date().getTime(),
     createdAt: new Date().toISOString()
   });
 

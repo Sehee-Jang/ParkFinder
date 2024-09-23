@@ -296,6 +296,7 @@ const handleImageChange = (e) => {
 ![React_Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
 ### ✔️ Deploy
+
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 ![Glitch](https://img.shields.io/badge/Glitch-2800ff?style=for-the-badge&logo=glitch&logoColor=white)
 
@@ -365,7 +366,7 @@ db.json - 댓글 , 즐겨찾기 Feature에서 사용 중
 ```
 Request
 Method → POST
-URL PATH →  /register
+URL PATH → /register
 Body ⬇️​
 JSON
 {
@@ -376,8 +377,8 @@ JSON
 ​
 Response
 {
-  "message": "회원가입 완료",
-  "success": true
+"message": "회원가입 완료",
+"success": true
 }
 ```
 
@@ -386,12 +387,12 @@ Response
 ```
 Request
 Method → POST
-URL PATH →  /login
+URL PATH → /login
 Body ⬇️​
 JSON
 {
-  "id":"유저 아이디",
-  "password": "유저 비밀번호"
+"id":"유저 아이디",
+"password": "유저 비밀번호"
 }
 ​
 Query string ⬇️ (선택)
@@ -402,11 +403,11 @@ accessToken 유효시간 조정을 위한 query string
 ​
 Response
 {
-  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiY2FiYyIsImlhdCI6MTcwMDgxNDQyMCwiZXhwIjoxNzAwODE4MDIwfQ.8hWOHHEzDPzumnqCU7jyoi3zFhr-HNZvC7_pzBfOeuU",
-  "userId": "유저 아이디",
-  "success": true,
-  "avatar": "프로필 이미지",
-  "nickname": "유저 닉네임"
+"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiY2FiYyIsImlhdCI6MTcwMDgxNDQyMCwiZXhwIjoxNzAwODE4MDIwfQ.8hWOHHEzDPzumnqCU7jyoi3zFhr-HNZvC7_pzBfOeuU",
+"userId": "유저 아이디",
+"success": true,
+"avatar": "프로필 이미지",
+"nickname": "유저 닉네임"
 }
 ```
 
@@ -415,7 +416,7 @@ Response
 ```
 Request
 Method → GET
-URL PATH →  /user
+URL PATH → /user
 Header ⬇️​
 {
   "Authorization": "Bearer AccessToken"
@@ -423,10 +424,10 @@ Header ⬇️​
 ​
 Response
 {
-  "id": "사용자 아이디",
-  "nickname": "사용자 닉네임",
-  "avatar": null,
-  "success": true
+"id": "사용자 아이디",
+"nickname": "사용자 닉네임",
+"avatar": null,
+"success": true
 }
 ```
 
@@ -435,7 +436,7 @@ Response
 ```
 Request
 Method → PATCH
-URL PATH →  /profile
+URL PATH → /profile
 Header ⬇️​
 {
   "Authorization": "Bearer AccessToken"
@@ -450,10 +451,10 @@ FORM
 ​
 Response
 {
-  "avatar": "변경된 이미지 URL",
-  "nickname": "변경된 닉네임",
-  "message": "프로필이 업데이트되었습니다.",
-  "success": true
+"avatar": "변경된 이미지 URL",
+"nickname": "변경된 닉네임",
+"message": "프로필이 업데이트되었습니다.",
+"success": true
 }
 ```
 
@@ -499,6 +500,35 @@ createdAt: new Date().toISOString()
 </details>
 <br />
 
+<<<<<<< HEAD
+
+## 프로젝트 파일 구조
+
+<<<<<<< HEAD
+
+![image](https://github.com/user-attachments/assets/d5c5855d-b48d-4a97-8b50-3b62d0fc2d0a)
+
+=======
+<<<<<<< HEAD
+📦src
+┣ 📂api
+┃ ┣ 📜auth.js
+┃ ┣ 📜bookmark.js
+┃ ┗ 📜comments.js
+┣ 📂assets
+┃ ┣ 📂fonts
+┃ ┃ ┣ 📜Pretendard-Bold.subset.woff
+┃ ┃ ┣ 📜Pretendard-Bold.subset.woff2
+┃ ┃ ┣ 📜Pretendard-Light.subset.woff
+┃ ┃ ┣ 📜Pretendard-Light.subset.woff2
+┃ ┃ ┣ 📜Pretendard-Medium.subset.woff
+┃ ┃ ┣ 📜Pretendard-Medium.subset.woff2
+┃ ┃ ┣ 📜Pretendard-Regular.subset.woff
+┃ ┃ ┣ 📜Pretendard-Regular.subset.woff2
+┃ ┃ ┣ 📜Pretendard-SemiBold.subset.woff
+┃ ┃ ┗ 📜Pretendard-SemiBold.subset.woff2
+=======
+
 ## 📦 프로젝트 파일 구조
 
 <details>
@@ -506,6 +536,7 @@ createdAt: new Date().toISOString()
 
 ```
  ┣ 📂public
+>>>>>>> cce5afba468fd42e59a0b8c2c1ea014a8131f0cb
  ┃ ┗ 📂images
  ┃ ┃ ┣ 📂favicon
  ┃ ┃ ┃ ┣ 📜browserconfig.xml
@@ -603,6 +634,35 @@ createdAt: new Date().toISOString()
 
 - 디테일 페이지에서 댓글 수정 시 수정은 성공적으로 되지만 서버 응답을 기다려야해서 서버 응답 대기 후 UI 업데이트가 되는 문제점
 
+<<<<<<< HEAD
+
+> > > > > > > e2a4ab101829ebf4fd9359a13e70186f39e42954
+
+## Trouble Shooting
+
+### 1. 프로필 기능 구현 시 프로젝트 환경에 따라 진행이 어려운 문제.
+
+당초 프로필 기능을 구현하려 하니, 우선 json-server와 캠프에서 제공해주는 api로는
+온전한 이미지 파일 저장이 어려운 상황 -> base64로 인코딩을 하면 이미지 파일의 길이가 가변적으로 매우 늘어남
+-> 렌더링 이슈, 속도 저하 이슈가 나올 수도 있기에, 가능하면 닉네임 수정만 구현하는 방향에서 프로필 수정은 완료하라 라는 피드백
+-> 허나 마이 페이지에서 프로필 사진 수정이 없다면, 대부분에 웹 사이트에서 프로필 수정 시에는 이미지 수정이 대부분 존재하기에 아쉬운 상황
+-> 같은 상황에서, 프로필 구현을 사용자 api에 존재하는 avatar를 통해 파일을 base64형식이나 url 방식으로 전달한 것이 아닌 ,파일 형식 그대로 전송하고,
+불러올 때만 url 형식으로 불러오면 된다는 케이스를 트러블슈팅 중 확인하여 , 해당 사항 반영 후 완료
+
+## Project Remind & 프로젝트 소감
+
+### 조아영
+
+### 노용철
+
+### 김세희
+
+### 최지민
+
+### 홍승우
+
+# 팀원 간 서로 존중하고 ,의견 충돌없이 대부분의 방향성에서 부드럽게 흘러갔던 프로젝트였습니다.
+
 #### 해결 방법
 
 - Tanstack Query를 활용한 낙관적 업데이트(Optimistic Updates) 구현
@@ -635,5 +695,12 @@ Zustand와 Tanstack Query를 사용하여 클라이언트 전역 상태 및 서�
 #### 홍승우
 
 팀원 간 서로 존중하고 ,의견 충돌없이 대부분의 방향성에서 부드럽게 흘러갔던 프로젝트였습니다.
-전달 사항이 있을 때마다, Slack, 구두를 통한 커뮤니케이션을 통해, 각자 맡은 역할을 , 필수 구현 사항에 맞게 적절히 구현 할 수 있는 구현 시간 내에서 잘 구현했다고 생각합니다.
-아쉬운 점으로는 Git PR에 대한 comment나 코드 리뷰를 제대로 활용하지는 못하였기에, 추후 시간이 된다면 이를 활용할 수 있었으면 좋겠다는 생각도 듭니다.
+<<<<<<< HEAD
+
+> > > > > > > cce5afba468fd42e59a0b8c2c1ea014a8131f0cb
+> > > > > > > 전달 사항이 있을 때마다, Slack, 구두를 통한 커뮤니케이션을 통해, 각자 맡은 역할을 , 필수 구현 사항에 맞게 적절히 구현 할 수 있는 구현 시간 내에서 잘 구현했다고 생각합니다.
+> > > > > > > 아쉬운 점으로는 Git PR에 대한 comment나 코드 리뷰를 제대로 활용하지는 못하였기에, 추후 시간이 된다면 이를 활용할 수 있었으면 좋겠다는 생각도 듭니다.
+> > > > > > > =======
+> > > > > > > 전달 사항이 있을 때마다, Slack, 구두를 통한 커뮤니케이션을 통해, 각자 맡은 역할을 , 필수 구현 사항에 맞게 적절히 구현 할 수 있는 구현 시간 내에서 잘 구현했다고 생각합니다.
+> > > > > > > 아쉬운 점으로는 Git PR에 대한 comment나 코드 리뷰를 제대로 활용하지는 못하였기에, 추후 시간이 된다면 이를 활용할 수 있었으면 좋겠다는 생각도 듭니다.
+> > > > > > > 78bd5012f25fea7f05636bd4573c5f98c2b59dee
