@@ -18,7 +18,7 @@ https://parkfinder.fujiikaze.kr/<br/>
 10. [프로젝트 파일 구조](#-프로젝트-파일-구조)
 11. [Trouble Shooting](#-trouble-shooting)
 12. [Project Remind & 프로젝트 소감](#-project-remind--프로젝트-소감)
-    <br/>
+<br/><br/>
 
 ## 👨‍🏫 프로젝트 소개
 **"Park Finder" - 주차장을 빠르고 정확하게 찾을 수 있는 웹 서비스**<br/>
@@ -258,7 +258,7 @@ const handleImageChange = (e) => {
 ```
 
 파일을 url로 변환하여 파일 등록 후 이미지는 변경된 것처럼 사용자에게 표시하되, 전송 프로토콜 규칙에 맞추어 file은 url형식이 아닌 file 형식 그 자체로 전송하도록 Problem solve 한 것을 자랑스러운 코드라고 생각합니다.
-<br/>
+<br/><br/>
 
 ## ⏲️ 개발기간
 
@@ -330,7 +330,7 @@ db.json - 댓글 , 즐겨찾기 Feature에서 사용 중
   - 프로필 이미지 최적화 및 등록 기능
   - 닉네임 수정 기능
   - 즐겨찾기한 장소 관리 및 저장 기능
-    <br/>
+<br/><br/>
 
 ## 🎨 와이어프레임
 
@@ -596,7 +596,7 @@ createdAt: new Date().toISOString()
 - 즉각적인 UI 업데이트로 사용자 경험 향상
 - 네트워크 지연에 관계없디 반응성 있는 인터페이스 제공
 - 오류 발생 시 이전 상태로 자동 롤백
-  <br />
+<br/><br />
 
 ## 🗨 Project Remind & 프로젝트 소감
 #### 조아영
