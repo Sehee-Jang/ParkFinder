@@ -144,7 +144,10 @@ const Sidebar = () => {
                     currentPage === index + 1 ? "bg-teal-500 text-white hover:bg-teal-500 hover:text-white" : ""
                   }`}
                   key={index + 1}
-                  onClick={() => setCurrentPage(index + 1)}
+                  onClick={() => {
+                    setCurrentPage(index + 1);
+                    setIsSidebarDetailOpen(false);
+                  }}
                 >
                   {index + 1}
                 </button>

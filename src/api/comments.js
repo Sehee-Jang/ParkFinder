@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Axios 인스턴스 생성
 export const commentApi = axios.create({
-  baseURL: "http://localhost:5001/comments"
+  baseURL: "https://far-spotty-helicopter.glitch.me/comments"
 });
 
 // 서버에서 댓글 불러오는 함수
