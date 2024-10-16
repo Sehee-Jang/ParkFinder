@@ -76,6 +76,9 @@ const Comments = ({ placeId }) => {
     onSuccess: () => {
       queryClient.invalidateQueries(["comments", placeId]);
       toast.error("댓글이 삭제되었습니다!");
+    },
+    onError: () => {
+      console.log(error);
     }
   });
 
@@ -161,10 +164,7 @@ const Comments = ({ placeId }) => {
             className="w-full p-3 border border-zinc-300 rounded-md focus:ring-2 focus:ring-[#3cb8a6] "
           />
           <div className="flex flex-row justify-end">
-            <button
-              type="submit"
-              className="button button-xs shadow-md"
-            >
+            <button type="submit" className="button button-xs shadow-md">
               댓글 작성
             </button>
           </div>
